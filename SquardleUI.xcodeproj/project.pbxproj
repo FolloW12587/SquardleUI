@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */; };
+		A1486A95292C7277005AB2F0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486A94292C7277005AB2F0 /* ContentView.swift */; };
+		A1486A97292C7277005AB2F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1486A96292C7277005AB2F0 /* Assets.xcassets */; };
+		A1486A9A292C7277005AB2F0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1486A99292C7277005AB2F0 /* Preview Assets.xcassets */; };
+		A1486AA4292C7464005AB2F0 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AA3292C7464005AB2F0 /* MenuButton.swift */; };
+		A1486AA7292C7747005AB2F0 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AA6292C7747005AB2F0 /* GameModel.swift */; };
+		A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AA8292C7766005AB2F0 /* StatsModel.swift */; };
+		A1486AAC292C77A4005AB2F0 /* FileManager - extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AAB292C77A4005AB2F0 /* FileManager - extensions.swift */; };
+		A1486AAE292C7BBD005AB2F0 /* BoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AAD292C7BBD005AB2F0 /* BoardModel.swift */; };
+		A1486AB0292C7E21005AB2F0 /* TileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AAF292C7E21005AB2F0 /* TileModel.swift */; };
+		A1486AB2292C80ED005AB2F0 /* TileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AB1292C80ED005AB2F0 /* TileView.swift */; };
+		A1486AB6292C865A005AB2F0 /* DictionaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AB5292C865A005AB2F0 /* DictionaryModel.swift */; };
+		A1486AB8292C8689005AB2F0 /* String - extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AB7292C8689005AB2F0 /* String - extensions.swift */; };
+		A1486ABB292C86EA005AB2F0 /* freqrnc2011_filtered_sorted.csv in Resources */ = {isa = PBXBuildFile; fileRef = A1486ABA292C86EA005AB2F0 /* freqrnc2011_filtered_sorted.csv */; };
+		A1486ABD292C8824005AB2F0 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486ABC292C8824005AB2F0 /* GameView.swift */; };
+		A1486ABF292CB3B7005AB2F0 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486ABE292CB3B7005AB2F0 /* BoardView.swift */; };
+		A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC0292CB8F0005AB2F0 /* ThemeModel.swift */; };
+		A1486AC3292CBA89005AB2F0 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC2292CBA89005AB2F0 /* KeyboardView.swift */; };
+		A1486AC5292CBA9E005AB2F0 /* KeyboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC4292CBA9E005AB2F0 /* KeyboardModel.swift */; };
+		A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */; };
+		A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */; };
+		A1486ACB292CC847005AB2F0 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */; };
+		A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0D292DCB1700D7B618 /* HeaderView.swift */; };
+		A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0F292F089D00D7B618 /* HintModel.swift */; };
+		A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E11292F0A9200D7B618 /* HintView.swift */; };
+		A1C33E14292F106200D7B618 /* TriangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E13292F106200D7B618 /* TriangleShape.swift */; };
+		A1C33E18292F1D2F00D7B618 /* HorizontalArrowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E17292F1D2F00D7B618 /* HorizontalArrowLineView.swift */; };
+		A1C33E1A292F1D5100D7B618 /* VerticalArrowLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E19292F1D5100D7B618 /* VerticalArrowLineView.swift */; };
+		A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E1D29348C5F00D7B618 /* Array - extensions.swift */; };
+		A1C33E202934A4F900D7B618 /* GameGUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E1F2934A4F900D7B618 /* GameGUIModel.swift */; };
+		A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E2229376A0500D7B618 /* RulesView.swift */; };
+		A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E24293774DD00D7B618 /* HintRuleView.swift */; };
+		A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A1486A8F292C7277005AB2F0 /* SquardleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquardleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquardleUIApp.swift; sourceTree = "<group>"; };
+		A1486A94292C7277005AB2F0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1486A96292C7277005AB2F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1486A99292C7277005AB2F0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A1486AA3292C7464005AB2F0 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		A1486AA6292C7747005AB2F0 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		A1486AA8292C7766005AB2F0 /* StatsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsModel.swift; sourceTree = "<group>"; };
+		A1486AAB292C77A4005AB2F0 /* FileManager - extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager - extensions.swift"; sourceTree = "<group>"; };
+		A1486AAD292C7BBD005AB2F0 /* BoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardModel.swift; sourceTree = "<group>"; };
+		A1486AAF292C7E21005AB2F0 /* TileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileModel.swift; sourceTree = "<group>"; };
+		A1486AB1292C80ED005AB2F0 /* TileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileView.swift; sourceTree = "<group>"; };
+		A1486AB5292C865A005AB2F0 /* DictionaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryModel.swift; sourceTree = "<group>"; };
+		A1486AB7292C8689005AB2F0 /* String - extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String - extensions.swift"; sourceTree = "<group>"; };
+		A1486ABA292C86EA005AB2F0 /* freqrnc2011_filtered_sorted.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = freqrnc2011_filtered_sorted.csv; sourceTree = "<group>"; };
+		A1486ABC292C8824005AB2F0 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A1486ABE292CB3B7005AB2F0 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		A1486AC0292CB8F0005AB2F0 /* ThemeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModel.swift; sourceTree = "<group>"; };
+		A1486AC2292CBA89005AB2F0 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		A1486AC4292CBA9E005AB2F0 /* KeyboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardModel.swift; sourceTree = "<group>"; };
+		A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyModel.swift; sourceTree = "<group>"; };
+		A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyView.swift; sourceTree = "<group>"; };
+		A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
+		A1C33E0D292DCB1700D7B618 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A1C33E0F292F089D00D7B618 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
+		A1C33E11292F0A9200D7B618 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
+		A1C33E13292F106200D7B618 /* TriangleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleShape.swift; sourceTree = "<group>"; };
+		A1C33E17292F1D2F00D7B618 /* HorizontalArrowLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalArrowLineView.swift; sourceTree = "<group>"; };
+		A1C33E19292F1D5100D7B618 /* VerticalArrowLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalArrowLineView.swift; sourceTree = "<group>"; };
+		A1C33E1D29348C5F00D7B618 /* Array - extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array - extensions.swift"; sourceTree = "<group>"; };
+		A1C33E1F2934A4F900D7B618 /* GameGUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGUIModel.swift; sourceTree = "<group>"; };
+		A1C33E2229376A0500D7B618 /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
+		A1C33E24293774DD00D7B618 /* HintRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintRuleView.swift; sourceTree = "<group>"; };
+		A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyRuleView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1486A8C292C7277005AB2F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1486A86292C7277005AB2F0 = {
+			isa = PBXGroup;
+			children = (
+				A1486A91292C7277005AB2F0 /* SquardleUI */,
+				A1486A90292C7277005AB2F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1486A90292C7277005AB2F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1486A8F292C7277005AB2F0 /* SquardleUI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1486A91292C7277005AB2F0 /* SquardleUI */ = {
+			isa = PBXGroup;
+			children = (
+				A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */,
+				A1486AA1292C7326005AB2F0 /* Views */,
+				A1486AA0292C731D005AB2F0 /* Models */,
+				A1486AAA292C7780005AB2F0 /* Helpers */,
+				A1486AB9292C86CF005AB2F0 /* Resources */,
+				A1486A96292C7277005AB2F0 /* Assets.xcassets */,
+				A1486A98292C7277005AB2F0 /* Preview Content */,
+			);
+			path = SquardleUI;
+			sourceTree = "<group>";
+		};
+		A1486A98292C7277005AB2F0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A1486A99292C7277005AB2F0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A1486AA0292C731D005AB2F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1486AAD292C7BBD005AB2F0 /* BoardModel.swift */,
+				A1486AB5292C865A005AB2F0 /* DictionaryModel.swift */,
+				A1C33E1F2934A4F900D7B618 /* GameGUIModel.swift */,
+				A1486AA6292C7747005AB2F0 /* GameModel.swift */,
+				A1C33E0F292F089D00D7B618 /* HintModel.swift */,
+				A1486AC4292CBA9E005AB2F0 /* KeyboardModel.swift */,
+				A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */,
+				A1486AA8292C7766005AB2F0 /* StatsModel.swift */,
+				A1486AAF292C7E21005AB2F0 /* TileModel.swift */,
+				A1486AC0292CB8F0005AB2F0 /* ThemeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A1486AA1292C7326005AB2F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1486A94292C7277005AB2F0 /* ContentView.swift */,
+				A1486AA5292C76FD005AB2F0 /* Game */,
+				A1486AA2292C744F005AB2F0 /* Menu */,
+				A1C33E1C292F6E8C00D7B618 /* Helpers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A1486AA2292C744F005AB2F0 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A1486AA3292C7464005AB2F0 /* MenuButton.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		A1486AA5292C76FD005AB2F0 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A1C33E21293769E800D7B618 /* Rules */,
+				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
+				A1486ABC292C8824005AB2F0 /* GameView.swift */,
+				A1C33E0D292DCB1700D7B618 /* HeaderView.swift */,
+				A1C33E11292F0A9200D7B618 /* HintView.swift */,
+				A1486AC2292CBA89005AB2F0 /* KeyboardView.swift */,
+				A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */,
+				A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */,
+				A1486AB1292C80ED005AB2F0 /* TileView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		A1486AAA292C7780005AB2F0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A1486AAB292C77A4005AB2F0 /* FileManager - extensions.swift */,
+				A1486AB7292C8689005AB2F0 /* String - extensions.swift */,
+				A1C33E1D29348C5F00D7B618 /* Array - extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A1486AB9292C86CF005AB2F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1486ABA292C86EA005AB2F0 /* freqrnc2011_filtered_sorted.csv */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A1C33E1C292F6E8C00D7B618 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A1C33E17292F1D2F00D7B618 /* HorizontalArrowLineView.swift */,
+				A1C33E13292F106200D7B618 /* TriangleShape.swift */,
+				A1C33E19292F1D5100D7B618 /* VerticalArrowLineView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A1C33E21293769E800D7B618 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				A1C33E2229376A0500D7B618 /* RulesView.swift */,
+				A1C33E24293774DD00D7B618 /* HintRuleView.swift */,
+				A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1486A8E292C7277005AB2F0 /* SquardleUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1486A9D292C7277005AB2F0 /* Build configuration list for PBXNativeTarget "SquardleUI" */;
+			buildPhases = (
+				A1486A8B292C7277005AB2F0 /* Sources */,
+				A1486A8C292C7277005AB2F0 /* Frameworks */,
+				A1486A8D292C7277005AB2F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SquardleUI;
+			productName = SquardleUI;
+			productReference = A1486A8F292C7277005AB2F0 /* SquardleUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1486A87292C7277005AB2F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1410;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					A1486A8E292C7277005AB2F0 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+				};
+			};
+			buildConfigurationList = A1486A8A292C7277005AB2F0 /* Build configuration list for PBXProject "SquardleUI" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1486A86292C7277005AB2F0;
+			productRefGroup = A1486A90292C7277005AB2F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1486A8E292C7277005AB2F0 /* SquardleUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1486A8D292C7277005AB2F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1486A9A292C7277005AB2F0 /* Preview Assets.xcassets in Resources */,
+				A1486A97292C7277005AB2F0 /* Assets.xcassets in Resources */,
+				A1486ABB292C86EA005AB2F0 /* freqrnc2011_filtered_sorted.csv in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1486A8B292C7277005AB2F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */,
+				A1486AC5292CBA9E005AB2F0 /* KeyboardModel.swift in Sources */,
+				A1486AB8292C8689005AB2F0 /* String - extensions.swift in Sources */,
+				A1486A95292C7277005AB2F0 /* ContentView.swift in Sources */,
+				A1486ACB292CC847005AB2F0 /* SubmitButtonView.swift in Sources */,
+				A1486ABF292CB3B7005AB2F0 /* BoardView.swift in Sources */,
+				A1486AC3292CBA89005AB2F0 /* KeyboardView.swift in Sources */,
+				A1C33E202934A4F900D7B618 /* GameGUIModel.swift in Sources */,
+				A1486AB0292C7E21005AB2F0 /* TileModel.swift in Sources */,
+				A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */,
+				A1486AAE292C7BBD005AB2F0 /* BoardModel.swift in Sources */,
+				A1486AAC292C77A4005AB2F0 /* FileManager - extensions.swift in Sources */,
+				A1486AB2292C80ED005AB2F0 /* TileView.swift in Sources */,
+				A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */,
+				A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */,
+				A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */,
+				A1486AA7292C7747005AB2F0 /* GameModel.swift in Sources */,
+				A1C33E14292F106200D7B618 /* TriangleShape.swift in Sources */,
+				A1C33E18292F1D2F00D7B618 /* HorizontalArrowLineView.swift in Sources */,
+				A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */,
+				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
+				A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */,
+				A1C33E1A292F1D5100D7B618 /* VerticalArrowLineView.swift in Sources */,
+				A1486AA4292C7464005AB2F0 /* MenuButton.swift in Sources */,
+				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
+				A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */,
+				A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */,
+				A1486ABD292C8824005AB2F0 /* GameView.swift in Sources */,
+				A1486AB6292C865A005AB2F0 /* DictionaryModel.swift in Sources */,
+				A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A1486A9B292C7277005AB2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A1486A9C292C7277005AB2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1486A9E292C7277005AB2F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comp.SquardleUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1486A9F292C7277005AB2F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comp.SquardleUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1486A8A292C7277005AB2F0 /* Build configuration list for PBXProject "SquardleUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1486A9B292C7277005AB2F0 /* Debug */,
+				A1486A9C292C7277005AB2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1486A9D292C7277005AB2F0 /* Build configuration list for PBXNativeTarget "SquardleUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1486A9E292C7277005AB2F0 /* Debug */,
+				A1486A9F292C7277005AB2F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1486A87292C7277005AB2F0 /* Project object */;
+}
