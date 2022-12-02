@@ -23,6 +23,15 @@ class HintModel: ObservableObject {
         self.isScaled = isScaled
     }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        character = try container.decode(Character.self, forKey: .character)
+        state = try container.decode(State.self, forKey: .state)
+        position = try container.decode(CGPoint.self, forKey: .position)
+        isHidden = false
+        isScaled = false
+    }
+    
     convenience init(character: Character, position: CGPoint, count: Int, appears: Bool, countInRow: Int, countInColumn: Int) {
         let state: State
         if !appears {
@@ -34,6 +43,23 @@ class HintModel: ObservableObject {
         }
         self.init(character: character, state: state, position: position)
     }
+}
+
+extension HintModel: Codable {
+    enum CodingKeys: CodingKey {
+        case character, position, state
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.character, forKey: .character)
+        try container.encode(self.state, forKey: .state)
+        try container.encode(self.position, forKey: .position)
+    }
+}
+
+extension HintModel {
+    // handle actions
     
     func tapped() {
         if self.isScaled {
@@ -61,7 +87,7 @@ extension HintModel {
 }
 
 extension HintModel {
-    enum State: Equatable, Hashable {
+    enum State: Equatable, Hashable, Codable {
         case notExists
         case exists
         case existsInRowOrColumn(inRowCount: Int, inColumnCount: Int)

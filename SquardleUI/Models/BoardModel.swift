@@ -8,7 +8,7 @@
 import Foundation
 
 
-class BoardModel {
+class BoardModel: Codable {
     var tiles = [TileModel]()
     
     init(words: [String]) {

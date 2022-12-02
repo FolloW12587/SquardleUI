@@ -7,7 +7,7 @@
 
 import Foundation
 
-class KeyboardModel {
+class KeyboardModel: Codable {
     var firstRow: [KeyboardKeyModel]
     var secondRow: [KeyboardKeyModel]
     var thirdRow: [KeyboardKeyModel]

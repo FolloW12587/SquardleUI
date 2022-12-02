@@ -40,6 +40,7 @@
 		A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E2229376A0500D7B618 /* RulesView.swift */; };
 		A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E24293774DD00D7B618 /* HintRuleView.swift */; };
 		A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */; };
+		A1C33E292939BE3300D7B618 /* Character - extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E282939BE3300D7B618 /* Character - extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		A1C33E2229376A0500D7B618 /* RulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesView.swift; sourceTree = "<group>"; };
 		A1C33E24293774DD00D7B618 /* HintRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintRuleView.swift; sourceTree = "<group>"; };
 		A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyRuleView.swift; sourceTree = "<group>"; };
+		A1C33E282939BE3300D7B618 /* Character - extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character - extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				A1486AAB292C77A4005AB2F0 /* FileManager - extensions.swift */,
 				A1486AB7292C8689005AB2F0 /* String - extensions.swift */,
 				A1C33E1D29348C5F00D7B618 /* Array - extensions.swift */,
+				A1C33E282939BE3300D7B618 /* Character - extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */,
 				A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */,
 				A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */,
+				A1C33E292939BE3300D7B618 /* Character - extensions.swift in Sources */,
 				A1486AA7292C7747005AB2F0 /* GameModel.swift in Sources */,
 				A1C33E14292F106200D7B618 /* TriangleShape.swift in Sources */,
 				A1C33E18292F1D2F00D7B618 /* HorizontalArrowLineView.swift in Sources */,
@@ -447,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
+				DEVELOPMENT_TEAM = F46R5F3SAC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -476,6 +481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
+				DEVELOPMENT_TEAM = F46R5F3SAC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

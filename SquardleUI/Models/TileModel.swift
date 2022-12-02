@@ -8,9 +8,13 @@
 import Foundation
 
 class TileModel: ObservableObject {
-    @Published var tempCharacter: Character? = nil
+    @Published var tempCharacter: Character? = nil {
+        didSet {
+            hideAllScaledHints()
+        }
+    }
     @Published var markedCharacter: Character? = nil
-    @Published var state: TileState
+    @Published var state: State
     @Published var isOnGuessingWay: Bool = false
     @Published var hints: [HintModel] = []
     @Published var wrongGuessedWord: Bool = false {
@@ -23,7 +27,7 @@ class TileModel: ObservableObject {
         }
     }
     
-    var prevState = TileState.none
+    var prevState = State.none
     var emptyHintPositions = [CGPoint]()
     
     let character: Character
@@ -34,7 +38,7 @@ class TileModel: ObservableObject {
         state == .opened
     }
     
-    init(character: Character, position: CGPoint, state: TileState = .none, markedCharacter: Character? = nil, isOnGuessingWay: Bool = false, hints: [HintModel] = []){
+    init(character: Character, position: CGPoint, state: State = .none, markedCharacter: Character? = nil, isOnGuessingWay: Bool = false, hints: [HintModel] = []){
         self.character = character
         self.position = position
         self.state = state
@@ -43,6 +47,41 @@ class TileModel: ObservableObject {
         self.hints = hints
         createEmptyHintPositions()
     }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        character = try container.decode(Character.self, forKey: .character)
+        state = try container.decode(State.self, forKey: .state)
+        position = try container.decode(CGPoint.self, forKey: .position)
+        markedCharacter = try container.decode(Character?.self, forKey: .markedCharacter)
+        hints = try container.decode([HintModel].self, forKey: .hints)
+        emptyHintPositions = try container.decode([CGPoint].self, forKey: .emptyHintPositions)
+    }
+    
+    func createEmptyHintPositions() {
+        self.emptyHintPositions = []
+        for i in 0..<(16) {
+            if [5, 6, 9, 10].contains(i){
+                continue
+            }
+            
+            let x: Int = i % 4
+            let y: Int = i / 4
+            self.emptyHintPositions.append(CGPoint(x: x, y: y))
+        }
+    }
+    
+    func hideAllScaledHints() {
+        hints.forEach { hint in
+            if hint.isScaled {
+                hint.isScaled = false
+            }
+        }
+    }
+}
+
+extension TileModel {
+    // handle actions
     
     func clicked() {
         if state == .opened {
@@ -72,6 +111,7 @@ class TileModel: ObservableObject {
     
     func guessCharacter(_ character: Character, count: Int, appears: Bool, countInRow: Int, countInColumn: Int) {
         tempCharacter = nil
+        hideAllScaledHints()
         
         if self.character == character {
             self.state = .opened
@@ -97,20 +137,6 @@ class TileModel: ObservableObject {
         
         hints.append(hint)
     }
-    
-    
-    func createEmptyHintPositions() {
-        self.emptyHintPositions = []
-        for i in 0..<(16) {
-            if [5, 6, 9, 10].contains(i){
-                continue
-            }
-            
-            let x: Int = i % 4
-            let y: Int = i / 4
-            self.emptyHintPositions.append(CGPoint(x: x, y: y))
-        }
-    }
 }
 
 extension TileModel {
@@ -125,8 +151,24 @@ extension TileModel {
     
 }
 
+extension TileModel: Codable {
+    enum CodingKeys: CodingKey {
+        case character, position, state, hints, markedCharacter, emptyHintPositions
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.character, forKey: .character)
+        try container.encode(self.state, forKey: .state)
+        try container.encode(self.hints, forKey: .hints)
+        try container.encode(self.position, forKey: .position)
+        try container.encode(self.markedCharacter, forKey: .markedCharacter)
+        try container.encode(self.emptyHintPositions, forKey: .emptyHintPositions)
+    }
+}
+
 extension TileModel {
-    enum TileState {
+    enum State: Codable {
         case none
         case editting
         case markedSure

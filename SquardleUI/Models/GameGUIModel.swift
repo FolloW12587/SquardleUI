@@ -11,4 +11,10 @@ class GameGUIModel: ObservableObject {
     @Published var guessesLeft: Int = 10
     @Published var isSubmitButtonActive: Bool = false
     @Published var areRulesPresented: Bool = false
+    
+    init(guessesLeft: Int = 10, isSubmitButtonActive: Bool = false, areRulesPresented: Bool = false) {
+        self.guessesLeft = guessesLeft
+        self.isSubmitButtonActive = isSubmitButtonActive
+        self.areRulesPresented = areRulesPresented
+    }
 }

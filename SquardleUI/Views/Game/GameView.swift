@@ -22,9 +22,7 @@ struct GameView: View {
                 Spacer()
                 KeyboardView(keyboardModel: gameModel.keyboard)
                 
-                SubmitButtonView(guiModel: gameModel.guiModel, title: "ВВОД"){
-                    gameModel.submitWord()
-                }
+                SubmitButtonView(guiModel: gameModel.guiModel, title: "ВВОД", action: gameModel.submitWord)
                 .padding(.horizontal, 10)
             }
         }

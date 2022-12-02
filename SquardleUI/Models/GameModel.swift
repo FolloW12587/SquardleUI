@@ -54,6 +54,33 @@ class GameModel: ObservableObject {
         updateDistinctCharactersExists()
     }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        words = try container.decode([String].self, forKey: .words)
+        board = try container.decode(BoardModel.self, forKey: .board)
+        keyboard = try container.decode(KeyboardModel.self, forKey: .keyboard)
+        guessesLeft = try container.decode(Int.self, forKey: .guessesLeft)
+        currentRow = try container.decode(Int.self, forKey: .currentRow)
+        guiModel = GameGUIModel(guessesLeft: guessesLeft)
+        
+        highlightGuessingWay()
+        updateDistinctCharactersExists()
+    }
+}
+
+extension GameModel: Codable {
+    enum CodingKeys: CodingKey {
+        case words, board, keyboard, guessesLeft, currentRow
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.words, forKey: .words)
+        try container.encode(self.board, forKey: .board)
+        try container.encode(self.keyboard, forKey: .keyboard)
+        try container.encode(self.guessesLeft, forKey: .guessesLeft)
+        try container.encode(self.currentRow, forKey: .currentRow)
+    }
 }
 
 extension GameModel {
@@ -79,6 +106,10 @@ extension GameModel {
     
     func tileTapped(_ tile: TileModel) {
         if isGameWon || isGameOver {
+            return
+        }
+        
+        if tile.state == .opened {
             return
         }
         
