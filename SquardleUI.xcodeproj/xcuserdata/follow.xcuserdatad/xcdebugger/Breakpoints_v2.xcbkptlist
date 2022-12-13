@@ -3,4 +3,70 @@
    uuid = "8D08BC3C-2408-42B4-8830-099AFFF5EF14"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "143E2CFF-8BBD-44B8-B64E-4B3BB4F4D761"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SquardleUI/Views/Game/BoardView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "143E2CFF-8BBD-44B8-B64E-4B3BB4F4D761 - 15476544ecee6a92"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SquardleUI.BoardView.body.getter : some"
+                  moduleName = "SquardleUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/follow/Desktop/projects/xcode/SquardleUI/SquardleUI/Views/Game/BoardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "332">
+               </Location>
+               <Location
+                  uuid = "143E2CFF-8BBD-44B8-B64E-4B3BB4F4D761 - 247e18cf6eabf56e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Int&gt;, Swift.Int, SwiftUI.ForEach&lt;Swift.Array&lt;Swift.Int&gt;, Swift.Int, SwiftUI._ConditionalContent&lt;SquardleUI.TileView, SwiftUI.Text&gt;&gt;&gt; in SquardleUI.BoardView.body.getter : some"
+                  moduleName = "SquardleUI"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/follow/Desktop/projects/xcode/SquardleUI/SquardleUI/Views/Game/BoardView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "244">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "530A835D-5D42-4DFC-AE69-78E94C86066D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SquardleUI/Views/Game/GameView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

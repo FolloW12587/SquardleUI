@@ -8,11 +8,18 @@
 import Foundation
 
 
-class BoardModel: Codable {
+class BoardModel: ObservableObject, Identifiable, Codable {
+    let id: UUID
     var tiles = [TileModel]()
     
     init(words: [String]) {
+        id = UUID()
         createTiles(words: words)
+        print("BoardModel \(id) created")
+    }
+    
+    deinit {
+        print("BoardModel \(id) destroyed")
     }
     
     static let example = BoardModel(words: ["КОРМА", "БАТЫР", "НОРКА", "КАБАН", "РОТОР", "АОРТА"])
@@ -81,5 +88,17 @@ class BoardModel: Codable {
         return tiles.reduce(true) { partialResult, tile in
             tile.isOpened && partialResult
         }
+    }
+}
+
+extension BoardModel: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
+extension BoardModel {
+    static func == (_ lhs: BoardModel, _ rhs: BoardModel) -> Bool {
+        lhs.id == rhs.id
     }
 }

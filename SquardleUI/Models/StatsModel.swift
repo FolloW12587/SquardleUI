@@ -10,7 +10,7 @@ import Foundation
 
 class StatsModel: ObservableObject {
     var isNotFirstLaunch: Bool
-    var hasActiveGame: Bool {
+    @Published var hasActiveGame: Bool {
         didSet {
             if !hasActiveGame {
                 FileManager.deleteSave()

@@ -37,44 +37,49 @@ class DictionaryModel {
     
     func generateWords() -> [String]{
         let words = self.words.filter{ $0.freq > 0.6 && $0.PoS == "s" }.map{ $0.word }
-        
-        let firstWord = words.randomElement()!
-        var secondWord = words.randomElement()!
-        var thirdWord = words.randomElement()!
+        var i = 0
         
         while true {
-            if secondWord != firstWord {
-                break
+            i += 1
+            let firstWord = words.randomElement()!
+            var ignoreList = [firstWord]
+            
+            guard let fourthWord = getWordByMask(firstWord.getChar(at: 0), nil, nil, from: words, ignore: ignoreList) else {
+                continue
             }
-            secondWord = words.randomElement()!
-        }
-        
-        while true {
-            if thirdWord != firstWord && thirdWord != secondWord {
-                break
+            ignoreList.append(fourthWord)
+            
+            guard let fifthWord = getWordByMask(firstWord.getChar(at: 2), nil, nil, from: words, ignore: ignoreList) else {
+                continue
             }
-            thirdWord = words.randomElement()!
-        }
-        
-        var selectedWords = [firstWord, secondWord, thirdWord]
-        for i in stride(from: 0, to: 5, by: 2){
-            let firstLetter = firstWord.getChar(at: i)!
-            let thirdLetter = secondWord.getChar(at: i)!
-            let fifthLetter = thirdWord.getChar(at: i)!
-
-            let filteredWords = words.filter{
-                $0.getChar(at: 0) == firstLetter && $0.getChar(at: 2) == thirdLetter && $0.getChar(at: 4) == fifthLetter && !selectedWords.contains($0)
+            ignoreList.append(fifthWord)
+            
+            guard let sixthWord = getWordByMask(firstWord.getChar(at: 4), nil, nil, from: words, ignore: ignoreList) else {
+                continue
+            }
+            ignoreList.append(sixthWord)
+            
+            guard let secondWord = getWordByMask(fourthWord.getChar(at: 2), fifthWord.getChar(at: 2), sixthWord.getChar(at: 2), from: words, ignore: ignoreList) else {
+                continue
+            }
+            ignoreList.append(secondWord)
+            
+            guard let thirdWord = getWordByMask(fourthWord.getChar(at: 4), fifthWord.getChar(at: 4), sixthWord.getChar(at: 4), from: words, ignore: ignoreList) else {
+                continue
             }
             
-            if filteredWords.count == 0 {
-//                print("Can't find word with mask \(firstLetter)?\(thirdLetter)?\(fifthLetter). Recreating!")
-                return generateWords()
-            }
-            let word = filteredWords.randomElement()!
-            selectedWords.append(word)
+            let selectedWords = [firstWord, secondWord, thirdWord, fourthWord, fifthWord, sixthWord]
+            print("In \(i) iterations generated: \(selectedWords)")
+            return selectedWords
         }
-        print(selectedWords)
-        return selectedWords
+    }
+    
+    private func getWordByMask(_ firstLetter: Character?, _ thirdLetter: Character?, _ fifthLetter: Character?, from words: [String], ignore ignoreList: [String] = []) -> String? {
+        let filteredWords = words.filter{
+            (firstLetter == nil || $0.getChar(at: 0) == firstLetter) && (thirdLetter == nil || $0.getChar(at: 2) == thirdLetter) && (fifthLetter == nil || $0.getChar(at: 4) == fifthLetter) && !ignoreList.contains($0)
+        }
+
+        return filteredWords.randomElement()
     }
     
     func wordExists(word: String) -> Bool {

@@ -41,6 +41,9 @@
 		A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E24293774DD00D7B618 /* HintRuleView.swift */; };
 		A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */; };
 		A1C33E292939BE3300D7B618 /* Character - extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E282939BE3300D7B618 /* Character - extensions.swift */; };
+		A1C33E2B293A05FA00D7B618 /* GameEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E2A293A05FA00D7B618 /* GameEndView.swift */; };
+		A1F7C412293ED62800B8D177 /* GameWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C411293ED62800B8D177 /* GameWrapperView.swift */; };
+		A1F7C414293ED64E00B8D177 /* GameLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C413293ED64E00B8D177 /* GameLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		A1C33E24293774DD00D7B618 /* HintRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintRuleView.swift; sourceTree = "<group>"; };
 		A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyRuleView.swift; sourceTree = "<group>"; };
 		A1C33E282939BE3300D7B618 /* Character - extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character - extensions.swift"; sourceTree = "<group>"; };
+		A1C33E2A293A05FA00D7B618 /* GameEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndView.swift; sourceTree = "<group>"; };
+		A1F7C411293ED62800B8D177 /* GameWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWrapperView.swift; sourceTree = "<group>"; };
+		A1F7C413293ED64E00B8D177 /* GameLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 				A1486AAD292C7BBD005AB2F0 /* BoardModel.swift */,
 				A1486AB5292C865A005AB2F0 /* DictionaryModel.swift */,
 				A1C33E1F2934A4F900D7B618 /* GameGUIModel.swift */,
+				A1F7C413293ED64E00B8D177 /* GameLoader.swift */,
 				A1486AA6292C7747005AB2F0 /* GameModel.swift */,
 				A1C33E0F292F089D00D7B618 /* HintModel.swift */,
 				A1486AC4292CBA9E005AB2F0 /* KeyboardModel.swift */,
@@ -171,7 +178,9 @@
 			children = (
 				A1C33E21293769E800D7B618 /* Rules */,
 				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
+				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
 				A1486ABC292C8824005AB2F0 /* GameView.swift */,
+				A1F7C411293ED62800B8D177 /* GameWrapperView.swift */,
 				A1C33E0D292DCB1700D7B618 /* HeaderView.swift */,
 				A1C33E11292F0A9200D7B618 /* HintView.swift */,
 				A1486AC2292CBA89005AB2F0 /* KeyboardView.swift */,
@@ -304,6 +313,7 @@
 				A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */,
 				A1486AAE292C7BBD005AB2F0 /* BoardModel.swift in Sources */,
 				A1486AAC292C77A4005AB2F0 /* FileManager - extensions.swift in Sources */,
+				A1F7C414293ED64E00B8D177 /* GameLoader.swift in Sources */,
 				A1486AB2292C80ED005AB2F0 /* TileView.swift in Sources */,
 				A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */,
 				A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */,
@@ -316,11 +326,13 @@
 				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
 				A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */,
 				A1C33E1A292F1D5100D7B618 /* VerticalArrowLineView.swift in Sources */,
+				A1C33E2B293A05FA00D7B618 /* GameEndView.swift in Sources */,
 				A1486AA4292C7464005AB2F0 /* MenuButton.swift in Sources */,
 				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
 				A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */,
 				A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */,
 				A1486ABD292C8824005AB2F0 /* GameView.swift in Sources */,
+				A1F7C412293ED62800B8D177 /* GameWrapperView.swift in Sources */,
 				A1486AB6292C865A005AB2F0 /* DictionaryModel.swift in Sources */,
 				A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */,
 			);

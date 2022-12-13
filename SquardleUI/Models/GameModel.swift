@@ -8,9 +8,9 @@
 import Foundation
 
 
-class GameModel: ObservableObject {
-    let dictionary = DictionaryModel()
-    let words: [String]
+class GameModel: ObservableObject, Identifiable {
+    let id: UUID
+    var words: [String]
     
     var board: BoardModel
     var keyboard: KeyboardModel
@@ -45,6 +45,7 @@ class GameModel: ObservableObject {
     
     
     init() {
+        id = UUID()
         words = dictionary.generateWords()
         board = BoardModel(words: words)
         keyboard = KeyboardModel()
@@ -52,10 +53,12 @@ class GameModel: ObservableObject {
         
         highlightGuessingWay()
         updateDistinctCharactersExists()
+        print("Gamemodel \(id) created")
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
         words = try container.decode([String].self, forKey: .words)
         board = try container.decode(BoardModel.self, forKey: .board)
         keyboard = try container.decode(KeyboardModel.self, forKey: .keyboard)
@@ -65,21 +68,39 @@ class GameModel: ObservableObject {
         
         highlightGuessingWay()
         updateDistinctCharactersExists()
+        print("Gamemodel \(id) loaded")
+    }
+    
+    deinit {
+        print("Gamemodel \(id) destroyed")
     }
 }
 
 extension GameModel: Codable {
     enum CodingKeys: CodingKey {
-        case words, board, keyboard, guessesLeft, currentRow
+        case id, words, board, keyboard, guessesLeft, currentRow
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
         try container.encode(self.words, forKey: .words)
         try container.encode(self.board, forKey: .board)
         try container.encode(self.keyboard, forKey: .keyboard)
         try container.encode(self.guessesLeft, forKey: .guessesLeft)
         try container.encode(self.currentRow, forKey: .currentRow)
+    }
+}
+
+extension GameModel: Equatable {
+    static func == (_ lhs: GameModel, _ rhs: GameModel) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
+extension GameModel: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
 
@@ -223,6 +244,7 @@ extension GameModel {
             currentMarkingTile.markedCharacter = nil
             currentMarkingTile.state = .none
             self.currentMarkingTile = nil
+            saveGame()
             return
         }
         
@@ -234,7 +256,10 @@ extension GameModel {
         }
         
         self.currentMarkingTile = nil
+        saveGame()
     }
+    
+    
 }
 
 extension GameModel {
@@ -286,6 +311,7 @@ extension GameModel {
         }
         
         rotateCurrentRow()
+        saveGame()
     }
     
     func guessWord() {
@@ -347,5 +373,13 @@ extension GameModel {
         distinctCharsExists = words.reduce(Set<Character>(), { partialResult, word in
             partialResult.union(Set(word))
         })
+    }
+}
+
+extension GameModel {
+    func saveGame() {
+        Task {
+            FileManager.saveGame(self)
+        }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BoardView: View {
-    var boardModel: BoardModel
+    @ObservedObject var boardModel: BoardModel
     
     let columns = [
         GridItem(.flexible(), spacing: 0),

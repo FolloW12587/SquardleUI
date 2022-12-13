@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+let dictionary = DictionaryModel()
 
 struct ContentView: View {
     @StateObject var stats = StatsModel()
@@ -16,15 +17,16 @@ struct ContentView: View {
             
             NavigationView {
                 VStack (spacing: 20){
-                    if stats.hasActiveGame {
+                    if stats.hasActiveGame, FileManager.saveExists() {
                         MenuButton(title: "Продолжить") {
-                            EmptyView()
+                            GameWrapperView(useSaved: true)
+                                .navigationBarBackButtonHidden(true)
                         }
                         
                     }
                     
                     MenuButton(title: "Новая Игра"){
-                        GameView()
+                        GameWrapperView(useSaved: false)
                             .navigationBarBackButtonHidden(true)
                     }
                     
