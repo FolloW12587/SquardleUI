@@ -24,3 +24,11 @@ func playSound(_ filename: String, withExtension: String = "wav") {
         }
     }
 }
+
+func playSound(_ systemSoundID: SystemSoundID){
+    AudioServicesPlaySystemSound(systemSoundID)
+}
+
+enum SoundMatcher: SystemSoundID {
+    case keyPressed = 1104
+}

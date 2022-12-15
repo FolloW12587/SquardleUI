@@ -36,7 +36,7 @@ struct ContentView: View {
         withAnimation{
             menuOption = .none
         }
-        playSound("key_clicked")
+        playSound(SoundMatcher.keyPressed.rawValue)
     }
 }
 

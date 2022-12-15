@@ -48,7 +48,7 @@ struct MenuView: View {
         withAnimation{
             option = newOption
         }
-        playSound("key_clicked")
+        playSound(SoundMatcher.keyPressed.rawValue)
     }
 }
 
