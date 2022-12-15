@@ -19,16 +19,13 @@ struct GameWrapperView: View {
     
     var body: some View {
         ZStack{
-            
-            if gameLoader.gameModel != nil {
-                GameView(gameModel: gameLoader.gameModel!){
+            if let gameModel = gameLoader.gameModel {
+                GameView(gameModel: gameModel){
                     presentationMode.wrappedValue.dismiss()
                 } restartClosure: {
                     gameLoader.newGame()
                 }
-            }
-            
-            if gameLoader.isLoading {
+            } else {
                 Color.init(white: 0.6, opacity: 0.8)
                     .ignoresSafeArea()
                 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BoardView: View {
-    @ObservedObject var boardModel: BoardModel
+    var boardModel: BoardModel
     
     let columns = [
         GridItem(.flexible(), spacing: 0),
@@ -32,6 +32,7 @@ struct BoardView: View {
             }
         }
         .padding(.horizontal)
+        .id(boardModel.id)
     }
 }
 

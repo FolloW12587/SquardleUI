@@ -8,12 +8,7 @@
 import Foundation
 
 class GameLoader: ObservableObject {
-    @Published var isLoading: Bool = true
-    @Published var gameModel: GameModel? = nil {
-        didSet {
-            isLoading = gameModel == nil
-        }
-    }
+    @Published var gameModel: GameModel? = nil
     
     init(useSaved: Bool = false) {
         Task {
@@ -31,7 +26,7 @@ class GameLoader: ObservableObject {
     }
     
     func newGame() {
-        gameModel = nil
+        self.gameModel = nil
         Task {
             let gameModel = GameModel()
             DispatchQueue.main.async {

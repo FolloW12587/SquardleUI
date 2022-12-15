@@ -37,23 +37,29 @@ struct GameView: View {
                 } restartAction: {
                     restartClosure()
                 }
-                .onAppear {
-                    Task {
-                        if gameModel.isGameWon {
-                            stats.gameWon()
-                        } else {
-                            stats.gameLost()
-                        }
-                    }
-                }
+                .onAppear(perform: gameEnded)
             }
         }
+        .onAppear(perform: gameStarted)
         .environmentObject(gameModel)
-        .onAppear {
-            Task {
-                FileManager.saveGame(gameModel)
-                stats.hasActiveGame = true
-                stats.save()
+        .id(gameModel.id)
+    }
+    
+    func gameStarted() {
+        Task {
+            print("Board appeared")
+            FileManager.saveGame(gameModel)
+            stats.hasActiveGame = true
+            stats.save()
+        }
+    }
+    
+    func gameEnded() {
+        Task {
+            if gameModel.isGameWon {
+                stats.gameWon()
+            } else {
+                stats.gameLost()
             }
         }
     }
