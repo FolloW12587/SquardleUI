@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-struct MenuButton<Destination: View>: View {
+struct MenuButton: View {
     let title: String
-    let destinationView: () -> Destination
+    let action: () -> ()
     
     var body: some View {
-        NavigationLink {
-            destinationView()
-        } label: {
+        Button(action: action) {
             Text(title.uppercased())
         }
         .buttonStyle(MenuButtonStyle())
@@ -36,8 +34,6 @@ struct MenuButtonStyle: ButtonStyle {
 
 struct MenuButton_Previews: PreviewProvider {
     static var previews: some View {
-        MenuButton(title: "Menu Button"){
-            EmptyView()
-        }
+        MenuButton(title: "Menu Button"){}
     }
 }

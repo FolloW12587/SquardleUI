@@ -26,7 +26,7 @@ struct BoardView: View {
                     if let tileModel = boardModel.getTile(at: CGPoint(x: x, y: y)) {
                         TileView(tileModel: tileModel)
                     } else {
-                        Text("")
+                        Color.clear
                     }
                 }
             }

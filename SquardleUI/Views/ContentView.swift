@@ -10,40 +10,43 @@ let dictionary = DictionaryModel()
 
 struct ContentView: View {
     @StateObject var stats = StatsModel()
+    @State var menuOption: MenuOptions = .none
     
     var body: some View {
-        ZStack {
-            ThemeModel.main.backgroundColor
+        ZStack{
             
-            NavigationView {
-                VStack (spacing: 20){
-                    if stats.hasActiveGame, FileManager.saveExists() {
-                        MenuButton(title: "Продолжить") {
-                            GameWrapperView(useSaved: true)
-                                .navigationBarBackButtonHidden(true)
-                        }
-                        
-                    }
-                    
-                    MenuButton(title: "Новая Игра"){
-                        GameWrapperView(useSaved: false)
-                            .navigationBarBackButtonHidden(true)
-                    }
-                    
-                    MenuButton(title: "Как играть?"){
-                        RulesView()
-                            .navigationTitle("Правила игры")
-                    }
-                    
-                    MenuButton(title: "Настройки"){
-                        EmptyView()
-                    }
-                    
-                }
+            switch menuOption {
+            case .none:
+                MenuView(option: $menuOption)
+            case .continueGame:
+                GameWrapperView(useSaved: true, dismissAction: dismissOption)
+            case .newGame:
+                GameWrapperView(useSaved: false, dismissAction: dismissOption)
+            case .rules:
+                RulesView(dismissAction: dismissOption)
+            case .stats:
+                GameStatsView(dismissAction: dismissOption)
             }
         }
-        .ignoresSafeArea()
         .environmentObject(stats)
+        .tint(Color.black)
+    }
+    
+    func dismissOption() {
+        withAnimation{
+            menuOption = .none
+        }
+        playSound("key_clicked")
+    }
+}
+
+extension ContentView {
+    enum MenuOptions {
+        case continueGame
+        case newGame
+        case rules
+        case stats
+        case none
     }
 }
 

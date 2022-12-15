@@ -13,13 +13,17 @@ struct SubmitButtonView: View {
     let action: () -> ()
     
     var body: some View {
-        Button(action: action, label: {
+        Button{
+            withAnimation{
+                action()
+            }
+        } label: {
             Text(title)
                 .padding(.vertical, 10)
                 .frame(maxWidth: .infinity)
                 .font(.system(size: 30, weight: .bold))
                 .foregroundColor(guiModel.isSubmitButtonActive ? ThemeModel.main.activeForegroundColor : ThemeModel.main.secondaryForegroundColor)
-        })
+        }
         .background(guiModel.isSubmitButtonActive ? ThemeModel.main.mainColor : ThemeModel.main.tileMainBackgroundColor)
         .cornerRadius(10)
 

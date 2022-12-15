@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @ObservedObject var guiModel: GameGUIModel
     @Environment(\.presentationMode) var presentationMode
+    
+    @ObservedObject var guiModel: GameGUIModel
+    var dismissAction: () -> ()
     
     var body: some View {
         HStack {
-            Button {
-                presentationMode.wrappedValue.dismiss()
-            } label: {
+            Button(action: dismissAction) {
                 Image(systemName: "house.circle")
             }
 
@@ -35,11 +35,14 @@ struct HeaderView: View {
         .sheet(isPresented: $guiModel.areRulesPresented) {
             RulesView()
         }
+        .sheet(isPresented: $guiModel.areStatsPresented) {
+            GameStatsView()
+        }
     }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(guiModel: GameGUIModel())
+        HeaderView(guiModel: GameGUIModel()){}
     }
 }

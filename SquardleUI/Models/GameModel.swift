@@ -161,6 +161,7 @@ extension GameModel {
             tilesOnWay.forEach { tile in
                 tile.wrongGuessedWord = true
             }
+            playSound("wrong_word")
             return
         }
         
@@ -305,6 +306,12 @@ extension GameModel {
         updateKeyboardStats()
         guessesLeft = guessesLeft - 1 + wordsWereOpened
         currentWord = []
+        
+        if wordsWereOpened > 0 {
+            playSound("word_opened")
+        } else {
+            playSound("word_guessed")
+        }
         
         if checkForGameEnd() {
             return

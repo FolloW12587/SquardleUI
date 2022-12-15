@@ -20,7 +20,7 @@ struct GameView: View {
                 .ignoresSafeArea()
             
             VStack {
-                HeaderView(guiModel: gameModel.guiModel)
+                HeaderView(guiModel: gameModel.guiModel, dismissAction: dismissClosure)
                 Spacer()
                 BoardView(boardModel: gameModel.board)
                 Spacer()
@@ -34,6 +34,7 @@ struct GameView: View {
                 GameEndView(isGameWon: gameModel.isGameWon) {
                     dismissClosure()
                 } statsAction: {
+                    gameModel.guiModel.areStatsPresented.toggle()
                 } restartAction: {
                     restartClosure()
                 }

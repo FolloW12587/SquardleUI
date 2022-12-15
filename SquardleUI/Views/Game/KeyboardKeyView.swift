@@ -35,6 +35,7 @@ struct KeyboardKeyView: View {
         .onTapGesture {
             tapAction?(keyModel)
             animateTap()
+            playSound("key_clicked")
         }
     }
     
