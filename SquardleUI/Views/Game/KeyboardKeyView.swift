@@ -9,7 +9,7 @@ import SwiftUI
 
 struct KeyboardKeyView: View {
     @ObservedObject var keyModel: KeyboardKeyModel
-    var tapAction: ((KeyboardKeyModel) -> Void)?
+    var tapAction: (KeyboardKeyModel) -> Void
     
     @State var isAnimating = false
     
@@ -32,11 +32,13 @@ struct KeyboardKeyView: View {
         )
         .cornerRadius(10)
         .opacity(isAnimating ? 0.4 : 1)
-        .onTapGesture {
-            tapAction?(keyModel)
-            animateTap()
-            playSound(SoundMatcher.keyPressed.rawValue)
-        }
+        .onTapGesture(perform: tapped)
+    }
+    
+    func tapped() {
+        tapAction(keyModel)
+        animateTap()
+        playSound(SoundMatcher.keyPressed.rawValue)
     }
     
     func getBackgroundColor() -> Color {
@@ -65,11 +67,11 @@ struct KeyboardKeyView: View {
 struct KeyboardKeyView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            KeyboardKeyView(keyModel: KeyboardKeyModel.example)
+            KeyboardKeyView(keyModel: KeyboardKeyModel.example){_ in }
                 .frame(width: 70, height: 120)
                 .environmentObject(GameModel())
             
-            KeyboardKeyView(keyModel: KeyboardKeyModel.deleteExample)
+            KeyboardKeyView(keyModel: KeyboardKeyModel.deleteExample){_ in }
                 .frame(width: 70, height: 120)
                 .environmentObject(GameModel())
         }

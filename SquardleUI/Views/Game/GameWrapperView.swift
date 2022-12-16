@@ -32,12 +32,14 @@ struct GameWrapperView: View {
                 ProgressView()
             }
         }
-        .onAppear{
-            if !useSaved && stats.hasActiveGame && FileManager.saveExists() {
-                print("Starting new game when one exists!")
-                Task{
-                    stats.gameLost()
-                }
+        .onAppear(perform: checkForExistingGame)
+    }
+    
+    func checkForExistingGame() {
+        if !useSaved && stats.hasActiveGame && FileManager.saveExists() {
+            print("Starting new game when one exists!")
+            Task{
+                stats.gameLost()
             }
         }
     }

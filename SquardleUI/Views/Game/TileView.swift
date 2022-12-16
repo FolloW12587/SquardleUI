@@ -19,22 +19,22 @@ struct TileView: View {
                     .font(.system(size: 35, weight: .bold))
                     .offset(x: tileModel.wrongGuessedWord ? -10 : 0)
                     .animation(Animation.default.repeatCount(3, autoreverses: true).speed(6), value: tileModel.wrongGuessedWord)
-                    .foregroundColor(ThemeModel.main.mainForegroundColor)
+                    .foregroundColor(getForegroundColor())
                 
             } else if tileModel.state == .opened {
                 Text(String(tileModel.character))
                     .font(.system(size: 35, weight: .bold))
-                    .foregroundColor(ThemeModel.main.activeForegroundColor)
+                    .foregroundColor(getForegroundColor())
                 
             } else if tileModel.markedCharacter != nil {
                 Text(String(tileModel.markedCharacter!))
                     .font(.system(size: 25, weight: .bold))
-                    .foregroundColor(tileModel.state == .markedSure ? ThemeModel.main.mainForegroundColor : ThemeModel.main.secondaryForegroundColor)
+                    .foregroundColor(getForegroundColor())
             }
             
             GeometryReader { geometry in
                 ForEach(tileModel.hints, id: \.self) { hint in
-                    HintView(hintModel: hint, width: geometry.size.width, position: CGPoint(x: geometry.size.width / 8 + geometry.size.width * hint.position.x / 4, y: geometry.size.height / 8 + geometry.size.height * hint.position.y / 4))
+                    HintView(hintModel: hint, width: geometry.size.width, position: getHintViewPosition(size: geometry.size, hintPosition: hint.position))
                 }
             }
         }
@@ -54,6 +54,10 @@ struct TileView: View {
         }
     }
     
+    func getHintViewPosition(size: CGSize, hintPosition: CGPoint) -> CGPoint {
+        CGPoint(x: size.width / 8 + size.width * hintPosition.x / 4, y: size.height / 8 + size.height * hintPosition.y / 4)
+    }
+    
     func getBackgroundColor() -> Color {
         switch tileModel.state {
         case .none:
@@ -65,6 +69,18 @@ struct TileView: View {
         case .markedSure, .markedNotSure:
             return ThemeModel.main.mainColor
         }
+    }
+    
+    func getForegroundColor() -> Color {
+        if tileModel.tempCharacter != nil {
+            return ThemeModel.main.mainForegroundColor
+        } else if tileModel.state == .opened {
+            return ThemeModel.main.activeForegroundColor
+            
+        } else if tileModel.markedCharacter != nil && tileModel.state == .markedSure{
+            return ThemeModel.main.mainForegroundColor
+        }
+        return ThemeModel.main.secondaryForegroundColor
     }
 }
 
