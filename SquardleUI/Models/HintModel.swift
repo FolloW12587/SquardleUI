@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class HintModel: ObservableObject {
     @Published var isHidden: Bool
@@ -73,6 +74,15 @@ extension HintModel {
     func longPressed() {
         self.isHidden = false
         self.isScaled = true
+    }
+    
+    func appeared(){
+        longPressed()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            withAnimation {
+                self.isScaled = false
+            }
+        }
     }
 }
 

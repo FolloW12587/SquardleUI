@@ -130,8 +130,9 @@ extension TileModel {
         
         let hint = HintModel(character: character, position: newHintPosition, count: count, appears: appears, countInRow: countInRow, countInColumn: countInColumn)
         
-        if hints.contains(hint) {
+        if let existingHint = hints.filter({ $0 == hint }).first {
             emptyHintPositions.append(newHintPosition)
+            existingHint.appeared()
             return
         }
         

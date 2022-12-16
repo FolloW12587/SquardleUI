@@ -50,19 +50,12 @@ struct HintView: View {
         .background(getBackgroundColor())
         .cornerRadius(7)
         .scaleEffect(getScale())
-        .onTapGesture {
-            withAnimation {
-                hintModel.tapped()
-            }
-        }
-        .onLongPressGesture {
-            withAnimation {
-                hintModel.longPressed()
-            }
-        }
         .frame(width: width)
-        .position(hintModel.isScaled ? CGPoint(x: width / 2, y: width / 2) : position)
-        .zIndex(hintModel.isScaled ? 10 : 1)
+        .position(getPosition())
+        .zIndex(getZIndex())
+        .onTapGesture(perform: tapped)
+        .onLongPressGesture(perform: longPressed)
+        .onAppear(perform: appeared)
     }
     
     var verticalLine: some View {
@@ -83,6 +76,24 @@ struct HintView: View {
         }
     }
     
+    func tapped() {
+        withAnimation {
+            hintModel.tapped()
+        }
+    }
+    
+    func longPressed() {
+        withAnimation {
+            hintModel.longPressed()
+        }
+    }
+    
+    func appeared() {
+        withAnimation {
+            hintModel.appeared()
+        }
+    }
+    
     func getScale() -> CGFloat {
         if hintModel.isScaled {
             return 1
@@ -91,6 +102,14 @@ struct HintView: View {
         } else {
             return 0.25
         }
+    }
+    
+    func getZIndex() -> CGFloat {
+        hintModel.isScaled ? 10 : 1
+    }
+    
+    func getPosition() -> CGPoint {
+        hintModel.isScaled ? CGPoint(x: width / 2, y: width / 2) : position
     }
     
     func getBackgroundColor() -> Color {
