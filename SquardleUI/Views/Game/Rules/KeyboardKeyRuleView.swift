@@ -14,7 +14,7 @@ struct KeyboardKeyRuleView: View {
     
     var body: some View {
         HStack(spacing: 10) {
-            KeyboardKeyView(keyModel: KeyboardKeyModel(character: "А", state: state))
+            KeyboardKeyView(keyModel: KeyboardKeyModel(character: "А", state: state)){_ in}
                 .frame(width: width, height: width * 1.5)
                 .disabled(true)
             Text(text)

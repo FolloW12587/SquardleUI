@@ -37,6 +37,9 @@ struct MenuView: View {
                     changeOption(.stats)
                 }
                 
+                MenuButton(title: "Ads") {
+                    changeOption(.ads)
+                }
             }
         }
         .tint(.black)
