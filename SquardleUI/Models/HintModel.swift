@@ -77,6 +77,9 @@ extension HintModel {
     }
     
     func appeared(){
+        if self.isScaled {
+            return
+        }
         longPressed()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation {

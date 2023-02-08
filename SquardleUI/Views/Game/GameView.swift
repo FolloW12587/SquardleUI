@@ -40,6 +40,14 @@ struct GameView: View {
                 }
                 .onAppear(perform: gameEnded)
             }
+            
+            if gameModel.showAdd {
+                YandexInterstitial(){
+                    DispatchQueue.main.async {
+                        gameModel.showAdd = false
+                    }
+                }
+            }
         }
         .onAppear(perform: gameStarted)
         .environmentObject(gameModel)

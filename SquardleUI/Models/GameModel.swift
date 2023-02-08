@@ -43,6 +43,7 @@ class GameModel: ObservableObject, Identifiable {
     var currentMarkingTile: TileModel? = nil
     var distinctCharsExists: Set<Character> = []
     
+    @Published var showAdd: Bool = false
     
     init() {
         id = UUID()
@@ -185,6 +186,7 @@ extension GameModel {
     func checkForGameOver() -> Bool {
         if guessesLeft <= 0 {
             isGameOver = true
+            showAdd = true
             return true
         }
         
@@ -194,6 +196,7 @@ extension GameModel {
     func checkForGameWin() -> Bool {
         if board.isSolved() {
             isGameWon = true
+            showAdd = true
             return true
         }
         
