@@ -41,7 +41,7 @@ class InterstitialViewController: UIViewController {
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
-        interstitialAd = YMAInterstitialAd(adUnitID: "demo-interstitial-yandex")
+        interstitialAd = YMAInterstitialAd(adUnitID: "R-M-2190063-1")
         interstitialAd.delegate = self;
         interstitialAd.load()
     }
@@ -55,6 +55,7 @@ extension InterstitialViewController: YMAInterstitialAdDelegate{
 
     func interstitialAdDidFail(toLoad interstitialAd: YMAInterstitialAd, error: Error) {
         print("Loading failed. Error: \(error)")
+        dismissClosure()
     }
 
     func interstitialAdDidClick(_ interstitialAd: YMAInterstitialAd) {
@@ -71,6 +72,7 @@ extension InterstitialViewController: YMAInterstitialAdDelegate{
 
     func interstitialAdDidFail(toPresent interstitialAd: YMAInterstitialAd, error: Error) {
         print("Failed to present interstitial. Error: \(error)")
+        dismissClosure()
     }
 
     func interstitialAdWillAppear(_ interstitialAd: YMAInterstitialAd) {

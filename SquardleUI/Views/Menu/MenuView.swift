@@ -13,34 +13,60 @@ struct MenuView: View {
         stats.hasActiveGame && FileManager.saveExists()
     }
     @Binding var option: ContentView.MenuOptions
+    @State var showContent = false
     
     var body: some View {
         ZStack {
             ThemeModel.main.backgroundColor
             
-            VStack (spacing: 20){
-                if stats.hasActiveGame, FileManager.saveExists() {
-                    MenuButton(title: "Продолжить") {
-                        changeOption(.continueGame)
-                    }
+            VStack (spacing: 0){
+                if showContent{
+                    Spacer()
                 }
                 
-                MenuButton(title: "Новая Игра"){
-                    changeOption(.newGame)
+                Image("logo")
+                    .animation(.spring(), value: showContent)
+                
+                
+                if showContent{
+                    Spacer()
+                    buttons
+                    Spacer()
                 }
                 
-                MenuButton(title: "Как играть?"){
-                    changeOption(.rules)
-                }
-                
-                MenuButton(title: "Статистика"){
-                    changeOption(.stats)
-                }
             }
         }
         .tint(.black)
         .ignoresSafeArea()
         .environmentObject(stats)
+        .onAppear{
+            withAnimation{
+                showContent = true
+            }
+        }
+    }
+    
+    var buttons: some View {
+        VStack{
+            
+            if stats.hasActiveGame, FileManager.saveExists() {
+                MenuButton(title: "Продолжить") {
+                    changeOption(.continueGame)
+                }
+            }
+            
+            MenuButton(title: "Новая Игра"){
+                changeOption(.newGame)
+            }
+            
+            MenuButton(title: "Статистика"){
+                changeOption(.stats)
+            }
+            
+            MenuButton(title: "Как играть?"){
+                changeOption(.rules)
+            }
+        }
     }
     
     func changeOption(_ newOption: ContentView.MenuOptions) {

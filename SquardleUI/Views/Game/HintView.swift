@@ -48,7 +48,7 @@ struct HintView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .aspectRatio(1.0, contentMode: .fit)
         .background(getBackgroundColor())
-        .cornerRadius(7)
+        .cornerRadius(width / 10)
         .scaleEffect(getScale())
         .frame(width: width)
         .position(getPosition())

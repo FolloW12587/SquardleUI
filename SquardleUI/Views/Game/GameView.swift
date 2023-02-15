@@ -41,6 +41,11 @@ struct GameView: View {
                 .onAppear(perform: gameEnded)
             }
             
+        }
+        .onAppear(perform: gameStarted)
+        .environmentObject(gameModel)
+        .id(gameModel.id)
+        .overlay {
             if gameModel.showAdd {
                 YandexInterstitial(){
                     DispatchQueue.main.async {
@@ -49,9 +54,6 @@ struct GameView: View {
                 }
             }
         }
-        .onAppear(perform: gameStarted)
-        .environmentObject(gameModel)
-        .id(gameModel.id)
     }
     
     func gameStarted() {

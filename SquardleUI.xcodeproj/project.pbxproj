@@ -41,6 +41,7 @@
 		A177DC0F294AFB8D001D79EA /* key_clicked.wav in Resources */ = {isa = PBXBuildFile; fileRef = A177DC0A294AFB8D001D79EA /* key_clicked.wav */; };
 		A177DC10294AFB8D001D79EA /* word_guessed.wav in Resources */ = {isa = PBXBuildFile; fileRef = A177DC0B294AFB8D001D79EA /* word_guessed.wav */; };
 		A177DC12294AFD39001D79EA /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC11294AFD39001D79EA /* PlaySound.swift */; };
+		A1B61C94299C7CD100E521FF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */; };
 		A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0D292DCB1700D7B618 /* HeaderView.swift */; };
 		A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0F292F089D00D7B618 /* HintModel.swift */; };
 		A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E11292F0A9200D7B618 /* HintView.swift */; };
@@ -93,6 +94,7 @@
 		A177DC0A294AFB8D001D79EA /* key_clicked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = key_clicked.wav; sourceTree = "<group>"; };
 		A177DC0B294AFB8D001D79EA /* word_guessed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = word_guessed.wav; sourceTree = "<group>"; };
 		A177DC11294AFD39001D79EA /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A1C33E0D292DCB1700D7B618 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A1C33E0F292F089D00D7B618 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
 		A1C33E11292F0A9200D7B618 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				A1486AB9292C86CF005AB2F0 /* Resources */,
 				A1486A96292C7277005AB2F0 /* Assets.xcassets */,
 				A1486A98292C7277005AB2F0 /* Preview Content */,
+				A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */,
 			);
 			path = SquardleUI;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				A177DC0D294AFB8D001D79EA /* word_opened.wav in Resources */,
 				A177DC0E294AFB8D001D79EA /* wrong_word.wav in Resources */,
 				A177DC0F294AFB8D001D79EA /* key_clicked.wav in Resources */,
+				A1B61C94299C7CD100E521FF /* Launch Screen.storyboard in Resources */,
 				A1486ABB292C86EA005AB2F0 /* freqrnc2011_filtered_sorted.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -542,6 +547,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,6 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -576,6 +583,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

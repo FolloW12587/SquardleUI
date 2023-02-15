@@ -22,12 +22,12 @@ struct MenuButton: View {
 struct MenuButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(ThemeModel.main.mainForegroundColor)
+            .foregroundColor(.white)
             .font(.system(size: 22, weight: .bold))
             .padding(10)
             .frame(minWidth: 200)
-            .background(ThemeModel.main.mainColor)
-            .cornerRadius(10)
+            .background(ThemeModel.main.tileOpenedBackgroundColor)
+            .cornerRadius(20)
             .opacity(configuration.isPressed ? 0.5 : 1)
     }
 }
