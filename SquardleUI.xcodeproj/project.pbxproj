@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A1124EC6299DD92E001E306F /* YandexMobileAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A1124EC5299DD92E001E306F /* YandexMobileAdsBundle.bundle */; };
+		A1124EC8299E0EDE001E306F /* AsymetricRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124EC7299E0EDE001E306F /* AsymetricRectangleView.swift */; };
+		A1124ECB299E1F6B001E306F /* WinRateGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ECA299E1F6B001E306F /* WinRateGraphView.swift */; };
+		A1124ECD299E345B001E306F /* WinStreakGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ECC299E345B001E306F /* WinStreakGraphView.swift */; };
+		A1124ECF299E3AD8001E306F /* WinRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ECE299E3AD8001E306F /* WinRateView.swift */; };
+		A1124ED1299E3EBF001E306F /* WinStreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED0299E3EBF001E306F /* WinStreakView.swift */; };
+		A1124ED3299E41DB001E306F /* WinStreakColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED2299E41DB001E306F /* WinStreakColumnView.swift */; };
 		A12E5103299123360097A939 /* YandexInterestial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E5102299123360097A939 /* YandexInterestial.swift */; };
 		A12E5106299124330097A939 /* YandexMobileAdsPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A12E5105299124330097A939 /* YandexMobileAdsPackage */; };
 		A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */; };
@@ -62,6 +68,12 @@
 /* Begin PBXFileReference section */
 		A1124EC4299DCFC2001E306F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A1124EC5299DD92E001E306F /* YandexMobileAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YandexMobileAdsBundle.bundle; sourceTree = "<group>"; };
+		A1124EC7299E0EDE001E306F /* AsymetricRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsymetricRectangleView.swift; sourceTree = "<group>"; };
+		A1124ECA299E1F6B001E306F /* WinRateGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinRateGraphView.swift; sourceTree = "<group>"; };
+		A1124ECC299E345B001E306F /* WinStreakGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinStreakGraphView.swift; sourceTree = "<group>"; };
+		A1124ECE299E3AD8001E306F /* WinRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinRateView.swift; sourceTree = "<group>"; };
+		A1124ED0299E3EBF001E306F /* WinStreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinStreakView.swift; sourceTree = "<group>"; };
+		A1124ED2299E41DB001E306F /* WinStreakColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinStreakColumnView.swift; sourceTree = "<group>"; };
 		A12E5102299123360097A939 /* YandexInterestial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexInterestial.swift; sourceTree = "<group>"; };
 		A1486A8F292C7277005AB2F0 /* SquardleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquardleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquardleUIApp.swift; sourceTree = "<group>"; };
@@ -125,6 +137,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1124EC9299E1EE3001E306F /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				A177DC00294AD9C5001D79EA /* GameStatsView.swift */,
+				A1124ECA299E1F6B001E306F /* WinRateGraphView.swift */,
+				A1124ECE299E3AD8001E306F /* WinRateView.swift */,
+				A1124ECC299E345B001E306F /* WinStreakGraphView.swift */,
+				A1124ED0299E3EBF001E306F /* WinStreakView.swift */,
+				A1124ED2299E41DB001E306F /* WinStreakColumnView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
 		A12E5101299122F70097A939 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,9 +243,9 @@
 			isa = PBXGroup;
 			children = (
 				A1C33E21293769E800D7B618 /* Rules */,
+				A1124EC9299E1EE3001E306F /* Stats */,
 				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
 				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
-				A177DC00294AD9C5001D79EA /* GameStatsView.swift */,
 				A1486ABC292C8824005AB2F0 /* GameView.swift */,
 				A1F7C411293ED62800B8D177 /* GameWrapperView.swift */,
 				A1C33E0D292DCB1700D7B618 /* HeaderView.swift */,
@@ -272,6 +297,7 @@
 				A1C33E13292F106200D7B618 /* TriangleShape.swift */,
 				A1C33E19292F1D5100D7B618 /* VerticalArrowLineView.swift */,
 				A177DC04294AF23A001D79EA /* DismissButtonView.swift */,
+				A1124EC7299E0EDE001E306F /* AsymetricRectangleView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -279,9 +305,9 @@
 		A1C33E21293769E800D7B618 /* Rules */ = {
 			isa = PBXGroup;
 			children = (
-				A1C33E2229376A0500D7B618 /* RulesView.swift */,
 				A1C33E24293774DD00D7B618 /* HintRuleView.swift */,
 				A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */,
+				A1C33E2229376A0500D7B618 /* RulesView.swift */,
 			);
 			path = Rules;
 			sourceTree = "<group>";
@@ -373,6 +399,7 @@
 				A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */,
 				A1486AC5292CBA9E005AB2F0 /* KeyboardModel.swift in Sources */,
 				A1486AB8292C8689005AB2F0 /* String - extensions.swift in Sources */,
+				A1124ED3299E41DB001E306F /* WinStreakColumnView.swift in Sources */,
 				A1486A95292C7277005AB2F0 /* ContentView.swift in Sources */,
 				A1486ACB292CC847005AB2F0 /* SubmitButtonView.swift in Sources */,
 				A1486ABF292CB3B7005AB2F0 /* BoardView.swift in Sources */,
@@ -383,17 +410,22 @@
 				A1486AAE292C7BBD005AB2F0 /* BoardModel.swift in Sources */,
 				A1486AAC292C77A4005AB2F0 /* FileManager - extensions.swift in Sources */,
 				A1F7C414293ED64E00B8D177 /* GameLoader.swift in Sources */,
+				A1124ED1299E3EBF001E306F /* WinStreakView.swift in Sources */,
 				A177DC03294AED2D001D79EA /* MenuView.swift in Sources */,
+				A1124ECF299E3AD8001E306F /* WinRateView.swift in Sources */,
 				A1486AB2292C80ED005AB2F0 /* TileView.swift in Sources */,
 				A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */,
 				A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */,
 				A177DC05294AF23A001D79EA /* DismissButtonView.swift in Sources */,
+				A1124ECD299E345B001E306F /* WinStreakGraphView.swift in Sources */,
 				A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */,
 				A177DC12294AFD39001D79EA /* PlaySound.swift in Sources */,
+				A1124ECB299E1F6B001E306F /* WinRateGraphView.swift in Sources */,
 				A1C33E292939BE3300D7B618 /* Character - extensions.swift in Sources */,
 				A1486AA7292C7747005AB2F0 /* GameModel.swift in Sources */,
 				A1C33E14292F106200D7B618 /* TriangleShape.swift in Sources */,
 				A1C33E18292F1D2F00D7B618 /* HorizontalArrowLineView.swift in Sources */,
+				A1124EC8299E0EDE001E306F /* AsymetricRectangleView.swift in Sources */,
 				A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */,
 				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
 				A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */,
