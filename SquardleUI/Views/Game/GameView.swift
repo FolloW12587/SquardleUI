@@ -52,6 +52,7 @@ struct GameView: View {
                         gameModel.showAdd = false
                     }
                 }
+                .ignoresSafeArea()
             }
         }
     }

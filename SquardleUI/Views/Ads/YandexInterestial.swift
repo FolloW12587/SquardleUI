@@ -36,6 +36,7 @@ class InterstitialViewController: UIViewController {
 
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
+        spinner.color = UIColor(white: 0.5, alpha: 1)
         view.addSubview(spinner)
         
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

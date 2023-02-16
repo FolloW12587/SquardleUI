@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1124EC6299DD92E001E306F /* YandexMobileAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A1124EC5299DD92E001E306F /* YandexMobileAdsBundle.bundle */; };
 		A12E5103299123360097A939 /* YandexInterestial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E5102299123360097A939 /* YandexInterestial.swift */; };
 		A12E5106299124330097A939 /* YandexMobileAdsPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A12E5105299124330097A939 /* YandexMobileAdsPackage */; };
 		A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */; };
@@ -31,7 +32,6 @@
 		A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */; };
 		A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */; };
 		A1486ACB292CC847005AB2F0 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */; };
-		A161E3E729926026005D12A8 /* YandexMobileAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A161E3E529925F84005D12A8 /* YandexMobileAdsBundle.bundle */; };
 		A177DC01294AD9C5001D79EA /* GameStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC00294AD9C5001D79EA /* GameStatsView.swift */; };
 		A177DC03294AED2D001D79EA /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC02294AED2D001D79EA /* MenuView.swift */; };
 		A177DC05294AF23A001D79EA /* DismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC04294AF23A001D79EA /* DismissButtonView.swift */; };
@@ -60,6 +60,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A1124EC4299DCFC2001E306F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A1124EC5299DD92E001E306F /* YandexMobileAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YandexMobileAdsBundle.bundle; sourceTree = "<group>"; };
 		A12E5102299123360097A939 /* YandexInterestial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexInterestial.swift; sourceTree = "<group>"; };
 		A1486A8F292C7277005AB2F0 /* SquardleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquardleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquardleUIApp.swift; sourceTree = "<group>"; };
@@ -84,7 +86,6 @@
 		A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyModel.swift; sourceTree = "<group>"; };
 		A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyView.swift; sourceTree = "<group>"; };
 		A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
-		A161E3E529925F84005D12A8 /* YandexMobileAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YandexMobileAdsBundle.bundle; sourceTree = "<group>"; };
 		A177DC00294AD9C5001D79EA /* GameStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsView.swift; sourceTree = "<group>"; };
 		A177DC02294AED2D001D79EA /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A177DC04294AF23A001D79EA /* DismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonView.swift; sourceTree = "<group>"; };
@@ -135,7 +136,7 @@
 		A1486A86292C7277005AB2F0 = {
 			isa = PBXGroup;
 			children = (
-				A161E3E529925F84005D12A8 /* YandexMobileAdsBundle.bundle */,
+				A1124EC5299DD92E001E306F /* YandexMobileAdsBundle.bundle */,
 				A1486A91292C7277005AB2F0 /* SquardleUI */,
 				A1486A90292C7277005AB2F0 /* Products */,
 			);
@@ -152,6 +153,7 @@
 		A1486A91292C7277005AB2F0 /* SquardleUI */ = {
 			isa = PBXGroup;
 			children = (
+				A1124EC4299DCFC2001E306F /* Info.plist */,
 				A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */,
 				A177DC06294AFB8D001D79EA /* Sounds */,
 				A1486AA1292C7326005AB2F0 /* Views */,
@@ -348,7 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A161E3E729926026005D12A8 /* YandexMobileAdsBundle.bundle in Resources */,
+				A1124EC6299DD92E001E306F /* YandexMobileAdsBundle.bundle in Resources */,
 				A1486A9A292C7277005AB2F0 /* Preview Assets.xcassets in Resources */,
 				A177DC0C294AFB8D001D79EA /* disabled.wav in Resources */,
 				A1486A97292C7277005AB2F0 /* Assets.xcassets in Resources */,
@@ -543,11 +545,15 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Helps Squaredle to suggest personal ads to you";
+				INFOPLIST_FILE = SquardleUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Шесть Слов";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.word-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Для показа персонализированных предложений";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -579,11 +585,15 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Helps Squaredle to suggest personal ads to you";
+				INFOPLIST_FILE = SquardleUI/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Шесть Слов";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.word-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Для показа персонализированных предложений";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
