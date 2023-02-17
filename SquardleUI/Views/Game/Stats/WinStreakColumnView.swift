@@ -24,7 +24,7 @@ struct WinStreakColumnView: View {
             return .yellow
         }
         
-        if value == bestStreak {
+        if value >= bestStreak {
             return .green
         }
         
@@ -37,6 +37,7 @@ struct WinStreakColumnView: View {
                 .fill(color)
                 .frame(height: height * heightRatio)
                 .cornerRadius(5)
+                .animation(.spring().delay(0.05 * Double(index)), value: value)
             
             Text("\(value)")
                 .foregroundColor(color)

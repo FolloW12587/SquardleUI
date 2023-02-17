@@ -16,7 +16,7 @@ class GameModel: ObservableObject, Identifiable {
     var keyboard: KeyboardModel
     var guiModel: GameGUIModel
     
-    var guessesLeft: Int = 10 {
+    var guessesLeft: Int = 9 {
         didSet {
             guiModel.guessesLeft = guessesLeft
         }

@@ -23,7 +23,8 @@ struct WinStreakView: View {
                 Spacer()
                 VStack{
                     Text("Текущая")
-                    Text("\(currentStreak)")
+                    Color.clear
+                        .modifier(AnimatableNumber(num: CGFloat(currentStreak)))
                         .font(.title.bold())
                 }
                 
@@ -32,7 +33,8 @@ struct WinStreakView: View {
                 VStack{
                     Text("Лучшая")
                     HStack(spacing: 0) {
-                        Text("\(bestStreak)")
+                        Color.clear
+                            .modifier(AnimatableNumber(num: CGFloat(bestStreak)))
                             .font(.title.bold())
                         Image(systemName: "flame.fill")
                             .foregroundColor(.orange)

@@ -13,14 +13,8 @@ struct AsymetricRectangleView: View {
     var rightColor: Color = .red
     
     var body: some View {
-        Rectangle()
-            .fill(
-                LinearGradient(gradient: Gradient(stops: [
-                    Gradient.Stop(color: leftColor, location: stopsAt),
-                    Gradient.Stop(color: rightColor, location: stopsAt)
-                ]), startPoint: .leading, endPoint: .trailing)
-            )
-            .cornerRadius(10)
+        Color.clear
+            .modifier(AnimatableGradient(leftColor: leftColor, rightColor: rightColor, stopsAt: stopsAt))
     }
 }
 

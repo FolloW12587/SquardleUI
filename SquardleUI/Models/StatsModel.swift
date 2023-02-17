@@ -132,10 +132,10 @@ extension StatsModel{
     static var testStats = StatsModel(
         isNotFirstLaunch: true,
         hasActiveGame: true,
-        totalWins: 7,
-        totalGames: 9,
+        totalWins: 38,
+        totalGames: 47,
         currentStreak: 2,
-        bestStreak: 4,
-        streaks: [4,1,2]
+        bestStreak: 7,
+        streaks: [4,1,4,3,6,7,2,4,2]
     )
 }

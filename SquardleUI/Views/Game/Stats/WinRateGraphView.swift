@@ -16,10 +16,12 @@ struct WinRateGraphView: View {
     var body: some View {
         VStack{
             HStack{
-                Text(String(format: "%.2f%%", winRate * 100))
+                Color.clear
+                    .modifier(AnimatableRateNumber(rate: CGFloat(winRate)))
                     .foregroundColor(.green)
                 Spacer()
-                Text(String(format: "%.2f%%", loseRate * 100))
+                Color.clear
+                    .modifier(AnimatableRateNumber(rate: CGFloat(loseRate)))
                     .foregroundColor(.red)
             }
             
@@ -27,10 +29,12 @@ struct WinRateGraphView: View {
                 .frame(height: 10)
             
             HStack{
-                Text("Выиграно: \(wins)")
+                Color.clear
+                    .modifier(AnimatableNumber(num: CGFloat(wins), preText: "Выиграно: "))
                     .foregroundColor(.green)
                 Spacer()
-                Text("Проиграно: \(loses)")
+                Color.clear
+                    .modifier(AnimatableNumber(num: CGFloat(wins), preText: "Проиграно: "))
                     .foregroundColor(.red)
             }
         }

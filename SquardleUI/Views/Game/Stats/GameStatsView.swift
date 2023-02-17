@@ -10,6 +10,7 @@ import SwiftUI
 struct GameStatsView: View {
     @EnvironmentObject var stats: StatsModel
     var dismissAction: (() -> ())? = nil
+    @State var isAnimating = true
     
     var body: some View {
         ZStack {
@@ -26,16 +27,21 @@ struct GameStatsView: View {
                     .padding(.bottom)
                 
                 if stats.totalGames > 0 {
-                    WinRateView(wins: stats.totalWins, loses: stats.totalLoses, winRate: stats.winRate, loseRate: stats.loseRate)
+                    WinRateView(wins: isAnimating ? 0 : stats.totalWins, loses: isAnimating ? 0 : stats.totalLoses, winRate: isAnimating ? 0.5 : stats.winRate, loseRate: isAnimating ? 0.5 : stats.loseRate)
                         .padding(.bottom)
                     
-                    WinStreakView(bestStreak: stats.bestStreak, currentStreak: stats.currentStreak, streaks: stats.streaks)
+                    WinStreakView(bestStreak: isAnimating ? 1 : stats.bestStreak, currentStreak: isAnimating ? 0 : stats.currentStreak, streaks: isAnimating ? Array(repeating: 0, count: stats.streaks.count) : stats.streaks)
                 } else {
                     Text("Сыграй больше игр чтобы тут появилась статистика о твоих победах и поражениях!")
                 }
                 Spacer()
             }
             .padding()
+        }
+        .onAppear{
+            withAnimation {
+                isAnimating = false
+            }
         }
     }
 }

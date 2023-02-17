@@ -17,7 +17,8 @@ struct WinRateView: View {
         VStack(spacing: 10){
             VStack{
                 Text("Сыграно")
-                Text("\(wins + loses)")
+                Color.clear
+                    .modifier(AnimatableNumber(num: CGFloat(wins + loses)))
                     .font(.title.bold())
             }
             
