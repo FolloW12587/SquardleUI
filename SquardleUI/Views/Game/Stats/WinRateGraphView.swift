@@ -34,7 +34,7 @@ struct WinRateGraphView: View {
                     .foregroundColor(.green)
                 Spacer()
                 Color.clear
-                    .modifier(AnimatableNumber(num: CGFloat(wins), preText: "Проиграно: "))
+                    .modifier(AnimatableNumber(num: CGFloat(loses), preText: "Проиграно: "))
                     .foregroundColor(.red)
             }
         }
