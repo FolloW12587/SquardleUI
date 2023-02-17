@@ -29,6 +29,7 @@ struct GameView: View {
                 SubmitButtonView(guiModel: gameModel.guiModel, title: "ВВОД", action: gameModel.submitWord)
                 .padding(.horizontal, 10)
             }
+            .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
             
             if gameModel.isGameOver || gameModel.isGameWon {
                 GameEndView(isGameWon: gameModel.isGameWon) {

@@ -143,6 +143,7 @@ struct RulesView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
         }
         .padding(.horizontal)
         .background(ThemeModel.main.backgroundColor)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameStatsView: View {
     @EnvironmentObject var stats: StatsModel
+//    var stats = StatsModel.testStats
     var dismissAction: (() -> ())? = nil
     @State var isAnimating = true
     
@@ -34,9 +35,12 @@ struct GameStatsView: View {
                 } else {
                     Text("Сыграй больше игр чтобы тут появилась статистика о твоих победах и поражениях!")
                 }
-                Spacer()
+                if UIDevice.current.userInterfaceIdiom == .phone {
+                    Spacer()
+                }
             }
             .padding()
+            .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
         }
         .onAppear{
             withAnimation {
