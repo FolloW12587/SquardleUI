@@ -17,6 +17,17 @@
 		A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED5299F12D5001E306F /* AnimatableGradientLine.swift */; };
 		A1124ED8299F1334001E306F /* AnimatableNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED7299F1334001E306F /* AnimatableNumber.swift */; };
 		A1124EDA299F154D001E306F /* AnimatableRateNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED9299F154D001E306F /* AnimatableRateNumber.swift */; };
+		A11BF03029A2148D004D45AD /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF02F29A2148D004D45AD /* TutorialView.swift */; };
+		A11BF03229A2153D004D45AD /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03129A2153D004D45AD /* TutorialModel.swift */; };
+		A11BF03429A216E5004D45AD /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03329A216E5004D45AD /* FirstView.swift */; };
+		A11BF03629A2188F004D45AD /* TutorialNextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03529A2188F004D45AD /* TutorialNextButtonView.swift */; };
+		A11BF03829A21D79004D45AD /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03729A21D79004D45AD /* SecondView.swift */; };
+		A11BF03A29A2284D004D45AD /* ThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03929A2284D004D45AD /* ThirdView.swift */; };
+		A11BF03C29A22D8D004D45AD /* FourthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03B29A22D8D004D45AD /* FourthView.swift */; };
+		A11BF03E29A22F59004D45AD /* FifthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03D29A22F59004D45AD /* FifthView.swift */; };
+		A11BF04029A2317F004D45AD /* SixthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03F29A2317F004D45AD /* SixthView.swift */; };
+		A11BF04229A23F61004D45AD /* SeventhView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF04129A23F61004D45AD /* SeventhView.swift */; };
+		A11BF04429A24778004D45AD /* EightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF04329A24778004D45AD /* EightView.swift */; };
 		A12E5103299123360097A939 /* YandexInterestial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E5102299123360097A939 /* YandexInterestial.swift */; };
 		A12E5106299124330097A939 /* YandexMobileAdsPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A12E5105299124330097A939 /* YandexMobileAdsPackage */; };
 		A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */; };
@@ -80,6 +91,17 @@
 		A1124ED5299F12D5001E306F /* AnimatableGradientLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableGradientLine.swift; sourceTree = "<group>"; };
 		A1124ED7299F1334001E306F /* AnimatableNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNumber.swift; sourceTree = "<group>"; };
 		A1124ED9299F154D001E306F /* AnimatableRateNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableRateNumber.swift; sourceTree = "<group>"; };
+		A11BF02F29A2148D004D45AD /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		A11BF03129A2153D004D45AD /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
+		A11BF03329A216E5004D45AD /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		A11BF03529A2188F004D45AD /* TutorialNextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialNextButtonView.swift; sourceTree = "<group>"; };
+		A11BF03729A21D79004D45AD /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
+		A11BF03929A2284D004D45AD /* ThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdView.swift; sourceTree = "<group>"; };
+		A11BF03B29A22D8D004D45AD /* FourthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthView.swift; sourceTree = "<group>"; };
+		A11BF03D29A22F59004D45AD /* FifthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthView.swift; sourceTree = "<group>"; };
+		A11BF03F29A2317F004D45AD /* SixthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthView.swift; sourceTree = "<group>"; };
+		A11BF04129A23F61004D45AD /* SeventhView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhView.swift; sourceTree = "<group>"; };
+		A11BF04329A24778004D45AD /* EightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightView.swift; sourceTree = "<group>"; };
 		A12E5102299123360097A939 /* YandexInterestial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexInterestial.swift; sourceTree = "<group>"; };
 		A1486A8F292C7277005AB2F0 /* SquardleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquardleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquardleUIApp.swift; sourceTree = "<group>"; };
@@ -166,6 +188,23 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		A11BF02C29A2133C004D45AD /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				A11BF02F29A2148D004D45AD /* TutorialView.swift */,
+				A11BF03329A216E5004D45AD /* FirstView.swift */,
+				A11BF03729A21D79004D45AD /* SecondView.swift */,
+				A11BF03929A2284D004D45AD /* ThirdView.swift */,
+				A11BF03B29A22D8D004D45AD /* FourthView.swift */,
+				A11BF03D29A22F59004D45AD /* FifthView.swift */,
+				A11BF03F29A2317F004D45AD /* SixthView.swift */,
+				A11BF04129A23F61004D45AD /* SeventhView.swift */,
+				A11BF04329A24778004D45AD /* EightView.swift */,
+				A11BF03529A2188F004D45AD /* TutorialNextButtonView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		A12E5101299122F70097A939 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +269,7 @@
 				A1486AA8292C7766005AB2F0 /* StatsModel.swift */,
 				A1486AAF292C7E21005AB2F0 /* TileModel.swift */,
 				A1486AC0292CB8F0005AB2F0 /* ThemeModel.swift */,
+				A11BF03129A2153D004D45AD /* TutorialModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,6 +298,7 @@
 		A1486AA5292C76FD005AB2F0 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				A11BF02C29A2133C004D45AD /* Tutorial */,
 				A1C33E21293769E800D7B618 /* Rules */,
 				A1124EC9299E1EE3001E306F /* Stats */,
 				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
@@ -413,13 +454,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A11BF03029A2148D004D45AD /* TutorialView.swift in Sources */,
 				A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */,
 				A1486AC5292CBA9E005AB2F0 /* KeyboardModel.swift in Sources */,
+				A11BF03829A21D79004D45AD /* SecondView.swift in Sources */,
+				A11BF03229A2153D004D45AD /* TutorialModel.swift in Sources */,
 				A1486AB8292C8689005AB2F0 /* String - extensions.swift in Sources */,
 				A1124ED3299E41DB001E306F /* WinStreakColumnView.swift in Sources */,
 				A1486A95292C7277005AB2F0 /* ContentView.swift in Sources */,
 				A1486ACB292CC847005AB2F0 /* SubmitButtonView.swift in Sources */,
 				A1486ABF292CB3B7005AB2F0 /* BoardView.swift in Sources */,
+				A11BF03A29A2284D004D45AD /* ThirdView.swift in Sources */,
 				A1486AC3292CBA89005AB2F0 /* KeyboardView.swift in Sources */,
 				A1124EDA299F154D001E306F /* AnimatableRateNumber.swift in Sources */,
 				A1C33E202934A4F900D7B618 /* GameGUIModel.swift in Sources */,
@@ -434,6 +479,7 @@
 				A1486AB2292C80ED005AB2F0 /* TileView.swift in Sources */,
 				A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */,
 				A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */,
+				A11BF04429A24778004D45AD /* EightView.swift in Sources */,
 				A177DC05294AF23A001D79EA /* DismissButtonView.swift in Sources */,
 				A1124ECD299E345B001E306F /* WinStreakGraphView.swift in Sources */,
 				A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */,
@@ -445,21 +491,27 @@
 				A1C33E18292F1D2F00D7B618 /* HorizontalArrowLineView.swift in Sources */,
 				A1124EC8299E0EDE001E306F /* AsymetricRectangleView.swift in Sources */,
 				A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */,
+				A11BF04229A23F61004D45AD /* SeventhView.swift in Sources */,
 				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
 				A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */,
 				A1C33E1A292F1D5100D7B618 /* VerticalArrowLineView.swift in Sources */,
+				A11BF03C29A22D8D004D45AD /* FourthView.swift in Sources */,
 				A1C33E2B293A05FA00D7B618 /* GameEndView.swift in Sources */,
 				A1486AA4292C7464005AB2F0 /* MenuButton.swift in Sources */,
 				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
 				A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */,
+				A11BF04029A2317F004D45AD /* SixthView.swift in Sources */,
 				A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */,
 				A1124ED8299F1334001E306F /* AnimatableNumber.swift in Sources */,
 				A12E5103299123360097A939 /* YandexInterestial.swift in Sources */,
 				A177DC01294AD9C5001D79EA /* GameStatsView.swift in Sources */,
 				A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */,
+				A11BF03429A216E5004D45AD /* FirstView.swift in Sources */,
 				A1486ABD292C8824005AB2F0 /* GameView.swift in Sources */,
 				A1F7C412293ED62800B8D177 /* GameWrapperView.swift in Sources */,
+				A11BF03629A2188F004D45AD /* TutorialNextButtonView.swift in Sources */,
 				A1486AB6292C865A005AB2F0 /* DictionaryModel.swift in Sources */,
+				A11BF03E29A22F59004D45AD /* FifthView.swift in Sources */,
 				A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

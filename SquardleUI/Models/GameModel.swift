@@ -57,6 +57,18 @@ class GameModel: ObservableObject, Identifiable {
         print("Gamemodel \(id) created")
     }
     
+    init(boardModel: BoardModel, words: [String]) {
+        id = UUID()
+        board = boardModel
+        self.words = words
+        keyboard = KeyboardModel()
+        guiModel = GameGUIModel()
+        
+        highlightGuessingWay()
+        updateDistinctCharactersExists()
+        print("Gamemodel \(id) created")
+    }
+    
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)

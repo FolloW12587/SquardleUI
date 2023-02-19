@@ -22,7 +22,8 @@ class BoardModel: ObservableObject, Identifiable, Codable {
         print("BoardModel \(id) destroyed")
     }
     
-    static let example = BoardModel(words: ["КОРМА", "БАТЫР", "НОРКА", "КАБАН", "РОТОР", "АОРТА"])
+    static let exampleWords = ["КОРМА", "БАТЫР", "НОРКА", "КАБАН", "РОТОР", "АОРТА"]
+    static let example = BoardModel(words: BoardModel.exampleWords)
     
     func createTiles(words: [String]){
         for i in 0..<3 {

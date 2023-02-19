@@ -30,6 +30,11 @@ struct ContentView: View {
         }
         .environmentObject(stats)
         .tint(Color.black)
+        .overlay{
+            if !stats.didLaunchBefore{
+                TutorialView (dismissClosure: stats.firstLaunch)
+            }
+        }
     }
     
     func dismissOption() {

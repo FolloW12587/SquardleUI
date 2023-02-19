@@ -9,7 +9,7 @@ import Foundation
 
 
 class StatsModel: ObservableObject {
-    var isNotFirstLaunch: Bool
+    @Published var didLaunchBefore: Bool
     @Published var hasActiveGame: Bool {
         didSet {
             if !hasActiveGame {
@@ -47,8 +47,8 @@ class StatsModel: ObservableObject {
     
     init(){
         let defaults = UserDefaults.standard
-
-        isNotFirstLaunch = defaults.bool(forKey: "isNotFirstLaunch")
+        
+        didLaunchBefore = defaults.bool(forKey: "didLaunchBefore")
         hasActiveGame = defaults.bool(forKey: "hasActiveGame")
         totalWins = defaults.integer(forKey: "totalWins")
         totalGames = defaults.integer(forKey: "totalGames")
@@ -57,8 +57,8 @@ class StatsModel: ObservableObject {
         streaks = defaults.array(forKey: "streaks") as? [Int] ?? []
     }
     
-    init(isNotFirstLaunch: Bool, hasActiveGame: Bool, totalWins: Int, totalGames: Int, currentStreak: Int, bestStreak: Int, streaks: [Int]) {
-        self.isNotFirstLaunch = isNotFirstLaunch
+    init(didLaunchBefore: Bool, hasActiveGame: Bool, totalWins: Int, totalGames: Int, currentStreak: Int, bestStreak: Int, streaks: [Int]) {
+        self.didLaunchBefore = didLaunchBefore
         self.hasActiveGame = hasActiveGame
         self.totalWins = totalWins
         self.totalGames = totalGames
@@ -70,7 +70,7 @@ class StatsModel: ObservableObject {
     func save(){
         let defaults = UserDefaults.standard
         
-        defaults.set(isNotFirstLaunch, forKey: "isNotFirstLaunch")
+        defaults.set(didLaunchBefore, forKey: "didLaunchBefore")
         defaults.set(hasActiveGame, forKey: "hasActiveGame")
         defaults.set(totalWins, forKey: "totalWins")
         defaults.set(totalGames, forKey: "totalGames")
@@ -95,6 +95,11 @@ class StatsModel: ObservableObject {
         totalGames += 1
         currentStreak = 0
         
+        save()
+    }
+    
+    func firstLaunch() {
+        didLaunchBefore = true
         save()
     }
     
@@ -130,7 +135,7 @@ class StatsModel: ObservableObject {
 
 extension StatsModel{
     static var testStats = StatsModel(
-        isNotFirstLaunch: true,
+        didLaunchBefore: true,
         hasActiveGame: true,
         totalWins: 38,
         totalGames: 47,

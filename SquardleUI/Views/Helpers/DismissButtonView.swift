@@ -14,7 +14,7 @@ struct DismissButtonView: View {
         Button(action: dismissAction) {
             HStack(spacing: 0) {
                 Image(systemName: "chevron.left")
-                Text("Back")
+                Text("Назад")
                 Spacer()
             }
         }

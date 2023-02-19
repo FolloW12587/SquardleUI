@@ -21,6 +21,8 @@ struct HeaderView: View {
 
             Spacer()
             Text("\(guiModel.guessesLeft)")
+                .foregroundColor(getGuessesLeftColor())
+                .bold()
             Spacer()
             
             Button {
@@ -39,10 +41,22 @@ struct HeaderView: View {
             GameStatsView()
         }
     }
+    
+    func getGuessesLeftColor() -> Color {
+        if guiModel.guessesLeft < 3 {
+            return .red
+        }
+        
+        if guiModel.guessesLeft < 6 {
+            return .orange
+        }
+        
+        return ThemeModel.main.mainForegroundColor
+    }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(guiModel: GameGUIModel()){}
+        HeaderView(guiModel: GameGUIModel(guessesLeft: 3)){}
     }
 }
