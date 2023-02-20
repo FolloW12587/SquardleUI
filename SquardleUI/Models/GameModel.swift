@@ -50,7 +50,7 @@ class GameModel: ObservableObject, Identifiable {
         words = dictionary.generateWords()
         board = BoardModel(words: words)
         keyboard = KeyboardModel()
-        guiModel = GameGUIModel()
+        guiModel = GameGUIModel(guessesLeft: guessesLeft)
         
         highlightGuessingWay()
         updateDistinctCharactersExists()
@@ -62,7 +62,7 @@ class GameModel: ObservableObject, Identifiable {
         board = boardModel
         self.words = words
         keyboard = KeyboardModel()
-        guiModel = GameGUIModel()
+        guiModel = GameGUIModel(guessesLeft: guessesLeft)
         
         highlightGuessingWay()
         updateDistinctCharactersExists()

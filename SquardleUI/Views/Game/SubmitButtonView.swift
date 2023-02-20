@@ -41,6 +41,6 @@ struct SubmitButtonView: View {
 
 struct SubmitButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        SubmitButtonView(guiModel: GameGUIModel(), title: "ВВОД"){ }
+        SubmitButtonView(guiModel: GameGUIModel(guessesLeft: 4), title: "ВВОД"){ }
     }
 }
