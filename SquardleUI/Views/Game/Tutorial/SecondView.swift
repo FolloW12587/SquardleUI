@@ -21,7 +21,7 @@ struct SecondView: View {
                     .padding(.leading)
                 
                 Spacer()
-                Text("На поле загададано 6 слов. Чтобы их отгадать вводите слова из 5 букв и получайте подсказки.")
+                Text("На поле загададано 6 слов. Чтобы их отгадать, вводите слова из 5 букв и получайте подсказки.")
                     .font(.title3)
                     .multilineTextAlignment(.center)
                     .padding()
