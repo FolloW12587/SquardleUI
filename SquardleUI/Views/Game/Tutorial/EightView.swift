@@ -13,14 +13,12 @@ struct EightView: View {
     
     var body: some View {
         ZStack{
-            ThemeModel.main.backgroundColor.ignoresSafeArea()
-            
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
                     .tint(ThemeModel.main.mainForegroundColor)
                     .padding(.leading)
                 Spacer()
-                Text("Это все, что вам необходимо знать!")
+                Text("Это все, что Вам необходимо знать!")
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
@@ -31,6 +29,7 @@ struct EightView: View {
                 TutorialNextButtonView()
             }
         }
+        .contentShape(Rectangle())
         .onTapGesture(perform: nextViewClosure)
     }
 }

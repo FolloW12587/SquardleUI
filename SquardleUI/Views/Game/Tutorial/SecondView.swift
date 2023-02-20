@@ -14,8 +14,6 @@ struct SecondView: View {
     
     var body: some View {
         ZStack{
-            ThemeModel.main.backgroundColor.ignoresSafeArea()
-            
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
                     .tint(ThemeModel.main.mainForegroundColor)
@@ -42,6 +40,7 @@ struct SecondView: View {
         .onAppear{
             startAnimation()
         }
+        .contentShape(Rectangle())
         .onTapGesture(perform: nextViewClosure)
     }
     

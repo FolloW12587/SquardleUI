@@ -13,8 +13,6 @@ struct ThirdView: View {
     
     var body: some View {
         ZStack{
-            ThemeModel.main.backgroundColor.ignoresSafeArea()
-            
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
                     .tint(ThemeModel.main.mainForegroundColor)
@@ -28,7 +26,7 @@ struct ThirdView: View {
 
                 GeometryReader { proxy in
                     VStack(alignment: .leading){
-                        HintRuleView(state: .exists, width: proxy.size.width / 5, text: " - буквы \"А\" нет ни в колонке ни в строке, но она есть как минимум в одном из 6 загаданных слов.")
+                        HintRuleView(state: .exists, width: proxy.size.width / 5, text: " - буквы \"А\" нет ни в колонке, ни в строке, но она есть как минимум в одном из 6 загаданных слов.")
                         
                         HintRuleView(state: .notExists, width: proxy.size.width / 5, text: " - буквы \"А\" нет ни в одном из 6 загаданных слов.")
     
@@ -37,7 +35,7 @@ struct ThirdView: View {
                             TileView(tileModel: TileModel.exampleOpened)
                                 .frame(width: proxy.size.width / 5)
                                 .disabled(true)
-                            Text("Если вся клетка стала такой, то вы молодец и отгадали букву! Цель игры состоит в том, чтобы все клетки стали такими!")
+                            Text("Если вся клетка стала такой, то Вы молодец и отгадали букву! Цель игры состоит в том, чтобы все клетки стали такими!")
                         }
                     }
                     .frame(width: proxy.size.width)
@@ -50,6 +48,7 @@ struct ThirdView: View {
                 TutorialNextButtonView()
             }
         }
+        .contentShape(Rectangle())
         .onTapGesture(perform: nextViewClosure)
     }
 }

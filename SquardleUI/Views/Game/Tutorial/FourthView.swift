@@ -10,11 +10,10 @@ import SwiftUI
 struct FourthView: View {
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
+    @State private var totalHeight = CGFloat(100)
     
     var body: some View {
         ZStack{
-            ThemeModel.main.backgroundColor.ignoresSafeArea()
-            
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
                     .tint(ThemeModel.main.mainForegroundColor)
@@ -24,31 +23,40 @@ struct FourthView: View {
                 Text("Так и со стрелками:")
                     .font(.title2)
                     .multilineTextAlignment(.center)
-                    .padding()
 
                 GeometryReader { proxy in
                     VStack(alignment: .leading){
-                        HintRuleView(state: .existsInRowOrColumn(inRowCount: 1, inColumnCount: 0), width: proxy.size.width / 5, text: " - буквы \"А\" нет ни в этой клетке ни в колонке, но есть как МИНИМУМ одна где-то в этой строке. Она также может указывать на уже открытую букву.")
+                        HintRuleView(state: .existsInRowOrColumn(inRowCount: 1, inColumnCount: 0), width: proxy.size.width / 6, text: " - буквы \"А\" нет ни в этой клетке, ни в колонке, но есть как МИНИМУМ одна где-то в этой строке. Подсказка также может указывать на уже открытую букву.")
 
-                        HintRuleView(state: .existsInRowOrColumn(inRowCount: 0, inColumnCount: 1), width: proxy.size.width / 5, text: " - буквы \"А\" нет ни в этой клетке ни в строке, но есть как МИНИМУМ одна где-то в этой колонке. Она также может указывать на уже открытую букву.")
+                        HintRuleView(state: .existsInRowOrColumn(inRowCount: 0, inColumnCount: 1), width: proxy.size.width / 6, text: " - буквы \"А\" нет ни в этой клетке, ни в строке, но есть как МИНИМУМ одна где-то в этой колонке. Подсказка также может указывать на уже открытую букву.")
 
 
-                        HintRuleView(state: .existsInRowOrColumn(inRowCount: 1, inColumnCount: 1), width: proxy.size.width / 5, text: " - буквы \"А\" нет в этой клетке, но есть как минимум одна где-то в этой колонке, а также минимум одна в этой строке.")
+                        HintRuleView(state: .existsInRowOrColumn(inRowCount: 1, inColumnCount: 1), width: proxy.size.width / 6, text: " - буквы \"А\" нет в этой клетке, но есть как минимум одна где-то в этой колонке, а также минимум одна в этой строке.")
                     }
                     .frame(width: proxy.size.width)
                     .fixedSize()
+                    .background(GeometryReader {gp -> Color in
+                        DispatchQueue.main.async {
+                            // update on next cycle with calculated height of ZStack !!!
+                            self.totalHeight = gp.size.height
+                        }
+                        return Color.clear
+                    })
                 }
                 .padding()
-                .scaledToFit()
+                .frame(height: totalHeight)
+                
+                Spacer()
                 
                 Text("Также есть большое множество комбинаций разного количества пар стрелок. Например, две пары стрелок в горизотальной плоскости будут означать, что есть минимум две буквы по горизонтали.")
-                    .font(.title2)
+                    .font(.title3)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding([.leading, .top, .trailing])
                 Spacer()
                 TutorialNextButtonView()
             }
         }
+        .contentShape(Rectangle())
         .onTapGesture(perform: nextViewClosure)
     }
 }

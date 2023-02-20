@@ -25,8 +25,7 @@ struct MenuView: View {
                 }
                 
                 Image("logo")
-                    .animation(.spring(), value: showContent)
-                
+//                    .animation(.spring(), value: showContent)
                 
                 if showContent{
                     Spacer()
@@ -40,7 +39,7 @@ struct MenuView: View {
         .ignoresSafeArea()
         .environmentObject(stats)
         .onAppear{
-            withAnimation{
+            withAnimation(.easeInOut(duration: 1).delay(0.5)){
                 showContent = true
             }
         }

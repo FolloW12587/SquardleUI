@@ -14,8 +14,6 @@ struct SixthView: View {
     
     var body: some View {
         ZStack{
-            ThemeModel.main.backgroundColor.ignoresSafeArea()
-            
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
                     .tint(ThemeModel.main.mainForegroundColor)
@@ -55,6 +53,7 @@ struct SixthView: View {
                 TutorialNextButtonView()
             }
         }
+        .contentShape(Rectangle())
         .onTapGesture(perform: nextViewClosure)
     }
 }
