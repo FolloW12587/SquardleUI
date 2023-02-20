@@ -11,6 +11,7 @@ struct SecondView: View {
     @StateObject var gameModel = GameModel(boardModel: BoardModel(words: BoardModel.exampleWords), words: BoardModel.exampleWords)
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
+    @State private var totalHeight = CGFloat(300)
     
     var body: some View {
         ZStack{
@@ -21,15 +22,19 @@ struct SecondView: View {
                 
                 Spacer()
                 Text("На поле загададано 6 слов. Чтобы их отгадать вводите слова из 5 букв и получайте подсказки.")
-                    .font(.title2)
+                    .font(.title3)
                     .multilineTextAlignment(.center)
                     .padding()
                 
-                BoardView(boardModel: gameModel.board)
-                    .disabled(true)
+                HStack {
+                    Spacer()
+                    BoardView(boardModel: gameModel.board)
+                        .disabled(true)
+                    Spacer()
+                }
+                Spacer()
                 
-                Text("Слово одновременно вводится в колонку и столбец. Затем оно автоматически сменится на 3 колонку и 3 столбец, затем на 5 и так по кругу. Текущие строки подсвечиваються.")
-                    .font(.title3)
+                Text("Первое слово одновременно вводится в колонку и столбец. Затем ввод автоматически сменится на 3 колонку и 3 столбец, затем на 5 и так по кругу. Текущие строки подсвечиваются.")
                     .multilineTextAlignment(.center)
                     .padding()
                 
