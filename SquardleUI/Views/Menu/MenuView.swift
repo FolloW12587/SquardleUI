@@ -36,7 +36,7 @@ struct MenuView: View {
                 
             }
         }
-        .tint(.black)
+        .tint(Color.primary)
         .ignoresSafeArea()
         .environmentObject(stats)
         .onAppear{

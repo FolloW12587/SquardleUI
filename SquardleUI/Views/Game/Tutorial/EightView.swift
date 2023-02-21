@@ -16,7 +16,7 @@ struct EightView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(theme.mainForegroundColor)
+                    .tint(Color.primary)
                     .padding(.leading)
                 Spacer()
                 Text("Это все, что Вам необходимо знать!")

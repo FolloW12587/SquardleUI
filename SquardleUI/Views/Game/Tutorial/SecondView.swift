@@ -18,7 +18,7 @@ struct SecondView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(theme.mainForegroundColor)
+                    .tint(Color.primary)
                     .padding(.leading)
                 
                 Spacer()

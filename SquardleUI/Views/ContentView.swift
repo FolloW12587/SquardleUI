@@ -30,17 +30,18 @@ struct ContentView: View {
                 GameStatsView(dismissAction: dismissOption)
             }
         }
-        .environmentObject(stats)
-        .environmentObject(theme)
-        .tint(Color.black)
-        .overlay{
-            if !stats.didLaunchBefore{
-                TutorialView (dismissClosure: stats.firstLaunch)
-            }
-        }
+        .tint(Color.primary)
         .onAppear{
             theme.switchTheme(scheme: colorScheme)
         }
+        .id(colorScheme)
+        .overlay{
+            if !stats.didLaunchBefore{
+                TutorialView(dismissClosure: stats.firstLaunch)
+            }
+        }
+        .environmentObject(stats)
+        .environmentObject(theme)
     }
     
     func dismissOption() {
