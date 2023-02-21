@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RulesView: View {
+    @EnvironmentObject var theme: ThemeModel
     var dismissAction: (() -> ())? = nil
     @State var showTutorial = false
     
@@ -67,7 +68,7 @@ struct RulesView: View {
             .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
         }
         .padding(.horizontal)
-        .background(ThemeModel.main.backgroundColor)
+        .background(theme.backgroundColor)
         .overlay {
             if showTutorial {
                 TutorialView {
@@ -90,7 +91,7 @@ struct RulesView: View {
                         .padding()
                         .foregroundColor(.white)
                         .background(Capsule()
-                            .fill(ThemeModel.main.tileOpenedBackgroundColor))
+                            .fill(theme.tileOpenedBackgroundColor))
                     Spacer()
                 }
             }
@@ -105,5 +106,6 @@ struct RulesView: View {
 struct RulesView_Previews: PreviewProvider {
     static var previews: some View {
         RulesView(){}
+            .environmentObject(ThemeModel())
     }
 }

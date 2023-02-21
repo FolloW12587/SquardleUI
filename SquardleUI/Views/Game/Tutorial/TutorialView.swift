@@ -9,11 +9,13 @@ import SwiftUI
 
 struct TutorialView: View {
     @StateObject var tutorialModel = TutorialModel()
+    @EnvironmentObject var theme: ThemeModel
     var dismissClosure: () -> ()
     
     var body: some View {
         ZStack {
-            ThemeModel.main.backgroundColor.ignoresSafeArea()
+            theme.backgroundColor.ignoresSafeArea()
+            
             ZStack{
                 switch tutorialModel.currentViewTab{
                 case .first:
@@ -44,5 +46,6 @@ struct TutorialView: View {
 struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
         TutorialView(){}
+            .environmentObject(ThemeModel())
     }
 }

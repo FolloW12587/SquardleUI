@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ThirdView: View {
+    @EnvironmentObject var theme: ThemeModel
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
     
@@ -15,7 +16,7 @@ struct ThirdView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(ThemeModel.main.mainForegroundColor)
+                    .tint(theme.mainForegroundColor)
                     .padding(.leading)
                 
                 Spacer()
@@ -56,5 +57,6 @@ struct ThirdView: View {
 struct ThirdView_Previews: PreviewProvider {
     static var previews: some View {
         ThirdView{} prevViewClosure: {}
+            .environmentObject(ThemeModel())
     }
 }

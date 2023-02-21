@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FourthView: View {
+    @EnvironmentObject var theme: ThemeModel
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
     @State private var totalHeight = CGFloat(100)
@@ -16,7 +17,7 @@ struct FourthView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(ThemeModel.main.mainForegroundColor)
+                    .tint(theme.mainForegroundColor)
                     .padding(.leading)
                 
                 Spacer()
@@ -64,5 +65,6 @@ struct FourthView: View {
 struct FourthView_Previews: PreviewProvider {
     static var previews: some View {
         FourthView{} prevViewClosure: {}
+            .environmentObject(ThemeModel())
     }
 }

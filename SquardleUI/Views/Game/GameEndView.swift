@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GameEndView: View {
+    @EnvironmentObject var theme: ThemeModel
     let isGameWon: Bool
     let homeAction: () -> ()
     let statsAction: () -> ()
@@ -15,7 +16,7 @@ struct GameEndView: View {
     
     var body: some View {
         ZStack {
-            ThemeModel.main.backgroundColor
+            theme.backgroundColor
             
             VStack {
                 Text(isGameWon ? "Победа!" : "Eще раз?")
@@ -39,7 +40,7 @@ struct GameEndView: View {
                     }
                     Spacer()
                 }
-                .foregroundColor(ThemeModel.main.mainForegroundColor)
+                .foregroundColor(theme.mainForegroundColor)
                 .font(.system(size: 50))
             }
         }
@@ -57,5 +58,6 @@ struct GameEndView_Previews: PreviewProvider {
         } statsAction: {
         } restartAction: {
         }
+        .environmentObject(ThemeModel())
     }
 }

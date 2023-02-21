@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EightView: View {
+    @EnvironmentObject var theme: ThemeModel
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
     
@@ -15,7 +16,7 @@ struct EightView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(ThemeModel.main.mainForegroundColor)
+                    .tint(theme.mainForegroundColor)
                     .padding(.leading)
                 Spacer()
                 Text("Это все, что Вам необходимо знать!")
@@ -37,5 +38,6 @@ struct EightView: View {
 struct EightView_Previews: PreviewProvider {
     static var previews: some View {
         EightView{} prevViewClosure: {}
+            .environmentObject(ThemeModel())
     }
 }

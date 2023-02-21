@@ -31,7 +31,7 @@ struct HeaderView: View {
                 Image(systemName: "questionmark.circle")
             }
         }
-        .foregroundColor(ThemeModel.main.mainForegroundColor)
+        .foregroundColor(Color.primary)
         .font(.system(size: 30))
         .padding(.horizontal, 25)
         .sheet(isPresented: $guiModel.areRulesPresented) {
@@ -51,7 +51,7 @@ struct HeaderView: View {
             return .orange
         }
         
-        return ThemeModel.main.mainForegroundColor
+        return Color.primary
     }
 }
 

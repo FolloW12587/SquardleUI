@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SixthView: View {
+    @EnvironmentObject var theme: ThemeModel
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
     @State private var totalHeight = CGFloat(100)
@@ -16,7 +17,7 @@ struct SixthView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(ThemeModel.main.mainForegroundColor)
+                    .tint(theme.mainForegroundColor)
                     .padding(.leading)
                 
                 Spacer()
@@ -24,7 +25,7 @@ struct SixthView: View {
                 Text("В ходе игры Вы будете получать много подсказок, и чтобы уместить их всех на экране, пришлось сделать их довольно маленькими. Чтобы увеличить подсказку, зажмите и подержите палец на ней пару сеукунд. Чтобы вернуть ее к исходному размеру нажмите на нее. Попробуйте ниже:")
                     .font(.title3)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(.horizontal)
                 
                 GeometryReader { proxy in
                     HStack {
@@ -47,7 +48,7 @@ struct SixthView: View {
                 Text("Также вы можете уменьшить подсказку, чтобы она Вас не отвлекала. Для этого нажмите на нее. Чтобы раскрыть скрытую подсказку, снова нажмите на нее.")
                     .font(.title3)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(.horizontal)
                 
                 Spacer()
                 TutorialNextButtonView()
@@ -61,5 +62,6 @@ struct SixthView: View {
 struct SixthView_Previews: PreviewProvider {
     static var previews: some View {
         SixthView{} prevViewClosure: {}
+            .environmentObject(ThemeModel())
     }
 }

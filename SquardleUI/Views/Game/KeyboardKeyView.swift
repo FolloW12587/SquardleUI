@@ -9,6 +9,7 @@ import SwiftUI
 
 struct KeyboardKeyView: View {
     @ObservedObject var keyModel: KeyboardKeyModel
+    @EnvironmentObject var theme: ThemeModel
     var tapAction: (KeyboardKeyModel) -> Void
     
     @State var isAnimating = false
@@ -25,7 +26,7 @@ struct KeyboardKeyView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(getBackgroundColor())
-        .foregroundColor(ThemeModel.main.mainForegroundColor)
+        .foregroundColor(theme.mainForegroundColor)
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(.black, lineWidth: 2)
@@ -44,11 +45,11 @@ struct KeyboardKeyView: View {
     func getBackgroundColor() -> Color {
         switch keyModel.state {
         case .def:
-            return ThemeModel.main.tileMainBackgroundColor
+            return theme.tileMainBackgroundColor
         case .exists:
-            return ThemeModel.main.mainColor
+            return theme.mainColor
         case .notExists:
-            return ThemeModel.main.notExistsColor
+            return theme.notExistsColor
         }
     }
     
@@ -75,5 +76,6 @@ struct KeyboardKeyView_Previews: PreviewProvider {
                 .frame(width: 70, height: 120)
                 .environmentObject(GameModel())
         }
+        .environmentObject(ThemeModel())
     }
 }

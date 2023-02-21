@@ -10,13 +10,14 @@ import SwiftUI
 struct GameView: View {
     @ObservedObject var gameModel: GameModel
     @EnvironmentObject var stats: StatsModel
+    @EnvironmentObject var theme: ThemeModel
     
     var dismissClosure: () -> ()
     var restartClosure: () -> ()
     
     var body: some View {
         ZStack {
-            ThemeModel.main.backgroundColor
+            theme.backgroundColor
                 .ignoresSafeArea()
             
             VStack {
@@ -82,5 +83,6 @@ struct GameView_Previews: PreviewProvider {
     static var previews: some View {
         GameView(gameModel: GameModel()){} restartClosure: {}
             .environmentObject(StatsModel())
+            .environmentObject(ThemeModel())
     }
 }

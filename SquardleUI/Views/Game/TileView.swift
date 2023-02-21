@@ -10,7 +10,7 @@ import SwiftUI
 struct TileView: View {
     @EnvironmentObject var gameModel: GameModel
     @ObservedObject var tileModel: TileModel
-    
+    @EnvironmentObject var theme: ThemeModel
     
     var body: some View {
         ZStack {
@@ -61,26 +61,26 @@ struct TileView: View {
     func getBackgroundColor() -> Color {
         switch tileModel.state {
         case .none:
-            return ThemeModel.main.tileMainBackgroundColor
+            return theme.tileMainBackgroundColor
         case .editting:
-            return ThemeModel.main.tileEdittingBackgroundColor
+            return theme.tileEdittingBackgroundColor
         case .opened:
-            return ThemeModel.main.tileOpenedBackgroundColor
+            return theme.tileOpenedBackgroundColor
         case .markedSure, .markedNotSure:
-            return ThemeModel.main.mainColor
+            return theme.mainColor
         }
     }
     
     func getForegroundColor() -> Color {
         if tileModel.tempCharacter != nil {
-            return ThemeModel.main.mainForegroundColor
+            return theme.mainForegroundColor
         } else if tileModel.state == .opened {
-            return ThemeModel.main.activeForegroundColor
+            return theme.activeForegroundColor
             
         } else if tileModel.markedCharacter != nil && tileModel.state == .markedSure{
-            return ThemeModel.main.mainForegroundColor
+            return theme.mainForegroundColor
         }
-        return ThemeModel.main.secondaryForegroundColor
+        return theme.secondaryForegroundColor
     }
 }
 
@@ -89,27 +89,23 @@ struct TileView_Previews: PreviewProvider {
         Group{
             TileView(tileModel: TileModel.example)
                 .frame(width: 200)
-                .environmentObject(GameModel())
             
 //            TileView(tileModel: TileModel.exampleOnGuessingWay)
 //                .frame(width: 200)
-//                .environmentObject(GameModel())
 //            
 //            TileView(tileModel: TileModel.exampleOpened)
 //                .frame(width: 200)
-//                .environmentObject(GameModel())
 //            
 //            TileView(tileModel: TileModel.exampleMarkedSure)
 //                .frame(width: 200)
-//                .environmentObject(GameModel())
 //            
 //            TileView(tileModel: TileModel.exampleEditting)
 //                .frame(width: 200)
-//                .environmentObject(GameModel())
             
             TileView(tileModel: TileModel.exampleWithHints)
                 .frame(width: 200)
-                .environmentObject(GameModel())
         }
+        .environmentObject(GameModel())
+        .environmentObject(ThemeModel())
     }
 }

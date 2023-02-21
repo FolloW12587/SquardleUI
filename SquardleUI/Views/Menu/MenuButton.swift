@@ -20,13 +20,15 @@ struct MenuButton: View {
 }
 
 struct MenuButtonStyle: ButtonStyle {
+    @EnvironmentObject var theme: ThemeModel
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(.white)
             .font(.system(size: 22, weight: .bold))
             .padding(10)
             .frame(minWidth: 200)
-            .background(ThemeModel.main.tileOpenedBackgroundColor)
+            .background(theme.tileOpenedBackgroundColor)
             .cornerRadius(20)
             .opacity(configuration.isPressed ? 0.5 : 1)
     }
@@ -35,5 +37,6 @@ struct MenuButtonStyle: ButtonStyle {
 struct MenuButton_Previews: PreviewProvider {
     static var previews: some View {
         MenuButton(title: "Menu Button"){}
+            .environmentObject(ThemeModel())
     }
 }

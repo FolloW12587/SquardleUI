@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SecondView: View {
     @StateObject var gameModel = GameModel(boardModel: BoardModel(words: BoardModel.exampleWords), words: BoardModel.exampleWords)
+    @EnvironmentObject var theme: ThemeModel
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
     @State private var totalHeight = CGFloat(300)
@@ -17,7 +18,7 @@ struct SecondView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(ThemeModel.main.mainForegroundColor)
+                    .tint(theme.mainForegroundColor)
                     .padding(.leading)
                 
                 Spacer()
@@ -79,5 +80,6 @@ struct SecondView: View {
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
         SecondView{} prevViewClosure: {}
+            .environmentObject(ThemeModel())
     }
 }

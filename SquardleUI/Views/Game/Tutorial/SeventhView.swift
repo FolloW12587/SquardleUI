@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SeventhView: View {
+    @EnvironmentObject var theme: ThemeModel
     var nextViewClosure: () -> ()
     var prevViewClosure: () -> ()
     @StateObject var tileModel = TileModel(character: "A", position: .zero)
@@ -17,7 +18,7 @@ struct SeventhView: View {
         ZStack{
             VStack {
                 DismissButtonView(dismissAction: prevViewClosure)
-                    .tint(ThemeModel.main.mainForegroundColor)
+                    .tint(theme.mainForegroundColor)
                     .padding(.leading)
                 
                 Spacer()
@@ -25,8 +26,7 @@ struct SeventhView: View {
                 Text("В процессе поиска решения Вы можете начать догадываться, какие буквы скрыты в некоторых клетках. Чтобы не держать это в голове, сделайте заметку. Нажмите на клетку. Она перейдет в режим редактирования. Затем нажмите на букву, которую Вы предполагаете.")
                     .font(.title3)
                     .multilineTextAlignment(.center)
-                    .padding()
-                
+                    .padding(.horizontal)
                 
                 
                 GeometryReader { proxy in
@@ -50,7 +50,7 @@ struct SeventhView: View {
                 Text("У заметок есть два режима, Вы можете их использовать как индикатор того, точно ли Вы уверены, что буква правильная, или нет. Чтобы изменить режим, дважды нажмите на клетку с заметкой.")
                     .font(.title3)
                     .multilineTextAlignment(.center)
-                    .padding()
+                    .padding(.horizontal)
                 
                 Text("Не забывайте, Вам все еще нужно открыть букву, даже если вы ее правильно отметили!")
                     .font(.title3)
@@ -124,5 +124,6 @@ struct SeventhView: View {
 struct SeventhView_Previews: PreviewProvider {
     static var previews: some View {
         SeventhView{} prevViewClosure: {}
+            .environmentObject(ThemeModel())
     }
 }

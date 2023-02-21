@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HintView: View {
     @ObservedObject var hintModel: HintModel
+    @EnvironmentObject var theme: ThemeModel
     let textCoef = 0.5
     let arrowsCoef = 0.25
 
@@ -115,36 +116,36 @@ struct HintView: View {
     func getBackgroundColor() -> Color {
         switch hintModel.state {
         case .notExists:
-            return ThemeModel.main.notExistsColor
+            return theme.notExistsColor
         case .exists:
-            return ThemeModel.main.existsColor
+            return theme.existsColor
         case .existsInRowOrColumn(inRowCount: let inRowCount, inColumnCount: let inColumnCount):
             if inRowCount == 0 {
-                return ThemeModel.main.existsInColumnColor
+                return theme.existsInColumnColor
             }
             if inColumnCount == 0 {
-                return ThemeModel.main.existsInRowColor
+                return theme.existsInRowColor
             }
             
-            return ThemeModel.main.existsInRowAndColumnColor
+            return theme.existsInRowAndColumnColor
         }
     }
     
     func getForegroundColor() -> Color {
         switch hintModel.state {
         case .notExists:
-            return ThemeModel.main.notExistsForegroundColor
+            return theme.notExistsForegroundColor
         case .exists:
-            return ThemeModel.main.existsForegroundColor
+            return theme.existsForegroundColor
         case .existsInRowOrColumn(inRowCount: let inRowCount, inColumnCount: let inColumnCount):
             if inRowCount == 0 {
-                return ThemeModel.main.existsInColumnForegroundColor
+                return theme.existsInColumnForegroundColor
             }
             if inColumnCount == 0 {
-                return ThemeModel.main.existsInRowForegroundColor
+                return theme.existsInRowForegroundColor
             }
             
-            return ThemeModel.main.existsInRowAndColumnForegroundColor
+            return theme.existsInRowAndColumnForegroundColor
         }
     }
 }
@@ -161,5 +162,6 @@ struct HintView_Previews: PreviewProvider {
             HintView(hintModel: HintModel.exampleInColumn)
                 .frame(width: 200)
         }
+        .environmentObject(ThemeModel())
     }
 }

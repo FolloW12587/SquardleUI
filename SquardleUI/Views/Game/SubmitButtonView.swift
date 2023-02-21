@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SubmitButtonView: View {
     @ObservedObject var guiModel: GameGUIModel
+    @EnvironmentObject var theme: ThemeModel
     let title: String
     let action: () -> ()
     
@@ -31,16 +32,17 @@ struct SubmitButtonView: View {
     }
     
     func getBackgroundColor() -> Color {
-        guiModel.isSubmitButtonActive ? ThemeModel.main.mainColor : ThemeModel.main.tileMainBackgroundColor
+        guiModel.isSubmitButtonActive ? theme.mainColor : theme.tileMainBackgroundColor
     }
     
     func getForegroundColor() -> Color {
-        guiModel.isSubmitButtonActive ? ThemeModel.main.activeForegroundColor : ThemeModel.main.secondaryForegroundColor
+        guiModel.isSubmitButtonActive ? theme.activeForegroundColor : theme.secondaryForegroundColor
     }
 }
 
 struct SubmitButtonView_Previews: PreviewProvider {
     static var previews: some View {
         SubmitButtonView(guiModel: GameGUIModel(guessesLeft: 4), title: "ВВОД"){ }
+            .environmentObject(ThemeModel())
     }
 }

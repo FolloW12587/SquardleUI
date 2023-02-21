@@ -10,6 +10,8 @@ let dictionary = DictionaryModel()
 
 struct ContentView: View {
     @StateObject var stats = StatsModel()
+    @Environment(\.colorScheme) var colorScheme
+    @StateObject var theme = ThemeModel()
     @State var menuOption: MenuOptions = .none
     
     var body: some View {
@@ -29,11 +31,15 @@ struct ContentView: View {
             }
         }
         .environmentObject(stats)
+        .environmentObject(theme)
         .tint(Color.black)
         .overlay{
             if !stats.didLaunchBefore{
                 TutorialView (dismissClosure: stats.firstLaunch)
             }
+        }
+        .onAppear{
+            theme.switchTheme(scheme: colorScheme)
         }
     }
     

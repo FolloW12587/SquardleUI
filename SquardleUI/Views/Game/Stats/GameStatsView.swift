@@ -9,13 +9,13 @@ import SwiftUI
 
 struct GameStatsView: View {
     @EnvironmentObject var stats: StatsModel
-//    var stats = StatsModel.testStats
+    @EnvironmentObject var theme: ThemeModel
     var dismissAction: (() -> ())? = nil
     @State var isAnimating = true
     
     var body: some View {
         ZStack {
-            ThemeModel.main.backgroundColor
+            theme.backgroundColor
                 .ignoresSafeArea()
             
             VStack {
@@ -54,5 +54,6 @@ struct GameStatsView_Previews: PreviewProvider {
     static var previews: some View {
         GameStatsView(dismissAction: {})
             .environmentObject(StatsModel.testStats)
+            .environmentObject(ThemeModel())
     }
 }

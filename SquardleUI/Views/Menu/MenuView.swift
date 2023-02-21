@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var stats: StatsModel
+    @EnvironmentObject var theme: ThemeModel
     var hasGameSave: Bool {
         stats.hasActiveGame && FileManager.saveExists()
     }
@@ -17,7 +18,7 @@ struct MenuView: View {
     
     var body: some View {
         ZStack {
-            ThemeModel.main.backgroundColor
+            theme.backgroundColor
             
             VStack (spacing: 0){
                 if showContent{
@@ -80,5 +81,6 @@ struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
         MenuView(option: .constant(.none))
             .environmentObject(StatsModel())
+            .environmentObject(ThemeModel())
     }
 }
