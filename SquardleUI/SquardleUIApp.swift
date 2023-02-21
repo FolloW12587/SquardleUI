@@ -8,6 +8,7 @@
 import SwiftUI
 import AppTrackingTransparency
 import AdSupport
+import AVFoundation
 
 @main
 struct SquardleUIApp: App {
@@ -31,11 +32,28 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     @objc func didFinishLaunching() {
         requestTrackingAuthorization()
+        setUpSound()
     }
     
     func requestTrackingAuthorization(){
         ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
             print(status)
         })
+    }
+    
+    func setUpSound() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            // Set the audio session category, mode, and options.
+            try audioSession.setCategory(.ambient, mode: .default, options: [.mixWithOthers])
+        } catch {
+            print("Failed to set audio session category.")
+        }
+        
+        do {
+           try audioSession.setActive(true)
+        } catch {
+            print("Failed to set audio session to active.")
+        }
     }
 }
