@@ -23,9 +23,10 @@ struct ContentView: View {
             case .continueGame:
                 GameWrapperView(useSaved: true, dismissAction: dismissOption)
             case .newGame:
-                GameWrapperView(useSaved: false, dismissAction: dismissOption)
+//                GameWrapperView(useSaved: false, dismissAction: dismissOption)
+                NewGameView(showGame: !stats.hasActiveGame, showAlert: stats.hasActiveGame, dismissAction: dismissOption)
             case .rules:
-                RulesView(dismissAction: dismissOption)
+                RulesView(showHeader: true, dismissAction: dismissOption)
             case .stats:
                 GameStatsView(dismissAction: dismissOption)
             }

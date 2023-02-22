@@ -78,6 +78,7 @@
 		A1C33E272938442D00D7B618 /* KeyboardKeyRuleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */; };
 		A1C33E292939BE3300D7B618 /* Character - extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E282939BE3300D7B618 /* Character - extensions.swift */; };
 		A1C33E2B293A05FA00D7B618 /* GameEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E2A293A05FA00D7B618 /* GameEndView.swift */; };
+		A1D12B7A29A63D21000A1693 /* NewGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D12B7929A63D21000A1693 /* NewGameView.swift */; };
 		A1F7C412293ED62800B8D177 /* GameWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C411293ED62800B8D177 /* GameWrapperView.swift */; };
 		A1F7C414293ED64E00B8D177 /* GameLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F7C413293ED64E00B8D177 /* GameLoader.swift */; };
 /* End PBXBuildFile section */
@@ -155,6 +156,7 @@
 		A1C33E262938442D00D7B618 /* KeyboardKeyRuleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyRuleView.swift; sourceTree = "<group>"; };
 		A1C33E282939BE3300D7B618 /* Character - extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character - extensions.swift"; sourceTree = "<group>"; };
 		A1C33E2A293A05FA00D7B618 /* GameEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndView.swift; sourceTree = "<group>"; };
+		A1D12B7929A63D21000A1693 /* NewGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameView.swift; sourceTree = "<group>"; };
 		A1F7C411293ED62800B8D177 /* GameWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameWrapperView.swift; sourceTree = "<group>"; };
 		A1F7C413293ED64E00B8D177 /* GameLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,6 +312,7 @@
 				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
 				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
 				A1486ABC292C8824005AB2F0 /* GameView.swift */,
+				A1D12B7929A63D21000A1693 /* NewGameView.swift */,
 				A1F7C411293ED62800B8D177 /* GameWrapperView.swift */,
 				A1C33E0D292DCB1700D7B618 /* HeaderView.swift */,
 				A1C33E11292F0A9200D7B618 /* HintView.swift */,
@@ -504,6 +507,7 @@
 				A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */,
 				A11BF04229A23F61004D45AD /* SeventhView.swift in Sources */,
 				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
+				A1D12B7A29A63D21000A1693 /* NewGameView.swift in Sources */,
 				A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */,
 				A1B04E6E29A3991800AF0A0E /* RulesMarkView.swift in Sources */,
 				A1C33E1A292F1D5100D7B618 /* VerticalArrowLineView.swift in Sources */,
@@ -655,7 +659,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -676,7 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -695,7 +699,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -716,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

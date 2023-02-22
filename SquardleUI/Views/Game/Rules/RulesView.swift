@@ -9,8 +9,9 @@ import SwiftUI
 
 struct RulesView: View {
     @EnvironmentObject var theme: ThemeModel
-    var dismissAction: (() -> ())? = nil
+    var showHeader = false
     @State var showTutorial = false
+    var dismissAction: (() -> ())? = nil
     
     var body: some View {
         VStack {
@@ -22,7 +23,9 @@ struct RulesView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 10){
                         
-                        header
+                        if showHeader{
+                            header
+                        }
                         
                         HStack(spacing: 0) {
                             Image("grid")
@@ -105,7 +108,7 @@ struct RulesView: View {
 
 struct RulesView_Previews: PreviewProvider {
     static var previews: some View {
-        RulesView(){}
+        RulesView(showHeader: true){}
             .environmentObject(ThemeModel())
     }
 }

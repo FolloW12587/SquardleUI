@@ -40,7 +40,7 @@ struct GameEndView: View {
                     }
                     Spacer()
                 }
-                .foregroundColor(theme.mainForegroundColor)
+                .foregroundColor(Color.primary)
                 .font(.system(size: 50))
             }
         }

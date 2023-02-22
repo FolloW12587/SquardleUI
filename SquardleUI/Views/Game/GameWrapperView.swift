@@ -32,16 +32,6 @@ struct GameWrapperView: View {
                 ProgressView()
             }
         }
-        .onAppear(perform: checkForExistingGame)
-    }
-    
-    func checkForExistingGame() {
-        if !useSaved && stats.hasActiveGame && FileManager.saveExists() {
-            print("Starting new game when one exists!")
-            Task{
-                stats.gameLost()
-            }
-        }
     }
 }
 
@@ -49,5 +39,6 @@ struct GameWrapperView_Previews: PreviewProvider {
     static var previews: some View {
         GameWrapperView(useSaved: true){}
             .environmentObject(StatsModel())
+            .environmentObject(ThemeModel())
     }
 }
