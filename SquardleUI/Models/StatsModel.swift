@@ -14,8 +14,15 @@ class StatsModel: ObservableObject {
         didSet {
             if !hasActiveGame {
                 FileManager.deleteSave()
+                activeGameMode = nil
             }
         }
+    }
+    var activeGameMode: String?
+    var gameMode: GameModel.GameMode? {
+        if activeGameMode == "hard" { return .hard }
+        if activeGameMode == "normal" { return .normal }
+        return nil
     }
     
     var totalWins: Int
@@ -55,11 +62,13 @@ class StatsModel: ObservableObject {
         currentStreak = defaults.integer(forKey: "currentStreak")
         bestStreak = defaults.integer(forKey: "bestStreak")
         streaks = defaults.array(forKey: "streaks") as? [Int] ?? []
+        activeGameMode = defaults.string(forKey: "activeGameMode")
     }
     
-    init(didLaunchBefore: Bool, hasActiveGame: Bool, totalWins: Int, totalGames: Int, currentStreak: Int, bestStreak: Int, streaks: [Int]) {
+    init(didLaunchBefore: Bool, hasActiveGame: Bool, activeGameMode: String?, totalWins: Int, totalGames: Int, currentStreak: Int, bestStreak: Int, streaks: [Int]) {
         self.didLaunchBefore = didLaunchBefore
         self.hasActiveGame = hasActiveGame
+        self.activeGameMode = activeGameMode
         self.totalWins = totalWins
         self.totalGames = totalGames
         self.currentStreak = currentStreak
@@ -77,6 +86,7 @@ class StatsModel: ObservableObject {
         defaults.set(currentStreak, forKey: "currentStreak")
         defaults.set(bestStreak, forKey: "bestStreak")
         defaults.set(streaks, forKey: "streaks")
+        defaults.set(activeGameMode, forKey: "activeGameMode")
     }
     
     func gameWon() {
@@ -137,6 +147,7 @@ extension StatsModel{
     static var testStats = StatsModel(
         didLaunchBefore: true,
         hasActiveGame: true,
+        activeGameMode: "normal",
         totalWins: 38,
         totalGames: 47,
         currentStreak: 2,

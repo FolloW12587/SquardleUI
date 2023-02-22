@@ -64,6 +64,7 @@ struct GameView: View {
             print("Board appeared")
             FileManager.saveGame(gameModel)
             stats.hasActiveGame = true
+            stats.activeGameMode = gameModel.mode == .hard ? "hard" : "normal"
             stats.save()
         }
     }
@@ -81,7 +82,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameModel: GameModel()){} restartClosure: {}
+        GameView(gameModel: GameModel(mode: .normal)){} restartClosure: {}
             .environmentObject(StatsModel())
             .environmentObject(ThemeModel())
     }

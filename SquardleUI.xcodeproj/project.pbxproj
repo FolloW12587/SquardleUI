@@ -299,6 +299,7 @@
 			children = (
 				A1486AA3292C7464005AB2F0 /* MenuButton.swift */,
 				A177DC02294AED2D001D79EA /* MenuView.swift */,
+				A1D12B7929A63D21000A1693 /* NewGameView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -312,7 +313,6 @@
 				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
 				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
 				A1486ABC292C8824005AB2F0 /* GameView.swift */,
-				A1D12B7929A63D21000A1693 /* NewGameView.swift */,
 				A1F7C411293ED62800B8D177 /* GameWrapperView.swift */,
 				A1C33E0D292DCB1700D7B618 /* HeaderView.swift */,
 				A1C33E11292F0A9200D7B618 /* HintView.swift */,

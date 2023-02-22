@@ -14,8 +14,8 @@ struct GameWrapperView: View {
     let useSaved: Bool
     var dismissAction: () -> ()
     
-    init(useSaved: Bool, dismissAction: @escaping () -> ()) {
-        _gameLoader = StateObject(wrappedValue: GameLoader(useSaved: useSaved))
+    init(useSaved: Bool, gameMode: GameModel.GameMode, dismissAction: @escaping () -> ()) {
+        _gameLoader = StateObject(wrappedValue: GameLoader(useSaved: useSaved, gameMode: gameMode))
         self.useSaved = useSaved
         self.dismissAction = dismissAction
     }
@@ -37,7 +37,7 @@ struct GameWrapperView: View {
 
 struct GameWrapperView_Previews: PreviewProvider {
     static var previews: some View {
-        GameWrapperView(useSaved: true){}
+        GameWrapperView(useSaved: true, gameMode: .normal){}
             .environmentObject(StatsModel())
             .environmentObject(ThemeModel())
     }

@@ -9,14 +9,33 @@ import SwiftUI
 
 struct NewGameView: View {
     @EnvironmentObject var stats: StatsModel
+    @EnvironmentObject var theme: ThemeModel
     @State var showGame: Bool
     @State var showAlert: Bool
+    @State var selectedGameMode: GameModel.GameMode? = nil
     var dismissAction: () -> ()
     
     var body: some View {
         ZStack{
+            theme.backgroundColor
+                .ignoresSafeArea()
+            
             if showGame {
-                GameWrapperView(useSaved: false, dismissAction: dismissAction)
+                VStack(spacing: 40){
+                    Text("Уровень сложности")
+                    
+                    MenuButton(title: "Нормальная") {
+                        selectedGameMode = .normal
+                    }
+                    
+                    MenuButton(title: "Сложная") {
+                        selectedGameMode = .hard
+                    }
+                }
+                
+                if let selectedGameMode {
+                    GameWrapperView(useSaved: false, gameMode: selectedGameMode, dismissAction: dismissAction)
+                }
             }
         }
         .alert("Если Вы начнете новую игру, Вам будет засчитано поражение.", isPresented: $showAlert) {
@@ -34,7 +53,7 @@ struct NewGameView: View {
 
 struct NewGameView_Previews: PreviewProvider {
     static var previews: some View {
-        NewGameView(showGame: false, showAlert: true){}
+        NewGameView(showGame: true, showAlert: false){}
             .environmentObject(StatsModel())
             .environmentObject(ThemeModel())
     }

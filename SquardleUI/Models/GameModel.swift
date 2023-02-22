@@ -15,8 +15,9 @@ class GameModel: ObservableObject, Identifiable {
     var board: BoardModel
     var keyboard: KeyboardModel
     var guiModel: GameGUIModel
+    let mode: GameMode
     
-    var guessesLeft: Int = 9 {
+    var guessesLeft: Int {
         didSet {
             guiModel.guessesLeft = guessesLeft
         }
@@ -45,9 +46,17 @@ class GameModel: ObservableObject, Identifiable {
     
     @Published var showAdd: Bool = false
     
-    init() {
+    init(mode gameMode: GameMode = .normal) {
         id = UUID()
-        words = dictionary.generateWords()
+        self.mode = gameMode
+        switch gameMode{
+        case .normal:
+            guessesLeft = 9
+            words = dictionary.generateWords(mode: gameMode)
+        case .hard:
+            guessesLeft = 7
+            words = dictionary.generateWords(mode: gameMode)
+        }
         board = BoardModel(words: words)
         keyboard = KeyboardModel()
         guiModel = GameGUIModel(guessesLeft: guessesLeft)
@@ -59,9 +68,11 @@ class GameModel: ObservableObject, Identifiable {
     
     init(boardModel: BoardModel, words: [String]) {
         id = UUID()
+        self.mode = .normal
         board = boardModel
         self.words = words
         keyboard = KeyboardModel()
+        guessesLeft = 9
         guiModel = GameGUIModel(guessesLeft: guessesLeft)
         
         highlightGuessingWay()
@@ -72,6 +83,11 @@ class GameModel: ObservableObject, Identifiable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
+        do {
+            mode = try container.decode(GameMode.self, forKey: .mode)
+        } catch {
+            mode = .normal
+        }
         words = try container.decode([String].self, forKey: .words)
         board = try container.decode(BoardModel.self, forKey: .board)
         keyboard = try container.decode(KeyboardModel.self, forKey: .keyboard)
@@ -91,7 +107,7 @@ class GameModel: ObservableObject, Identifiable {
 
 extension GameModel: Codable {
     enum CodingKeys: CodingKey {
-        case id, words, board, keyboard, guessesLeft, currentRow
+        case id, words, board, keyboard, guessesLeft, currentRow, mode
     }
     
     func encode(to encoder: Encoder) throws {
@@ -102,6 +118,7 @@ extension GameModel: Codable {
         try container.encode(self.keyboard, forKey: .keyboard)
         try container.encode(self.guessesLeft, forKey: .guessesLeft)
         try container.encode(self.currentRow, forKey: .currentRow)
+        try container.encode(self.mode, forKey: .mode)
     }
 }
 
@@ -403,5 +420,11 @@ extension GameModel {
         Task {
             FileManager.saveGame(self)
         }
+    }
+}
+
+extension GameModel {
+    enum GameMode: Codable {
+        case normal, hard
     }
 }

@@ -21,7 +21,7 @@ struct ContentView: View {
             case .none:
                 MenuView(option: $menuOption)
             case .continueGame:
-                GameWrapperView(useSaved: true, dismissAction: dismissOption)
+                GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption)
             case .newGame:
 //                GameWrapperView(useSaved: false, dismissAction: dismissOption)
                 NewGameView(showGame: !stats.hasActiveGame, showAlert: stats.hasActiveGame, dismissAction: dismissOption)

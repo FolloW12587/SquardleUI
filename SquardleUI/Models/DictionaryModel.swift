@@ -35,8 +35,14 @@ class DictionaryModel {
         }
     }
     
-    func generateWords() -> [String]{
-        let words = self.words.filter{ $0.freq > 0.6 && $0.PoS == "s" }.map{ $0.word }
+    func generateWords(mode gameMode: GameModel.GameMode = .normal) -> [String]{
+        let words: [String]
+        switch gameMode{
+        case .normal:
+            words = self.words.filter{ $0.freq > 0.6 && $0.PoS == "s" }.map{ $0.word }
+        case .hard:
+            words = self.words.filter{ $0.PoS == "s" }.map{ $0.word }
+        }
         var i = 0
         
         while true {
