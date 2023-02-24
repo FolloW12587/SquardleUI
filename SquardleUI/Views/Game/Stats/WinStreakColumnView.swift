@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WinStreakColumnView: View {
+    @Environment(\.colorScheme) var colorScheme
     let index: Int
     let bestStreak: Int
     let currentStreak: Int
@@ -28,7 +29,7 @@ struct WinStreakColumnView: View {
             return .green
         }
         
-        return Color(white: 0.3)
+        return colorScheme == .light ? Color(white: 0.3) : Color(white: 0.7)
     }
     
     var body: some View {

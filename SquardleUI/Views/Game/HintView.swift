@@ -50,6 +50,12 @@ struct HintView: View {
         .aspectRatio(1.0, contentMode: .fit)
         .background(getBackgroundColor())
         .cornerRadius(width / 10)
+        .overlay {
+            if (hintModel.state == .exists || hintModel.state == .notExists) && !hintModel.isHidden {
+                RoundedRectangle(cornerRadius: width / 10)
+                    .stroke(.black, lineWidth: 1)
+            }
+        }
         .scaleEffect(getScale())
         .frame(width: width)
         .position(getPosition())

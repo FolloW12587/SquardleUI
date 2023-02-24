@@ -21,21 +21,22 @@ struct NewGameView: View {
                 .ignoresSafeArea()
             
             if showGame {
-                VStack(spacing: 40){
-                    Text("Уровень сложности")
-                    
-                    MenuButton(title: "Нормальная") {
-                        selectedGameMode = .normal
-                    }
-                    
-                    MenuButton(title: "Сложная") {
-                        selectedGameMode = .hard
+                if let selectedGameMode {
+                    GameWrapperView(useSaved: false, gameMode: selectedGameMode, dismissAction: dismissAction)
+                } else {
+                    VStack(spacing: 40){
+                        Text("Уровень сложности")
+                        
+                        MenuButton(title: "Нормальная") {
+                            selectedGameMode = .normal
+                        }
+                        
+                        MenuButton(title: "Сложная") {
+                            selectedGameMode = .hard
+                        }
                     }
                 }
                 
-                if let selectedGameMode {
-                    GameWrapperView(useSaved: false, gameMode: selectedGameMode, dismissAction: dismissAction)
-                }
             }
         }
         .alert("Если Вы начнете новую игру, Вам будет засчитано поражение.", isPresented: $showAlert) {
