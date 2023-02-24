@@ -12,6 +12,7 @@ struct NewGameView: View {
     @EnvironmentObject var theme: ThemeModel
     @State var showGame: Bool
     @State var showAlert: Bool
+    @State var showHintAlert: Bool = false
     @State var selectedGameMode: GameModel.GameMode? = nil
     var dismissAction: () -> ()
     
@@ -24,11 +25,19 @@ struct NewGameView: View {
                 if let selectedGameMode {
                     GameWrapperView(useSaved: false, gameMode: selectedGameMode, dismissAction: dismissAction)
                 } else {
-                    VStack(spacing: 40){
-                        Text("Уровень сложности")
-                        
+                    VStack{
                         MenuButton(title: "Нормальная") {
                             selectedGameMode = .normal
+                        }
+                        .padding(.bottom)
+                        VStack(alignment: .trailing){
+                            Image(systemName: "questionmark.circle")
+                                .foregroundColor(Color.primary)
+                        }
+                        .frame(width: 200, alignment: .trailing)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            showHintAlert = true
                         }
                         
                         MenuButton(title: "Сложная") {
@@ -49,6 +58,7 @@ struct NewGameView: View {
             }
             Button("Отменить", role: .destructive, action: dismissAction)
         }
+        .alert("В сложной игре вам дается 7 попыток вместо 9, а также могут попадаться более редкие слова.", isPresented: $showHintAlert){}
     }
 }
 
