@@ -31,8 +31,13 @@ class GameModel: ObservableObject, Identifiable {
             }
         }
     }
+    @Published var showSolution: Bool = false
     @Published var isGameOver: Bool = false
     @Published var isGameWon: Bool = false
+    
+    var showEndView: Bool {
+        return isGameWon || isGameOver
+    }
     
     var currentRow: Int = 0 {
         didSet {

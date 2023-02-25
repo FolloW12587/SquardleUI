@@ -26,6 +26,10 @@ struct TileView: View {
                     .font(.system(size: 35, weight: .bold))
                     .foregroundColor(getForegroundColor())
                 
+            } else if gameModel.showSolution {
+                Text(String(tileModel.character))
+                    .font(.system(size: 35, weight: .bold))
+                    .foregroundColor(Color.black)
             } else if tileModel.markedCharacter != nil {
                 Text(String(tileModel.markedCharacter!))
                     .font(.system(size: 25, weight: .bold))
@@ -52,6 +56,7 @@ struct TileView: View {
             }
             gameModel.tileTapped(tileModel)
         }
+        .animation(.easeInOut(duration: 0.5).delay((tileModel.position.x + tileModel.position.y) * 0.5), value: gameModel.showSolution)
     }
     
     func getHintViewPosition(size: CGSize, hintPosition: CGPoint) -> CGPoint {

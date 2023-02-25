@@ -32,19 +32,27 @@ struct GameView: View {
             }
             .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
             
-            if gameModel.isGameOver || gameModel.isGameWon {
-                GameEndView(isGameWon: gameModel.isGameWon) {
-                    dismissClosure()
-                } statsAction: {
-                    gameModel.guiModel.areStatsPresented.toggle()
-                } restartAction: {
-                    restartClosure()
-                }
+            if gameModel.showEndView {
+                VStack {
+                    if gameModel.showSolution {
+                        Spacer()
+                    }
+                
+                    GameEndView(isGameWon: gameModel.isGameWon) {
+                        dismissClosure()
+                    } statsAction: {
+                        gameModel.guiModel.areStatsPresented.toggle()
+                    } restartAction: {
+                        restartClosure()
+                    } showSolutionAction: {
+                        gameModel.showSolution = true
+                    }
+                    .animation(.easeInOut(duration: 1), value: gameModel.showSolution)
                 .onAppear(perform: gameEnded)
+                }
             }
             
         }
-//        .onAppear(perform: gameStarted)
         .environmentObject(gameModel)
         .id(gameModel.id)
         .overlay {

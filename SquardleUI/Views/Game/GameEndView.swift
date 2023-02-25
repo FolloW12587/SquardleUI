@@ -13,6 +13,7 @@ struct GameEndView: View {
     let homeAction: () -> ()
     let statsAction: () -> ()
     let restartAction: () -> ()
+    let showSolutionAction: () -> ()
     
     var body: some View {
         ZStack {
@@ -22,7 +23,12 @@ struct GameEndView: View {
                 Text(isGameWon ? "Победа!" : "Eще раз?")
                     .foregroundColor(isGameWon ? .green : .red)
                     .font(.title.bold())
-                    .padding()
+                
+                Button(action: showSolutionAction) {
+                    Text("Решение")
+                }
+                .buttonStyle(MenuButtonStyle())
+                .padding()
                 
                 HStack {
                     Spacer()
@@ -44,8 +50,8 @@ struct GameEndView: View {
                 .font(.system(size: 50))
             }
         }
-        .frame(maxWidth: .infinity)
         .scaledToFit()
+        .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
         .padding(.horizontal, 50)
         .clipped()
         .shadow(radius: 4)
@@ -57,6 +63,7 @@ struct GameEndView_Previews: PreviewProvider {
         GameEndView(isGameWon: false) {
         } statsAction: {
         } restartAction: {
+        } showSolutionAction: {
         }
         .environmentObject(ThemeModel())
     }
