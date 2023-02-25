@@ -54,6 +54,12 @@ class BoardModel: ObservableObject, Identifiable, Codable {
         return tiles.filter{ $0.position.x == CGFloat(index) || $0.position.y == CGFloat(index) }
     }
     
+    func showSolution() {
+        for tile in tiles {
+            tile.showSolution = true
+        }
+    }
+    
     func getOpenedWordsCount() -> Int {
         var inc = 0
         for i in stride(from: 0, through: 5, by: 2) {

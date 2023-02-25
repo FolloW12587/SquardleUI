@@ -31,7 +31,11 @@ class GameModel: ObservableObject, Identifiable {
             }
         }
     }
-    @Published var showSolution: Bool = false
+    @Published var showSolution: Bool = false {
+        didSet {
+            board.showSolution()
+        }
+    }
     @Published var isGameOver: Bool = false
     @Published var isGameWon: Bool = false
     
