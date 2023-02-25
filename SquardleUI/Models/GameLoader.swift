@@ -15,14 +15,10 @@ class GameLoader: ObservableObject {
         self.gameMode = gameMode
         Task {
             if useSaved, FileManager.saveExists(), let gameModel = FileManager.getSavedGame() {
-                DispatchQueue.main.async {
-                    self.gameModel = gameModel
-                }
+                setGameModel(model: gameModel)
             } else {
                 let gameModel = GameModel(mode: gameMode)
-                DispatchQueue.main.async {
-                    self.gameModel = gameModel
-                }
+                setGameModel(model: gameModel)
             }
         }
     }
@@ -31,9 +27,14 @@ class GameLoader: ObservableObject {
         self.gameModel = nil
         Task {
             let gameModel = GameModel(mode: gameMode)
-            DispatchQueue.main.async {
-                self.gameModel = gameModel
-            }
+            setGameModel(model: gameModel)
+        }
+    }
+    
+    private func setGameModel(model: GameModel) {
+        DispatchQueue.main.async {
+            self.gameModel = model
+            FileManager.saveGame(model)
         }
     }
 }

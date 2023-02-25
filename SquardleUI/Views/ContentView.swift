@@ -23,8 +23,7 @@ struct ContentView: View {
             case .continueGame:
                 GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption)
             case .newGame:
-//                GameWrapperView(useSaved: false, dismissAction: dismissOption)
-                NewGameView(showGame: !stats.hasActiveGame, showAlert: stats.hasActiveGame, dismissAction: dismissOption)
+                NewGameView(showGame: !stats.hasActiveGame, showAlert: stats.hasActiveGame, dismissAction: dismissOption, newGameAction: newGameOption)
             case .rules:
                 RulesView(showHeader: true, dismissAction: dismissOption)
             case .stats:
@@ -48,6 +47,13 @@ struct ContentView: View {
     func dismissOption() {
         withAnimation{
             menuOption = .none
+        }
+        playSound(SoundMatcher.keyPressed.rawValue)
+    }
+    
+    func newGameOption() {
+        withAnimation{
+            menuOption = .continueGame
         }
         playSound(SoundMatcher.keyPressed.rawValue)
     }

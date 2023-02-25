@@ -44,7 +44,7 @@ struct GameView: View {
             }
             
         }
-        .onAppear(perform: gameStarted)
+//        .onAppear(perform: gameStarted)
         .environmentObject(gameModel)
         .id(gameModel.id)
         .overlay {
@@ -56,16 +56,6 @@ struct GameView: View {
                 }
                 .ignoresSafeArea()
             }
-        }
-    }
-    
-    func gameStarted() {
-        Task {
-            print("Board appeared")
-            FileManager.saveGame(gameModel)
-            stats.hasActiveGame = true
-            stats.activeGameMode = gameModel.mode == .hard ? "hard" : "normal"
-            stats.save()
         }
     }
     

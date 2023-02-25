@@ -13,8 +13,8 @@ struct NewGameView: View {
     @State var showGame: Bool
     @State var showAlert: Bool
     @State var showHintAlert: Bool = false
-    @State var selectedGameMode: GameModel.GameMode? = nil
     var dismissAction: () -> ()
+    var newGameAction: () -> ()
     
     var body: some View {
         ZStack{
@@ -22,30 +22,25 @@ struct NewGameView: View {
                 .ignoresSafeArea()
             
             if showGame {
-                if let selectedGameMode {
-                    GameWrapperView(useSaved: false, gameMode: selectedGameMode, dismissAction: dismissAction)
-                } else {
-                    VStack{
-                        MenuButton(title: "Нормальная") {
-                            selectedGameMode = .normal
-                        }
-                        .padding(.bottom)
-                        VStack(alignment: .trailing){
-                            Image(systemName: "questionmark.circle")
-                                .foregroundColor(Color.primary)
-                        }
-                        .frame(width: 200, alignment: .trailing)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            showHintAlert = true
-                        }
-                        
-                        MenuButton(title: "Сложная") {
-                            selectedGameMode = .hard
-                        }
+                VStack{
+                    MenuButton(title: "Нормальная") {
+                        gameModeSelected(gameMode: .normal)
+                    }
+                    .padding(.bottom)
+                    VStack(alignment: .trailing){
+                        Image(systemName: "questionmark.circle")
+                            .foregroundColor(Color.primary)
+                    }
+                    .frame(width: 200, alignment: .trailing)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        showHintAlert = true
+                    }
+                    
+                    MenuButton(title: "Сложная") {
+                        gameModeSelected(gameMode: .hard)
                     }
                 }
-                
             }
         }
         .alert("Если Вы начнете новую игру, Вам будет засчитано поражение.", isPresented: $showAlert) {
@@ -60,11 +55,18 @@ struct NewGameView: View {
         }
         .alert("В сложной игре вам дается 7 попыток вместо 9, а также могут попадаться более редкие слова.", isPresented: $showHintAlert){}
     }
+    
+    func gameModeSelected(gameMode: GameModel.GameMode) {
+        stats.hasActiveGame = true
+        stats.gameMode = gameMode
+        stats.save()
+        newGameAction()
+    }
 }
 
 struct NewGameView_Previews: PreviewProvider {
     static var previews: some View {
-        NewGameView(showGame: true, showAlert: false){}
+        NewGameView(showGame: true, showAlert: false){} newGameAction: {}
             .environmentObject(StatsModel())
             .environmentObject(ThemeModel())
     }

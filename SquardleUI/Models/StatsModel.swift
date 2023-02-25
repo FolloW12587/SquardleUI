@@ -20,9 +20,24 @@ class StatsModel: ObservableObject {
     }
     var activeGameMode: String?
     var gameMode: GameModel.GameMode? {
-        if activeGameMode == "hard" { return .hard }
-        if activeGameMode == "normal" { return .normal }
-        return nil
+        get {
+            if activeGameMode == "hard" { return .hard }
+            if activeGameMode == "normal" { return .normal }
+            return nil
+        }
+        set {
+            if newValue == .normal {
+                activeGameMode = "normal"
+                return
+            }
+            
+            if newValue == .hard {
+                activeGameMode = "hard"
+                return
+            }
+            
+            activeGameMode = nil
+        }
     }
     
     var totalWins: Int
