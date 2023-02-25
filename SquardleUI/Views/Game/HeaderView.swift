@@ -20,9 +20,17 @@ struct HeaderView: View {
             }
 
             Spacer()
-            Text("\(guiModel.guessesLeft)")
-                .foregroundColor(getGuessesLeftColor())
-                .bold()
+            ZStack {
+                Text("\(guiModel.guessesLeft)")
+                    .foregroundColor(getGuessesLeftColor())
+                    .bold()
+                
+                Text("\(guiModel.guessesAdded)")
+                    .foregroundColor(getGuessesAddedColor())
+                    .opacity(guiModel.animateGuessesAdded ? 1 : 0)
+                    .offset(y: guiModel.animateGuessesAdded ? 30 : 0)
+                    .animation(.easeInOut(duration: 1), value: guiModel.animateGuessesAdded)
+            }
             Spacer()
             
             Button {
@@ -51,7 +59,19 @@ struct HeaderView: View {
             return .orange
         }
         
-        return Color.primary
+        return .primary
+    }
+    
+    func getGuessesAddedColor() -> Color {
+        if guiModel.guessesAdded < 0 {
+            return .red
+        }
+        
+        if guiModel.guessesAdded == 0 {
+            return .primary
+        }
+        
+        return .green
     }
 }
 

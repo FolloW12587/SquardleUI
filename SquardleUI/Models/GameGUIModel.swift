@@ -8,7 +8,21 @@
 import Foundation
 
 class GameGUIModel: ObservableObject {
-    @Published var guessesLeft: Int
+    @Published var guessesLeft: Int {
+        didSet {
+            guessesAdded = guessesLeft - oldValue
+        }
+    }
+    @Published var guessesAdded: Int = 0 {
+        didSet {
+            animateGuessesAdded = true
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                self.animateGuessesAdded = false
+            }
+        }
+    }
+    @Published var animateGuessesAdded: Bool = false
     @Published var isSubmitButtonActive: Bool = false
     @Published var areRulesPresented: Bool = false
     @Published var areStatsPresented: Bool = false
