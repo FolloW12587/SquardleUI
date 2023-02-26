@@ -25,7 +25,7 @@ struct HeaderView: View {
                     .foregroundColor(getGuessesLeftColor())
                     .bold()
                 
-                Text("\(guiModel.guessesAdded)")
+                Text(getNumWithSign(guiModel.guessesAdded))
                     .foregroundColor(getGuessesAddedColor())
                     .opacity(guiModel.animateGuessesAdded ? 1 : 0)
                     .offset(y: guiModel.animateGuessesAdded ? 30 : 0)
@@ -60,6 +60,11 @@ struct HeaderView: View {
         }
         
         return .primary
+    }
+    
+    func getNumWithSign(_ num: Int) -> String {
+        if num <= 0 { return "\(num)" }
+        return "+\(num)"
     }
     
     func getGuessesAddedColor() -> Color {

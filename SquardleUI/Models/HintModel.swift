@@ -62,17 +62,21 @@ extension HintModel: Codable {
 extension HintModel {
     // handle actions
     
+    func longPressed() {
+        self.isHidden.toggle()
+    }
+    
     func tapped() {
         if self.isScaled {
             self.isScaled.toggle()
             return
         }
         
-        self.isHidden.toggle()
-    }
-    
-    func longPressed() {
-        self.isHidden = false
+        if self.isHidden {
+            self.isHidden = false
+            return
+        }
+        
         self.isScaled = true
     }
     
@@ -80,7 +84,7 @@ extension HintModel {
         if self.isScaled {
             return
         }
-        longPressed()
+        tapped()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation {
                 self.isScaled = false

@@ -128,6 +128,18 @@ class StatsModel: ObservableObject {
         save()
     }
     
+    func reset() {
+        hasActiveGame = false
+        totalWins = 0
+        totalGames = 0
+        currentStreak = 0
+        bestStreak = 0
+        streaks = []
+        gameMode = nil
+        
+        save()
+    }
+    
     private func newStreak(){
         streaks.append(1)
         if streaks.count > 10 {

@@ -12,6 +12,7 @@ struct GameStatsView: View {
     @EnvironmentObject var theme: ThemeModel
     var dismissAction: (() -> ())? = nil
     @State var isAnimating = true
+    @State var showResetAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -32,12 +33,26 @@ struct GameStatsView: View {
                         .padding(.bottom)
                     
                     WinStreakView(bestStreak: isAnimating ? 1 : stats.bestStreak, currentStreak: isAnimating ? 0 : stats.currentStreak, streaks: isAnimating ? Array(repeating: 0, count: stats.streaks.count) : stats.streaks)
+                        .padding(.bottom, 40)
                 } else {
                     Text("Сыграй больше игр чтобы тут появилась статистика о твоих победах и поражениях!")
                 }
+                
                 if UIDevice.current.userInterfaceIdiom == .phone {
                     Spacer()
                 }
+                
+                Button {
+                    showResetAlert = true
+                } label: {
+                    Text("Сбросить статистику")
+                        .foregroundColor(.white)
+                        .font(.title3)
+                }
+                .padding()
+                .background(Capsule()
+                    .fill(.red))
+                .clipShape(Capsule())
             }
             .padding()
             .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
@@ -46,6 +61,10 @@ struct GameStatsView: View {
             withAnimation {
                 isAnimating = false
             }
+        }
+        .alert("Вы уверены, что хотите сбросить статистику? Это действие не может быть отменено!", isPresented: $showResetAlert) {
+            Button("Сбросить", role: .destructive, action: stats.reset)
+            Button("Отменить", role: .cancel) {}
         }
     }
 }

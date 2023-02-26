@@ -16,7 +16,13 @@ struct WinStreakGraphView: View {
         GeometryReader { proxy in
             HStack(alignment: .bottom, spacing: proxy.size.width / 100) {
                 ForEach(Array(streaks.enumerated()), id: \.offset){ index, streak in
-                    WinStreakColumnView(index: index, bestStreak: bestStreak, currentStreak: currentStreak, value: streak, height: proxy.size.height, isLast: index == streaks.count - 1)
+                    WinStreakColumnView(
+                        index: index,
+                        bestStreak: bestStreak,
+                        currentStreak: currentStreak,
+                        value: streak,
+                        height: proxy.size.height,
+                        isLast: index == streaks.count - 1)
                         .frame(width: proxy.size.width / 11)
                 }
             }
