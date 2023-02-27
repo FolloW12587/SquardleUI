@@ -14,6 +14,7 @@ class TileModel: ObservableObject {
         }
     }
     @Published var showSolution: Bool = false
+    @Published var showEndAnimation: Bool = false
     @Published var markedCharacter: Character? = nil
     @Published var state: State
     @Published var isOnGuessingWay: Bool = false

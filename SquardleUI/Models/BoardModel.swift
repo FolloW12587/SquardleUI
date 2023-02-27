@@ -60,6 +60,12 @@ class BoardModel: ObservableObject, Identifiable, Codable {
         }
     }
     
+    func showEndAnimation() {
+        for tile in tiles {
+            tile.showEndAnimation.toggle()
+        }
+    }
+    
     func getOpenedWordsCount() -> Int {
         var inc = 0
         for i in stride(from: 0, through: 5, by: 2) {

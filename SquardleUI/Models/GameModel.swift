@@ -36,11 +36,43 @@ class GameModel: ObservableObject, Identifiable {
             board.showSolution()
         }
     }
-    @Published var isGameOver: Bool = false
-    @Published var isGameWon: Bool = false
+    @Published var isGameOver: Bool = false{
+        didSet {
+            if isGameOver {
+                showEndView = true
+            }
+        }
+    }
+    @Published var isGameWon: Bool = false {
+        didSet {
+            if isGameWon {
+                showEndAnimation = true
+            }
+        }
+    }
     
-    var showEndView: Bool {
-        return isGameWon || isGameOver
+    @Published var showEndView: Bool = false {
+        didSet {
+            if showEndView {
+                showAdd = true
+            }
+        }
+    }
+    
+    
+    @Published var showEndAnimation: Bool = false {
+        didSet {
+            board.showEndAnimation()
+            if showEndAnimation {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    self.showEndAnimation = false
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.showEndView = true
+                }
+            }
+        }
     }
     
     var currentRow: Int = 0 {
@@ -224,7 +256,6 @@ extension GameModel {
     func checkForGameOver() -> Bool {
         if guessesLeft <= 0 {
             isGameOver = true
-            showAdd = true
             return true
         }
         
@@ -234,7 +265,6 @@ extension GameModel {
     func checkForGameWin() -> Bool {
         if board.isSolved() {
             isGameWon = true
-            showAdd = true
             return true
         }
         

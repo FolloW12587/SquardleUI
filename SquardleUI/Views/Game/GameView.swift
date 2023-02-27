@@ -47,8 +47,8 @@ struct GameView: View {
                     } showSolutionAction: {
                         gameModel.showSolution = true
                     }
-                    .animation(.easeInOut(duration: 1), value: gameModel.showSolution)
-                .onAppear(perform: gameEnded)
+                    .animation(.easeInOut(duration: 0.5), value: gameModel.showSolution)
+                    .onAppear(perform: gameEnded)
                 }
             }
             

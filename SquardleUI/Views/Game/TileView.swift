@@ -12,58 +12,23 @@ struct TileView: View {
     @ObservedObject var tileModel: TileModel
     @EnvironmentObject var theme: ThemeModel
     
-    var body: some View {
-        ZStack {
-            if tileModel.tempCharacter != nil {
-                Text(String(tileModel.tempCharacter!))
-                    .font(.system(size: 35, weight: .bold))
-                    .offset(x: tileModel.wrongGuessedWord ? -10 : 0)
-                    .animation(Animation.default.repeatCount(3, autoreverses: true).speed(6), value: tileModel.wrongGuessedWord)
-                    .foregroundColor(getForegroundColor())
-                
-            } else if tileModel.state == .opened {
-                Text(String(tileModel.character))
-                    .font(.system(size: 35, weight: .bold))
-                    .foregroundColor(getForegroundColor())
-                
-            } else if tileModel.showSolution {
-                Text(String(tileModel.character))
-                    .font(.system(size: 35, weight: .bold))
-                    .foregroundColor(Color.black)
-            } else if tileModel.markedCharacter != nil {
-                Text(String(tileModel.markedCharacter!))
-                    .font(.system(size: 25, weight: .bold))
-                    .foregroundColor(getForegroundColor())
-            }
-            
-            GeometryReader { geometry in
-                ForEach(tileModel.hints, id: \.self) { hint in
-                    HintView(hintModel: hint, width: geometry.size.width, position: getHintViewPosition(size: geometry.size, hintPosition: hint.position))
-                }
-            }
+    var foregroundColor: Color {
+        if tileModel.tempCharacter != nil || tileModel.showSolution {
+            return theme.mainForegroundColor
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .aspectRatio(1.0, contentMode: .fit)
-        .background(getBackgroundColor())
-        .overlay(
-            RoundedRectangle(cornerRadius: 7)
-                .stroke(tileModel.isOnGuessingWay ? Color.yellow : .gray, lineWidth: tileModel.isOnGuessingWay ? 4 : 2)
-        )
-        .cornerRadius(7)
-        .onTapGesture {
-            withAnimation{
-                tileModel.clicked()
-            }
-            gameModel.tileTapped(tileModel)
+        
+        if tileModel.state == .opened {
+            return theme.activeForegroundColor
         }
-        .animation(.easeInOut(duration: 0.5).delay((tileModel.position.x + tileModel.position.y) * 0.5), value: tileModel.showSolution)
+        
+        if tileModel.markedCharacter != nil && tileModel.state == .markedSure{
+            return theme.mainForegroundColor
+        }
+        
+        return theme.secondaryForegroundColor
     }
     
-    func getHintViewPosition(size: CGSize, hintPosition: CGPoint) -> CGPoint {
-        CGPoint(x: size.width / 8 + size.width * hintPosition.x / 4, y: size.height / 8 + size.height * hintPosition.y / 4)
-    }
-    
-    func getBackgroundColor() -> Color {
+    var backgroundColor: Color {
         switch tileModel.state {
         case .none:
             return theme.tileMainBackgroundColor
@@ -76,16 +41,63 @@ struct TileView: View {
         }
     }
     
-    func getForegroundColor() -> Color {
-        if tileModel.tempCharacter != nil {
-            return theme.mainForegroundColor
-        } else if tileModel.state == .opened {
-            return theme.activeForegroundColor
+    var body: some View {
+        ZStack {
+            character
             
-        } else if tileModel.markedCharacter != nil && tileModel.state == .markedSure{
-            return theme.mainForegroundColor
+            GeometryReader { geometry in
+                ForEach(tileModel.hints, id: \.self) { hint in
+                    HintView(hintModel: hint, width: geometry.size.width, position: getHintViewPosition(size: geometry.size, hintPosition: hint.position))
+                }
+            }
         }
-        return theme.secondaryForegroundColor
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .aspectRatio(1.0, contentMode: .fit)
+        .background(backgroundColor)
+        .overlay(
+            RoundedRectangle(cornerRadius: 7)
+                .stroke(tileModel.isOnGuessingWay ? Color.yellow : .gray, lineWidth: tileModel.isOnGuessingWay ? 4 : 2)
+        )
+        .cornerRadius(7)
+        .onTapGesture {
+            withAnimation{
+                tileModel.clicked()
+            }
+            gameModel.tileTapped(tileModel)
+        }
+        .animation(.easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.2), value: tileModel.showSolution)
+        .scaleEffect(tileModel.showEndAnimation ? 1.5 : 1)
+        .animation(.easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.1), value: tileModel.showEndAnimation)
+        .scaleEffect(tileModel.showEndAnimation ? 1.5 : 1)
+        .animation(.easeInOut(duration: 0.2).delay(0.8 + (10 - tileModel.position.x - tileModel.position.y) * 0.1), value: tileModel.showEndAnimation)
+    }
+    
+    var character: some View {
+        ZStack{
+            if let character = tileModel.tempCharacter {
+                Text(String(character))
+                    .font(.system(size: 35, weight: .bold))
+                    .offset(x: tileModel.wrongGuessedWord ? -10 : 0)
+                    .animation(Animation.default.repeatCount(3, autoreverses: true).speed(6), value: tileModel.wrongGuessedWord)
+                    .foregroundColor(foregroundColor)
+            } else if tileModel.showSolution {
+                Text(String(tileModel.character))
+                    .font(.system(size: 35, weight: .bold))
+                    .foregroundColor(foregroundColor)
+            } else if tileModel.state == .opened {
+                Text(String(tileModel.character))
+                    .font(.system(size: 35, weight: .bold))
+                    .foregroundColor(foregroundColor)
+            } else if let character = tileModel.markedCharacter {
+                Text(String(character))
+                    .font(.system(size: 25, weight: .bold))
+                    .foregroundColor(foregroundColor)
+            }
+        }
+    }
+    
+    func getHintViewPosition(size: CGSize, hintPosition: CGPoint) -> CGPoint {
+        CGPoint(x: size.width / 8 + size.width * hintPosition.x / 4, y: size.height / 8 + size.height * hintPosition.y / 4)
     }
 }
 
