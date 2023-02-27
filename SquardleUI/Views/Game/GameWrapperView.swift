@@ -23,7 +23,9 @@ struct GameWrapperView: View {
     var body: some View {
         ZStack{
             if let gameModel = gameLoader.gameModel {
-                GameView(gameModel: gameModel, dismissClosure: dismissAction) { gameLoader.newGame()
+                GameView(gameModel: gameModel, dismissClosure: dismissAction) {
+                    stats.hasActiveGame = true
+                    gameLoader.newGame()
                 }
             } else {
                 Color.init(white: 0.6, opacity: 0.8)
