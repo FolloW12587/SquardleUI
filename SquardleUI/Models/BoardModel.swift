@@ -66,8 +66,37 @@ class BoardModel: ObservableObject, Identifiable, Codable {
         }
     }
     
-    func getOpenedWordsCount() -> Int {
-        var inc = 0
+    func animateWordByIndex(_ index: Int) {
+        if index < 3 {
+            for j in 0..<5 {
+                if let tile = getTile(at: CGPoint(x: j, y: index * 2)){
+                    DispatchQueue.main.async {
+                        tile.showAnimationInRow = true
+                    }
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        tile.showAnimationInRow = false
+                    }
+                }
+            }
+            return
+        }
+        
+        for j in 0..<5 {
+            if let tile = getTile(at: CGPoint(x: (index - 3) * 2, y: j)){
+                DispatchQueue.main.async {
+                    tile.showAnimationInColumn = true
+                }
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    tile.showAnimationInColumn = false
+                }
+            }
+        }
+    }
+    
+    func getOpenedWordsIndexes() -> [Int] {
+        var wordsIndexes: [Int] = []
         for i in stride(from: 0, through: 5, by: 2) {
             var opened = true
             for j in 0..<5 {
@@ -78,7 +107,7 @@ class BoardModel: ObservableObject, Identifiable, Codable {
             }
             
             if opened {
-                inc += 1
+                wordsIndexes.append(3 + i / 2)
             }
             
             opened = true
@@ -90,11 +119,11 @@ class BoardModel: ObservableObject, Identifiable, Codable {
             }
             
             if opened {
-                inc += 1
+                wordsIndexes.append(i / 2)
             }
         }
         
-        return inc
+        return wordsIndexes
     }
     
     func isSolved() -> Bool {

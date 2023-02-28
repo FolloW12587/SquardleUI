@@ -236,9 +236,9 @@ extension GameModel {
             return
         }
         
-        let wordsOpened = board.getOpenedWordsCount()
+        let wordsOpenedIndexes = board.getOpenedWordsIndexes()
         guessWord()
-        endGuess(wordsOpenedBefore: wordsOpened)
+        endGuess(wordsOpenedBefore: wordsOpenedIndexes)
     }
     
 }
@@ -371,14 +371,28 @@ extension GameModel {
 
 extension GameModel {
     
-    func endGuess(wordsOpenedBefore: Int) {
-        let wordsWereOpened = board.getOpenedWordsCount() - wordsOpenedBefore
+    func endGuess(wordsOpenedBefore: [Int]) {
+        let wordsOpenedIndexes = board.getOpenedWordsIndexes()
+        let wordsOpenedCount = (wordsOpenedIndexes.count - wordsOpenedBefore.count)
+        
+        if wordsOpenedCount > 0 && wordsOpenedIndexes.count < 6 {
+            var indexesToAnimate = [Int]()
+            for index in wordsOpenedIndexes {
+                if !wordsOpenedBefore.contains(index) {
+                    indexesToAnimate.append(index)
+                }
+            }
+            
+            for index in indexesToAnimate {
+                board.animateWordByIndex(index)
+            }
+        }
         
         updateKeyboardStats()
-        guessesLeft = guessesLeft - 1 + wordsWereOpened
+        guessesLeft = guessesLeft - 1 + wordsOpenedCount
         currentWord = []
         
-        if wordsWereOpened > 0 {
+        if wordsOpenedCount > 0 {
             playSound("word_opened")
         } else {
             playSound("word_guessed")

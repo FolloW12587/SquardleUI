@@ -70,6 +70,12 @@ struct TileView: View {
         .animation(.easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.1), value: tileModel.showEndAnimation)
         .scaleEffect(tileModel.showEndAnimation ? 1.5 : 1)
         .animation(.easeInOut(duration: 0.2).delay(0.8 + (10 - tileModel.position.x - tileModel.position.y) * 0.1), value: tileModel.showEndAnimation)
+        
+        .scaleEffect(tileModel.showAnimationInRow ? 1.5 : 1)
+        .animation(.easeInOut(duration: 0.2).delay(tileModel.position.x * 0.1), value: tileModel.showAnimationInRow)
+        
+        .scaleEffect(tileModel.showAnimationInColumn ? 1.5 : 1)
+        .animation(.easeInOut(duration: 0.2).delay(tileModel.position.y * 0.1), value: tileModel.showAnimationInColumn)
     }
     
     var character: some View {
