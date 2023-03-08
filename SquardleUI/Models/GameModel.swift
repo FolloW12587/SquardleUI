@@ -16,6 +16,7 @@ class GameModel: ObservableObject, Identifiable {
     var keyboard: KeyboardModel
     var guiModel: GameGUIModel
     let mode: GameMode
+    var stats: StatsModel? = nil
     
     var guessesLeft: Int {
         didSet {
@@ -40,6 +41,7 @@ class GameModel: ObservableObject, Identifiable {
         didSet {
             if isGameOver {
                 showEndView = true
+                self.gameLost()
             }
         }
     }
@@ -47,6 +49,7 @@ class GameModel: ObservableObject, Identifiable {
         didSet {
             if isGameWon {
                 showEndAnimation = true
+                self.gameWon()
             }
         }
     }
@@ -472,6 +475,18 @@ extension GameModel {
     func saveGame() {
         Task {
             FileManager.saveGame(self)
+        }
+    }
+    
+    func gameWon() {
+        Task{
+            stats?.gameWon()
+        }
+    }
+    
+    func gameLost() {
+        Task{
+            stats?.gameLost()
         }
     }
 }

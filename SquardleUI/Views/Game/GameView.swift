@@ -48,7 +48,6 @@ struct GameView: View {
                         gameModel.showSolution = true
                     }
                     .animation(.easeInOut(duration: 0.5), value: gameModel.showSolution)
-                    .onAppear(perform: gameEnded)
                 }
             }
             
@@ -65,15 +64,8 @@ struct GameView: View {
                 .ignoresSafeArea()
             }
         }
-    }
-    
-    func gameEnded() {
-        Task {
-            if gameModel.isGameWon {
-                stats.gameWon()
-            } else {
-                stats.gameLost()
-            }
+        .onAppear {
+            gameModel.stats = stats
         }
     }
 }

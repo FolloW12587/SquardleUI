@@ -65,6 +65,8 @@
 		A1B04E6A29A394DF00AF0A0E /* RulesKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B04E6929A394DF00AF0A0E /* RulesKeyboardView.swift */; };
 		A1B04E6E29A3991800AF0A0E /* RulesMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B04E6D29A3991800AF0A0E /* RulesMarkView.swift */; };
 		A1B61C94299C7CD100E521FF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */; };
+		A1BD047229B87392002F0DB0 /* YandexBasicViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD047129B87392002F0DB0 /* YandexBasicViewContorller.swift */; };
+		A1BD047429B87554002F0DB0 /* YandexRewardedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD047329B87554002F0DB0 /* YandexRewardedAd.swift */; };
 		A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0D292DCB1700D7B618 /* HeaderView.swift */; };
 		A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0F292F089D00D7B618 /* HintModel.swift */; };
 		A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E11292F0A9200D7B618 /* HintView.swift */; };
@@ -143,6 +145,8 @@
 		A1B04E6929A394DF00AF0A0E /* RulesKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesKeyboardView.swift; sourceTree = "<group>"; };
 		A1B04E6D29A3991800AF0A0E /* RulesMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesMarkView.swift; sourceTree = "<group>"; };
 		A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A1BD047129B87392002F0DB0 /* YandexBasicViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexBasicViewContorller.swift; sourceTree = "<group>"; };
+		A1BD047329B87554002F0DB0 /* YandexRewardedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexRewardedAd.swift; sourceTree = "<group>"; };
 		A1C33E0D292DCB1700D7B618 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A1C33E0F292F089D00D7B618 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
 		A1C33E11292F0A9200D7B618 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				A12E5102299123360097A939 /* YandexInterestial.swift */,
+				A1BD047329B87554002F0DB0 /* YandexRewardedAd.swift */,
+				A1BD047129B87392002F0DB0 /* YandexBasicViewContorller.swift */,
 			);
 			path = Ads;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */,
 				A1486AC5292CBA9E005AB2F0 /* KeyboardModel.swift in Sources */,
 				A11BF03829A21D79004D45AD /* SecondView.swift in Sources */,
+				A1BD047229B87392002F0DB0 /* YandexBasicViewContorller.swift in Sources */,
 				A11BF03229A2153D004D45AD /* TutorialModel.swift in Sources */,
 				A1486AB8292C8689005AB2F0 /* String - extensions.swift in Sources */,
 				A1124ED3299E41DB001E306F /* WinStreakColumnView.swift in Sources */,
@@ -515,6 +522,7 @@
 				A1C33E2B293A05FA00D7B618 /* GameEndView.swift in Sources */,
 				A1486AA4292C7464005AB2F0 /* MenuButton.swift in Sources */,
 				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
+				A1BD047429B87554002F0DB0 /* YandexRewardedAd.swift in Sources */,
 				A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */,
 				A11BF04029A2317F004D45AD /* SixthView.swift in Sources */,
 				A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */,
@@ -659,7 +667,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -680,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -699,7 +707,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -720,7 +728,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
