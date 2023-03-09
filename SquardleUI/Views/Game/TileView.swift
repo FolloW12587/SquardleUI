@@ -41,6 +41,22 @@ struct TileView: View {
         }
     }
     
+    var showSolutionAnimation: Animation {
+        .easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.2)
+    }
+    var showEndAnimation: Animation {
+        .easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.1)
+    }
+    var showEndAnimation2: Animation {
+        .easeInOut(duration: 0.2).delay(0.8 + (10 - tileModel.position.x - tileModel.position.y) * 0.1)
+    }
+    var showAnimationInRow: Animation {
+        .easeInOut(duration: 0.2).delay(tileModel.position.x * 0.1)
+    }
+    var showAnimationInColumn: Animation {
+        .easeInOut(duration: 0.2).delay(tileModel.position.y * 0.1)
+    }
+    
     var body: some View {
         ZStack {
             character
@@ -65,17 +81,17 @@ struct TileView: View {
             }
             gameModel.tileTapped(tileModel)
         }
-        .animation(.easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.2), value: tileModel.showSolution)
+        .animation(showSolutionAnimation, value: tileModel.showSolution)
         .scaleEffect(tileModel.showEndAnimation ? 1.5 : 1)
-        .animation(.easeInOut(duration: 0.2).delay((tileModel.position.x + tileModel.position.y) * 0.1), value: tileModel.showEndAnimation)
+        .animation(showEndAnimation, value: tileModel.showEndAnimation)
         .scaleEffect(tileModel.showEndAnimation ? 1.5 : 1)
-        .animation(.easeInOut(duration: 0.2).delay(0.8 + (10 - tileModel.position.x - tileModel.position.y) * 0.1), value: tileModel.showEndAnimation)
+        .animation(showEndAnimation2, value: tileModel.showEndAnimation)
         
         .scaleEffect(tileModel.showAnimationInRow ? 1.5 : 1)
-        .animation(.easeInOut(duration: 0.2).delay(tileModel.position.x * 0.1), value: tileModel.showAnimationInRow)
+        .animation(showAnimationInRow, value: tileModel.showAnimationInRow)
         
         .scaleEffect(tileModel.showAnimationInColumn ? 1.5 : 1)
-        .animation(.easeInOut(duration: 0.2).delay(tileModel.position.y * 0.1), value: tileModel.showAnimationInColumn)
+        .animation(showAnimationInColumn, value: tileModel.showAnimationInColumn)
     }
     
     var character: some View {

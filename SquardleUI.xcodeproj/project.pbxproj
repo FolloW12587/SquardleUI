@@ -67,6 +67,7 @@
 		A1B61C94299C7CD100E521FF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */; };
 		A1BD047229B87392002F0DB0 /* YandexBasicViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD047129B87392002F0DB0 /* YandexBasicViewContorller.swift */; };
 		A1BD047429B87554002F0DB0 /* YandexRewardedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD047329B87554002F0DB0 /* YandexRewardedAd.swift */; };
+		A1BD047729B87AE8002F0DB0 /* PreEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD047629B87AE8002F0DB0 /* PreEndView.swift */; };
 		A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0D292DCB1700D7B618 /* HeaderView.swift */; };
 		A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E0F292F089D00D7B618 /* HintModel.swift */; };
 		A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C33E11292F0A9200D7B618 /* HintView.swift */; };
@@ -147,6 +148,7 @@
 		A1B61C93299C7CD100E521FF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A1BD047129B87392002F0DB0 /* YandexBasicViewContorller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexBasicViewContorller.swift; sourceTree = "<group>"; };
 		A1BD047329B87554002F0DB0 /* YandexRewardedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexRewardedAd.swift; sourceTree = "<group>"; };
+		A1BD047629B87AE8002F0DB0 /* PreEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreEndView.swift; sourceTree = "<group>"; };
 		A1C33E0D292DCB1700D7B618 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		A1C33E0F292F089D00D7B618 /* HintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintModel.swift; sourceTree = "<group>"; };
 		A1C33E11292F0A9200D7B618 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
@@ -313,11 +315,11 @@
 		A1486AA5292C76FD005AB2F0 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				A11BF02C29A2133C004D45AD /* Tutorial */,
+				A1BD047529B87AC8002F0DB0 /* End */,
 				A1C33E21293769E800D7B618 /* Rules */,
 				A1124EC9299E1EE3001E306F /* Stats */,
+				A11BF02C29A2133C004D45AD /* Tutorial */,
 				A1486ABE292CB3B7005AB2F0 /* BoardView.swift */,
-				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
 				A1486ABC292C8824005AB2F0 /* GameView.swift */,
 				A1F7C411293ED62800B8D177 /* GameWrapperView.swift */,
 				A1C33E0D292DCB1700D7B618 /* HeaderView.swift */,
@@ -360,6 +362,15 @@
 				A177DC0B294AFB8D001D79EA /* word_guessed.wav */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		A1BD047529B87AC8002F0DB0 /* End */ = {
+			isa = PBXGroup;
+			children = (
+				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
+				A1BD047629B87AE8002F0DB0 /* PreEndView.swift */,
+			);
+			path = End;
 			sourceTree = "<group>";
 		};
 		A1C33E1C292F6E8C00D7B618 /* Helpers */ = {
@@ -524,6 +535,7 @@
 				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
 				A1BD047429B87554002F0DB0 /* YandexRewardedAd.swift in Sources */,
 				A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */,
+				A1BD047729B87AE8002F0DB0 /* PreEndView.swift in Sources */,
 				A11BF04029A2317F004D45AD /* SixthView.swift in Sources */,
 				A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */,
 				A1124ED8299F1334001E306F /* AnimatableNumber.swift in Sources */,

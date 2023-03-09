@@ -32,6 +32,7 @@ class GameModel: ObservableObject, Identifiable {
             }
         }
     }
+    
     @Published var showSolution: Bool = false {
         didSet {
             board.showSolution()
@@ -62,6 +63,22 @@ class GameModel: ObservableObject, Identifiable {
         }
     }
     
+    var showPreEndClosure: (() -> ())!
+    @Published var showPreEndView: Bool = false{
+        didSet {
+            if !showPreEndView {
+                if guessesLeft != 0 {
+                    rotateCurrentRow()
+                    saveGame()
+                    return
+                }
+                
+                isGameOver = true
+            }
+            
+        }
+    }
+    var usedRewardAdd: Bool = false
     
     @Published var showEndAnimation: Bool = false {
         didSet {
@@ -127,16 +144,13 @@ class GameModel: ObservableObject, Identifiable {
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
-        do {
-            mode = try container.decode(GameMode.self, forKey: .mode)
-        } catch {
-            mode = .normal
-        }
+        mode = try container.decode(GameMode.self, forKey: .mode)
         words = try container.decode([String].self, forKey: .words)
         board = try container.decode(BoardModel.self, forKey: .board)
         keyboard = try container.decode(KeyboardModel.self, forKey: .keyboard)
         guessesLeft = try container.decode(Int.self, forKey: .guessesLeft)
         currentRow = try container.decode(Int.self, forKey: .currentRow)
+        usedRewardAdd = try container.decode(Bool.self, forKey: .usedRewardAdd)
         guiModel = GameGUIModel(guessesLeft: guessesLeft)
         
         highlightGuessingWay()
@@ -151,7 +165,7 @@ class GameModel: ObservableObject, Identifiable {
 
 extension GameModel: Codable {
     enum CodingKeys: CodingKey {
-        case id, words, board, keyboard, guessesLeft, currentRow, mode
+        case id, words, board, keyboard, guessesLeft, currentRow, mode, usedRewardAdd
     }
     
     func encode(to encoder: Encoder) throws {
@@ -163,6 +177,7 @@ extension GameModel: Codable {
         try container.encode(self.guessesLeft, forKey: .guessesLeft)
         try container.encode(self.currentRow, forKey: .currentRow)
         try container.encode(self.mode, forKey: .mode)
+        try container.encode(self.usedRewardAdd, forKey: .usedRewardAdd)
     }
 }
 
@@ -258,7 +273,11 @@ extension GameModel {
     
     func checkForGameOver() -> Bool {
         if guessesLeft <= 0 {
-            isGameOver = true
+            if usedRewardAdd {
+                isGameOver = true
+            } else {
+                showPreEndView = true
+            }
             return true
         }
         

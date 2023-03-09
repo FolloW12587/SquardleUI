@@ -10,14 +10,17 @@ import SwiftUI
 
 struct YandexRewardedAd: UIViewControllerRepresentable {
     var dismissClosure: () -> ()
+    var rewardClosure: () -> ()
     
-    init(_ closure: @escaping () -> Void) {
-        self.dismissClosure = closure
+    init(dismissClosure: @escaping () -> Void, rewardClosure: @escaping () -> Void) {
+        self.dismissClosure = dismissClosure
+        self.rewardClosure = rewardClosure
     }
     
     func makeUIViewController(context: Context) -> RewardedViewController {
         let controller = RewardedViewController()
         controller.dismissClosure = dismissClosure
+        controller.rewardClosure = rewardClosure
         return controller
     }
     
@@ -27,11 +30,17 @@ struct YandexRewardedAd: UIViewControllerRepresentable {
 
 class RewardedViewController: YandexBasicVC {
     var rewardedAd: YMARewardedAd!
+    var rewardClosure: (() -> ())!
+    let adUnitID = "R-M-2190063-2"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rewardedAd = YMARewardedAd(adUnitID: "R-M-2190063-2")
+        loadNewAd()
+    }
+    
+    func loadNewAd() {
+        rewardedAd = YMARewardedAd(adUnitID: adUnitID)
         rewardedAd.delegate = self;
         rewardedAd.load()
     }
@@ -41,6 +50,7 @@ extension RewardedViewController: YMARewardedAdDelegate{
     func rewardedAd(_ rewardedAd: YMARewardedAd, didReward reward: YMAReward) {
         let message = "Rewarded ad did reward: \(reward.amount) \(reward.type)"
         print(message)
+        rewardClosure()
     }
     
     func rewardedAdDidLoad(_ rewardedAd: YMARewardedAd) {

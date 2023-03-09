@@ -50,7 +50,6 @@ struct GameView: View {
                     .animation(.easeInOut(duration: 0.5), value: gameModel.showSolution)
                 }
             }
-            
         }
         .environmentObject(gameModel)
         .id(gameModel.id)
@@ -62,6 +61,20 @@ struct GameView: View {
                     }
                 }
                 .ignoresSafeArea()
+            }
+        }
+        .overlay {
+            if gameModel.showPreEndView {
+                PreEndView {
+                    DispatchQueue.main.async {
+                        gameModel.usedRewardAdd = true
+                        gameModel.showPreEndView = false
+                    }
+                } rewardClosure: {
+                    DispatchQueue.main.async {
+                        gameModel.guessesLeft += 1
+                    }
+                }
             }
         }
         .onAppear {

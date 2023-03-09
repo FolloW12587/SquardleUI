@@ -27,11 +27,16 @@ struct YandexInterstitial: UIViewControllerRepresentable {
 
 class InterstitialViewController: YandexBasicVC {
     var interstitialAd: YMAInterstitialAd!
+    let adUnitID = "R-M-2190063-1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        interstitialAd = YMAInterstitialAd(adUnitID: "R-M-2190063-1")
+        loadNewAd()
+    }
+    
+    func loadNewAd() {
+        interstitialAd = YMAInterstitialAd(adUnitID: adUnitID)
         interstitialAd.delegate = self;
         interstitialAd.load()
     }
