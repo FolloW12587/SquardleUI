@@ -66,7 +66,7 @@ class GameModel: ObservableObject, Identifiable {
     var showPreEndClosure: (() -> ())!
     @Published var showPreEndView: Bool = false{
         didSet {
-            if !showPreEndView {
+            if !showPreEndView && oldValue {
                 if guessesLeft != 0 {
                     rotateCurrentRow()
                     saveGame()
