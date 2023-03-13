@@ -52,6 +52,9 @@
 		A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */; };
 		A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */; };
 		A1486ACB292CC847005AB2F0 /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */; };
+		A1638C0E29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638C0D29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift */; };
+		A1638C1029BEAEFE0020E378 /* Fireworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638C0F29BEAEFE0020E378 /* Fireworks.swift */; };
+		A1638C1229BEB4230020E378 /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638C1129BEB4230020E378 /* EndView.swift */; };
 		A177DC01294AD9C5001D79EA /* GameStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC00294AD9C5001D79EA /* GameStatsView.swift */; };
 		A177DC03294AED2D001D79EA /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC02294AED2D001D79EA /* MenuView.swift */; };
 		A177DC05294AF23A001D79EA /* DismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC04294AF23A001D79EA /* DismissButtonView.swift */; };
@@ -133,6 +136,9 @@
 		A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyModel.swift; sourceTree = "<group>"; };
 		A1486AC8292CBDF1005AB2F0 /* KeyboardKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardKeyView.swift; sourceTree = "<group>"; };
 		A1486ACA292CC847005AB2F0 /* SubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
+		A1638C0D29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerRepresentable.swift; sourceTree = "<group>"; };
+		A1638C0F29BEAEFE0020E378 /* Fireworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fireworks.swift; sourceTree = "<group>"; };
+		A1638C1129BEB4230020E378 /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
 		A177DC00294AD9C5001D79EA /* GameStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsView.swift; sourceTree = "<group>"; };
 		A177DC02294AED2D001D79EA /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A177DC04294AF23A001D79EA /* DismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonView.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 				A1124ED5299F12D5001E306F /* AnimatableGradientLine.swift */,
 				A1124ED7299F1334001E306F /* AnimatableNumber.swift */,
 				A1124ED9299F154D001E306F /* AnimatableRateNumber.swift */,
+				A1638C0F29BEAEFE0020E378 /* Fireworks.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -368,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
+				A1638C1129BEB4230020E378 /* EndView.swift */,
 				A1BD047629B87AE8002F0DB0 /* PreEndView.swift */,
 			);
 			path = End;
@@ -376,11 +384,12 @@
 		A1C33E1C292F6E8C00D7B618 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				A1638C0D29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift */,
+				A1124EC7299E0EDE001E306F /* AsymetricRectangleView.swift */,
+				A177DC04294AF23A001D79EA /* DismissButtonView.swift */,
 				A1C33E17292F1D2F00D7B618 /* HorizontalArrowLineView.swift */,
 				A1C33E13292F106200D7B618 /* TriangleShape.swift */,
 				A1C33E19292F1D5100D7B618 /* VerticalArrowLineView.swift */,
-				A177DC04294AF23A001D79EA /* DismissButtonView.swift */,
-				A1124EC7299E0EDE001E306F /* AsymetricRectangleView.swift */,
 				A1124ED4299F12A2001E306F /* Animations */,
 			);
 			path = Helpers;
@@ -513,6 +522,7 @@
 				A177DC05294AF23A001D79EA /* DismissButtonView.swift in Sources */,
 				A1124ECD299E345B001E306F /* WinStreakGraphView.swift in Sources */,
 				A1486AC9292CBDF1005AB2F0 /* KeyboardKeyView.swift in Sources */,
+				A1638C1229BEB4230020E378 /* EndView.swift in Sources */,
 				A177DC12294AFD39001D79EA /* PlaySound.swift in Sources */,
 				A1124ECB299E1F6B001E306F /* WinRateGraphView.swift in Sources */,
 				A1B04E6829A3939A00AF0A0E /* RulesHintsView.swift in Sources */,
@@ -523,6 +533,7 @@
 				A1C33E18292F1D2F00D7B618 /* HorizontalArrowLineView.swift in Sources */,
 				A1124EC8299E0EDE001E306F /* AsymetricRectangleView.swift in Sources */,
 				A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */,
+				A1638C0E29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift in Sources */,
 				A11BF04229A23F61004D45AD /* SeventhView.swift in Sources */,
 				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
 				A1D12B7A29A63D21000A1693 /* NewGameView.swift in Sources */,
@@ -532,6 +543,7 @@
 				A11BF03C29A22D8D004D45AD /* FourthView.swift in Sources */,
 				A1C33E2B293A05FA00D7B618 /* GameEndView.swift in Sources */,
 				A1486AA4292C7464005AB2F0 /* MenuButton.swift in Sources */,
+				A1638C1029BEAEFE0020E378 /* Fireworks.swift in Sources */,
 				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
 				A1BD047429B87554002F0DB0 /* YandexRewardedAd.swift in Sources */,
 				A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */,
@@ -679,7 +691,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -700,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -719,7 +731,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -740,7 +752,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.7;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
