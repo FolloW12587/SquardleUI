@@ -14,6 +14,10 @@ struct ContentView: View {
     @StateObject var theme = ThemeModel()
     @State var menuOption: MenuOptions = .none
     
+    var hasActiveGame: Bool {
+        return stats.hasActiveGame && FileManager.saveExists() && FileManager.getSavedGame() != nil
+    }
+    
     var body: some View {
         ZStack{
             
@@ -23,7 +27,7 @@ struct ContentView: View {
             case .continueGame:
                 GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption)
             case .newGame:
-                NewGameView(showGame: !stats.hasActiveGame, showAlert: stats.hasActiveGame, dismissAction: dismissOption, newGameAction: newGameOption)
+                NewGameView(showGame: !hasActiveGame, showAlert: hasActiveGame, dismissAction: dismissOption, newGameAction: newGameOption)
             case .rules:
                 RulesView(showHeader: true, dismissAction: dismissOption)
             case .stats:

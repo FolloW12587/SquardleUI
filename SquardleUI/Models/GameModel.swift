@@ -23,6 +23,7 @@ class GameModel: ObservableObject, Identifiable {
             guiModel.guessesLeft = guessesLeft
         }
     }
+    var guessesUsed: Int
     var currentWord = [Character]() {
         didSet {
             if currentWord.count == 5 && !guiModel.isSubmitButtonActive {
@@ -118,6 +119,7 @@ class GameModel: ObservableObject, Identifiable {
             guessesLeft = 7
             words = dictionary.generateWords(mode: gameMode)
         }
+        guessesUsed = 0
         board = BoardModel(words: words)
         keyboard = KeyboardModel()
         guiModel = GameGUIModel(guessesLeft: guessesLeft)
@@ -135,7 +137,7 @@ class GameModel: ObservableObject, Identifiable {
         keyboard = KeyboardModel()
         guessesLeft = 9
         guiModel = GameGUIModel(guessesLeft: guessesLeft)
-        
+        guessesUsed = 0
         highlightGuessingWay()
         updateDistinctCharactersExists()
         print("Gamemodel \(id) created")
@@ -149,6 +151,7 @@ class GameModel: ObservableObject, Identifiable {
         board = try container.decode(BoardModel.self, forKey: .board)
         keyboard = try container.decode(KeyboardModel.self, forKey: .keyboard)
         guessesLeft = try container.decode(Int.self, forKey: .guessesLeft)
+        guessesUsed = try container.decode(Int.self, forKey: .guessesUsed)
         currentRow = try container.decode(Int.self, forKey: .currentRow)
         usedRewardAdd = try container.decode(Bool.self, forKey: .usedRewardAdd)
         guiModel = GameGUIModel(guessesLeft: guessesLeft)
@@ -165,7 +168,7 @@ class GameModel: ObservableObject, Identifiable {
 
 extension GameModel: Codable {
     enum CodingKeys: CodingKey {
-        case id, words, board, keyboard, guessesLeft, currentRow, mode, usedRewardAdd
+        case id, words, board, keyboard, guessesLeft, currentRow, mode, usedRewardAdd, guessesUsed
     }
     
     func encode(to encoder: Encoder) throws {
@@ -175,6 +178,7 @@ extension GameModel: Codable {
         try container.encode(self.board, forKey: .board)
         try container.encode(self.keyboard, forKey: .keyboard)
         try container.encode(self.guessesLeft, forKey: .guessesLeft)
+        try container.encode(self.guessesUsed, forKey: .guessesUsed)
         try container.encode(self.currentRow, forKey: .currentRow)
         try container.encode(self.mode, forKey: .mode)
         try container.encode(self.usedRewardAdd, forKey: .usedRewardAdd)
@@ -412,6 +416,7 @@ extension GameModel {
         
         updateKeyboardStats()
         guessesLeft = guessesLeft - 1 + wordsOpenedCount
+        guessesUsed += 1
         currentWord = []
         
         if wordsOpenedCount > 0 {

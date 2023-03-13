@@ -105,7 +105,9 @@ class StatsModel: ObservableObject {
     }
     
     func gameWon() {
-        hasActiveGame = false
+        DispatchQueue.main.async {
+            self.hasActiveGame = false
+        }
         
         totalGames += 1
         totalWins += 1
@@ -115,7 +117,9 @@ class StatsModel: ObservableObject {
     }
     
     func gameLost() {
-        hasActiveGame = false
+        DispatchQueue.main.async {
+            self.hasActiveGame = false
+        }
         
         totalGames += 1
         currentStreak = 0

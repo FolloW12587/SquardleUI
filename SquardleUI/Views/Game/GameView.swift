@@ -33,21 +33,30 @@ struct GameView: View {
             .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
             
             if gameModel.showEndView {
-                VStack {
-                    if gameModel.showSolution {
-                        Spacer()
+                if gameModel.isGameOver {
+                    VStack {
+                        if gameModel.showSolution {
+                            Spacer()
+                        }
+                    
+                        GameEndView() {
+                            dismissClosure()
+                        } statsAction: {
+                            gameModel.guiModel.areStatsPresented.toggle()
+                        } restartAction: {
+                            restartClosure()
+                        } showSolutionAction: {
+                            gameModel.showSolution = true
+                        }
+                        .animation(.easeInOut(duration: 0.5), value: gameModel.showSolution)
                     }
-                
-                    GameEndView(isGameWon: gameModel.isGameWon) {
+                } else if gameModel.isGameWon {
+                    EndView(words: gameModel.words, guessesUsed: gameModel.guessesUsed, gameMode: gameModel.mode) {
                         dismissClosure()
                     } statsAction: {
                         gameModel.guiModel.areStatsPresented.toggle()
-                    } restartAction: {
-                        restartClosure()
-                    } showSolutionAction: {
-                        gameModel.showSolution = true
                     }
-                    .animation(.easeInOut(duration: 0.5), value: gameModel.showSolution)
+
                 }
             }
         }

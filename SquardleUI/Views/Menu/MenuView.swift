@@ -49,7 +49,7 @@ struct MenuView: View {
     var buttons: some View {
         VStack{
             
-            if stats.hasActiveGame, FileManager.saveExists() {
+            if stats.hasActiveGame, FileManager.saveExists(), FileManager.getSavedGame() != nil {
                 MenuButton(title: "Продолжить") {
                     changeOption(.continueGame)
                 }
