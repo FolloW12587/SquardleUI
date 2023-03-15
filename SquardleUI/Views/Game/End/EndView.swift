@@ -123,9 +123,9 @@ struct EndView: View {
         VStack {
             HStack{
                 Image(systemName: "speedometer")
-                Text("Игра")
+                Text("Режим")
                 Spacer()
-                Text("Сложная")
+                Text(gameModeString.capitalized)
             }
             .font(.system(.title3))
             .padding(.horizontal, 70)

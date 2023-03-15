@@ -59,7 +59,11 @@ class GameModel: ObservableObject, Identifiable {
     @Published var showEndView: Bool = false {
         didSet {
             if showEndView {
-                showAdd = true
+                if isGameWon && AppReviewRequest.isRequestNeeded() {
+                    AppReviewRequest.requestReview()
+                } else {
+                    showAdd = true
+                }
             }
         }
     }
