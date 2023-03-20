@@ -57,6 +57,9 @@ struct NewGameView: View {
     }
     
     func gameModeSelected(gameMode: GameModel.GameMode) {
+        if FileManager.saveExists() {
+            FileManager.deleteSave()
+        }
         stats.hasActiveGame = true
         stats.gameMode = gameMode
         stats.save()

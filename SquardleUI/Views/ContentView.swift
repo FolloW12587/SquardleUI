@@ -13,6 +13,7 @@ struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
     @StateObject var theme = ThemeModel()
     @State var menuOption: MenuOptions = .none
+    var lastGamePlayed = LastGamePlayed(words: [], guessesUsed: 0, gameMode: .normal)
     
     var hasActiveGame: Bool {
         return stats.hasActiveGame && FileManager.saveExists() && FileManager.getSavedGame() != nil
@@ -25,13 +26,15 @@ struct ContentView: View {
             case .none:
                 MenuView(option: $menuOption)
             case .continueGame:
-                GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption)
+                GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption, gameWonAction: gameWonAction)
             case .newGame:
                 NewGameView(showGame: !hasActiveGame, showAlert: hasActiveGame, dismissAction: dismissOption, newGameAction: newGameOption)
             case .rules:
                 RulesView(showHeader: true, dismissAction: dismissOption)
             case .stats:
                 GameStatsView(dismissAction: dismissOption)
+            case .gameWonView:
+                EndView(lastGamePlayed: lastGamePlayed, homeAction: dismissOption, statsAction: statsOption)
             }
         }
         .tint(Color.primary)
@@ -55,11 +58,27 @@ struct ContentView: View {
         playSound(SoundMatcher.keyPressed.rawValue)
     }
     
+    func statsOption() {
+        withAnimation{
+            menuOption = .stats
+        }
+        playSound(SoundMatcher.keyPressed.rawValue)
+    }
+    
     func newGameOption() {
         withAnimation{
             menuOption = .continueGame
         }
         playSound(SoundMatcher.keyPressed.rawValue)
+    }
+    
+    func gameWonAction(_ lastGamePlayed: LastGamePlayed) {
+        self.lastGamePlayed.words = lastGamePlayed.words
+        self.lastGamePlayed.gameMode = lastGamePlayed.gameMode
+        self.lastGamePlayed.guessesUsed = lastGamePlayed.guessesUsed
+        withAnimation {
+            menuOption = .gameWonView
+        }
     }
 }
 
@@ -70,6 +89,7 @@ extension ContentView {
         case rules
         case stats
         case none
+        case gameWonView
     }
 }
 

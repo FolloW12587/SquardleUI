@@ -14,6 +14,7 @@ struct GameView: View {
     
     var dismissClosure: () -> ()
     var restartClosure: () -> ()
+    var gameWonClosure: (LastGamePlayed) -> ()
     
     var body: some View {
         ZStack {
@@ -51,11 +52,16 @@ struct GameView: View {
                         .animation(.easeInOut(duration: 0.5), value: gameModel.showSolution)
                     }
                 } else if gameModel.isGameWon {
-                    EndView(words: gameModel.words, guessesUsed: gameModel.guessesUsed, gameMode: gameModel.mode) {
-                        dismissClosure()
-                    } statsAction: {
-                        gameModel.guiModel.areStatsPresented.toggle()
-                    }
+                    Circle()
+                        .fill(.clear)
+                        .onAppear{
+                            gameWonClosure(LastGamePlayed(words: gameModel.words, guessesUsed: gameModel.guessesUsed, gameMode: gameModel.mode))
+                        }
+//                    EndView(words: gameModel.words, guessesUsed: gameModel.guessesUsed, gameMode: gameModel.mode) {
+//                        dismissClosure()
+//                    } statsAction: {
+//                        gameModel.guiModel.areStatsPresented.toggle()
+//                    }
 
                 }
             }
@@ -94,7 +100,7 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(gameModel: GameModel(mode: .normal)){} restartClosure: {}
+        GameView(gameModel: GameModel(mode: .normal)){} restartClosure: {} gameWonClosure: { _ in }
             .environmentObject(StatsModel())
             .environmentObject(ThemeModel())
     }

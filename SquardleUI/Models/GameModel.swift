@@ -42,7 +42,7 @@ class GameModel: ObservableObject, Identifiable {
     @Published var isGameOver: Bool = false{
         didSet {
             if isGameOver {
-                showEndView = true
+                showAdd = true
                 self.gameLost()
             }
         }
@@ -61,8 +61,6 @@ class GameModel: ObservableObject, Identifiable {
             if showEndView {
                 if isGameWon && AppReviewRequest.isRequestNeeded() {
                     AppReviewRequest.requestReview()
-                } else {
-                    showAdd = true
                 }
             }
         }
@@ -94,7 +92,7 @@ class GameModel: ObservableObject, Identifiable {
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.showEndView = true
+                    self.showAdd = true
                 }
             }
         }
@@ -110,7 +108,13 @@ class GameModel: ObservableObject, Identifiable {
     var currentMarkingTile: TileModel? = nil
     var distinctCharsExists: Set<Character> = []
     
-    @Published var showAdd: Bool = false
+    @Published var showAdd: Bool = false {
+        didSet {
+            if !showAdd && oldValue {
+                showEndView = true
+            }
+        }
+    }
     
     init(mode gameMode: GameMode = .normal) {
         id = UUID()

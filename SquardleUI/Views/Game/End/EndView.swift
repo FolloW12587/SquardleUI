@@ -9,21 +9,22 @@ import SwiftUI
 
 struct EndView: View {
     @EnvironmentObject var theme: ThemeModel
-    let words: [String]
-    let guessesUsed: Int
-    let gameMode: GameModel.GameMode
+//    let words: [String]
+//    let guessesUsed: Int
+//    let gameMode: GameModel.GameMode
+    let lastGamePlayed: LastGamePlayed
     let homeAction: () -> ()
     let statsAction: () -> ()
     
     var wordsString: String {
         var s: String = "\n\n"
-        for word in words {
+        for word in lastGamePlayed.words {
             s += "\(word)\n"
         }
         return s
     }
     var gameModeString: String {
-        switch gameMode {
+        switch lastGamePlayed.gameMode {
         case .normal:
             return "обычный"
         case .hard:
@@ -33,7 +34,7 @@ struct EndView: View {
     var url: String = "https://apps.apple.com/us/app/%D1%88%D0%B5%D1%81%D1%82%D1%8C-%D1%81%D0%BB%D0%BE%D0%B2/id1665411397"
     
     var winText: String {
-        "Я только что прошел \(gameModeString) уровень в игре \"Шесть Слов\" за \(guessesUsed) ходов, и отгадал слова \(wordsString)\nА ты сможешь?\n"
+        "Я только что прошел \(gameModeString) уровень в игре \"Шесть Слов\" за \(lastGamePlayed.guessesUsed) ходов, и отгадал слова \(wordsString)\nА ты сможешь?\n"
     }
     
     @State var showShareSheet = false
@@ -139,7 +140,7 @@ struct EndView: View {
                 Image(systemName: "number")
                 Text("Ходов")
                 Spacer()
-                Text("\(guessesUsed)")
+                Text("\(lastGamePlayed.guessesUsed)")
             }
             .font(.system(.title3))
             .padding(.horizontal, 70)
@@ -149,7 +150,7 @@ struct EndView: View {
 
 struct EndView_Previews: PreviewProvider {
     static var previews: some View {
-        EndView(words: ["КАТЕР", "САПЕР"], guessesUsed: 6, gameMode: .hard){} statsAction: {}
+        EndView(lastGamePlayed: LastGamePlayed(words: ["КАТЕР", "САПЕР"], guessesUsed: 6, gameMode: .hard)){} statsAction: {}
             .environmentObject(ThemeModel())
     }
 }
