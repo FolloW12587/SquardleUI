@@ -19,6 +19,9 @@ struct MenuView: View {
     var body: some View {
         ZStack {
             theme.backgroundColor
+                .ignoresSafeArea()
+            
+            settings
             
             VStack (spacing: 0){
                 if showContent{
@@ -26,18 +29,16 @@ struct MenuView: View {
                 }
                 
                 Image("logo")
-//                    .animation(.spring(), value: showContent)
                 
                 if showContent{
                     Spacer()
                     buttons
                     Spacer()
                 }
-                
             }
+            .ignoresSafeArea()
         }
         .tint(Color.primary)
-        .ignoresSafeArea()
         .environmentObject(stats)
         .onAppear{
             withAnimation(.easeInOut(duration: 1).delay(0.5)){
@@ -46,9 +47,26 @@ struct MenuView: View {
         }
     }
     
+    var settings: some View {
+        VStack{
+            HStack{
+                Spacer()
+                Button {
+                    changeOption(.settings)
+                } label: {
+                    Image(systemName: "gearshape.circle")
+                        .foregroundColor(Color.primary)
+                        .font(.system(size: 30))
+                }
+
+            }
+            .padding()
+            Spacer()
+        }
+    }
+    
     var buttons: some View {
         VStack{
-            
             if stats.hasActiveGame, FileManager.saveExists(), FileManager.getSavedGame() != nil {
                 MenuButton(title: "Продолжить") {
                     changeOption(.continueGame)
@@ -73,7 +91,7 @@ struct MenuView: View {
         withAnimation{
             option = newOption
         }
-        playSound(SoundMatcher.keyPressed.rawValue)
+        TactileResponse.shared.makeResponse(feedbackStyle: .medium, systemSoundID: SoundMatcher.keyPressed.rawValue)
     }
 }
 

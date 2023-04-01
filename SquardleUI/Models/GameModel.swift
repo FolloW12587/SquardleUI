@@ -262,7 +262,7 @@ extension GameModel {
             tilesOnWay.forEach { tile in
                 tile.wrongGuessedWord = true
             }
-            playSound("wrong_word")
+            TactileResponse.shared.makeResponse(feedbackStyle: .heavy, soundFilename: "wrong_word")
             return
         }
         
@@ -428,9 +428,9 @@ extension GameModel {
         currentWord = []
         
         if wordsOpenedCount > 0 {
-            playSound("word_opened")
+            TactileResponse.shared.makeResponse(feedbackStyle: .medium, soundFilename: "word_opened")
         } else {
-            playSound("word_guessed")
+            TactileResponse.shared.makeResponse(feedbackStyle: .medium, soundFilename: "word_guessed")
         }
         
         if checkForGameEnd() {

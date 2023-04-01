@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var stats = StatsModel()
     @Environment(\.colorScheme) var colorScheme
     @StateObject var theme = ThemeModel()
+    @StateObject var settings: GameSettings = GameSettings()
     @State var menuOption: MenuOptions = .none
     var lastGamePlayed = LastGamePlayed(words: [], guessesUsed: 0, gameMode: .normal)
     
@@ -35,13 +36,14 @@ struct ContentView: View {
                 GameStatsView(dismissAction: dismissOption)
             case .gameWonView:
                 EndView(lastGamePlayed: lastGamePlayed, homeAction: dismissOption, statsAction: statsOption)
+            case .settings:
+                SettingsView(dismissAction: dismissOption)
             }
         }
         .tint(Color.primary)
-        .onAppear{
-            theme.switchTheme(scheme: colorScheme)
-        }
-        .id(colorScheme)
+//        .onAppear{
+//            theme.switchTheme(scheme: colorScheme)
+//        }
         .overlay{
             if !stats.didLaunchBefore{
                 TutorialView(dismissClosure: stats.firstLaunch)
@@ -49,27 +51,34 @@ struct ContentView: View {
         }
         .environmentObject(stats)
         .environmentObject(theme)
+        .environmentObject(settings)
+        .preferredColorScheme(settings.preferedColorScheme)
+        .onChange(of: colorScheme) { newValue in
+            withAnimation {
+                theme.switchTheme(scheme: newValue)
+            }
+        }
     }
     
     func dismissOption() {
         withAnimation{
             menuOption = .none
         }
-        playSound(SoundMatcher.keyPressed.rawValue)
+        TactileResponse.shared.makeResponse(feedbackStyle: .medium, systemSoundID: SoundMatcher.keyPressed.rawValue)
     }
     
     func statsOption() {
         withAnimation{
             menuOption = .stats
         }
-        playSound(SoundMatcher.keyPressed.rawValue)
+        TactileResponse.shared.makeResponse(feedbackStyle: .medium, systemSoundID: SoundMatcher.keyPressed.rawValue)
     }
     
     func newGameOption() {
         withAnimation{
             menuOption = .continueGame
         }
-        playSound(SoundMatcher.keyPressed.rawValue)
+        TactileResponse.shared.makeResponse(feedbackStyle: .medium, systemSoundID: SoundMatcher.keyPressed.rawValue)
     }
     
     func gameWonAction(_ lastGamePlayed: LastGamePlayed) {
@@ -90,6 +99,7 @@ extension ContentView {
         case stats
         case none
         case gameWonView
+        case settings
     }
 }
 

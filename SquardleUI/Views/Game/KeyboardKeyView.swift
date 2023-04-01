@@ -39,7 +39,7 @@ struct KeyboardKeyView: View {
     func tapped() {
         tapAction(keyModel)
         animateTap()
-        playSound(SoundMatcher.keyPressed.rawValue)
+        TactileResponse.shared.makeResponse(feedbackStyle: .medium, systemSoundID: SoundMatcher.keyPressed.rawValue)
     }
     
     func getBackgroundColor() -> Color {

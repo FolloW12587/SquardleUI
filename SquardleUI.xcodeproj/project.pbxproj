@@ -28,6 +28,8 @@
 		A11BF04029A2317F004D45AD /* SixthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03F29A2317F004D45AD /* SixthView.swift */; };
 		A11BF04229A23F61004D45AD /* SeventhView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF04129A23F61004D45AD /* SeventhView.swift */; };
 		A11BF04429A24778004D45AD /* EightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF04329A24778004D45AD /* EightView.swift */; };
+		A128A25529D073A500BAD5BA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A25429D073A500BAD5BA /* SettingsView.swift */; };
+		A128A25729D0741900BAD5BA /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128A25629D0741900BAD5BA /* Settings.swift */; };
 		A12E5103299123360097A939 /* YandexInterestial.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12E5102299123360097A939 /* YandexInterestial.swift */; };
 		A12E5106299124330097A939 /* YandexMobileAdsPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A12E5105299124330097A939 /* YandexMobileAdsPackage */; };
 		A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */; };
@@ -55,6 +57,7 @@
 		A1638C0E29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638C0D29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift */; };
 		A1638C1029BEAEFE0020E378 /* Fireworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638C0F29BEAEFE0020E378 /* Fireworks.swift */; };
 		A1638C1229BEB4230020E378 /* EndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638C1129BEB4230020E378 /* EndView.swift */; };
+		A165E2EB29D7AEA9007BD64D /* TactileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A165E2EA29D7AEA9007BD64D /* TactileResponse.swift */; };
 		A177DC01294AD9C5001D79EA /* GameStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC00294AD9C5001D79EA /* GameStatsView.swift */; };
 		A177DC03294AED2D001D79EA /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC02294AED2D001D79EA /* MenuView.swift */; };
 		A177DC05294AF23A001D79EA /* DismissButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC04294AF23A001D79EA /* DismissButtonView.swift */; };
@@ -114,6 +117,8 @@
 		A11BF03F29A2317F004D45AD /* SixthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthView.swift; sourceTree = "<group>"; };
 		A11BF04129A23F61004D45AD /* SeventhView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhView.swift; sourceTree = "<group>"; };
 		A11BF04329A24778004D45AD /* EightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightView.swift; sourceTree = "<group>"; };
+		A128A25429D073A500BAD5BA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A128A25629D0741900BAD5BA /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A12E5102299123360097A939 /* YandexInterestial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexInterestial.swift; sourceTree = "<group>"; };
 		A1486A8F292C7277005AB2F0 /* SquardleUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SquardleUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1486A92292C7277005AB2F0 /* SquardleUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquardleUIApp.swift; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 		A1638C0D29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		A1638C0F29BEAEFE0020E378 /* Fireworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fireworks.swift; sourceTree = "<group>"; };
 		A1638C1129BEB4230020E378 /* EndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndView.swift; sourceTree = "<group>"; };
+		A165E2EA29D7AEA9007BD64D /* TactileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TactileResponse.swift; sourceTree = "<group>"; };
 		A177DC00294AD9C5001D79EA /* GameStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatsView.swift; sourceTree = "<group>"; };
 		A177DC02294AED2D001D79EA /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A177DC04294AF23A001D79EA /* DismissButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButtonView.swift; sourceTree = "<group>"; };
@@ -230,6 +236,14 @@
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
+		A128A25329D0736700BAD5BA /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A128A25429D073A500BAD5BA /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A12E5101299122F70097A939 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +309,7 @@
 				A1486AC6292CBD27005AB2F0 /* KeyboardKeyModel.swift */,
 				A1D45EB329C83FA400469585 /* LastGamePlayed.swift */,
 				A1486AA8292C7766005AB2F0 /* StatsModel.swift */,
+				A128A25629D0741900BAD5BA /* Settings.swift */,
 				A1486AAF292C7E21005AB2F0 /* TileModel.swift */,
 				A1486AC0292CB8F0005AB2F0 /* ThemeModel.swift */,
 				A11BF03129A2153D004D45AD /* TutorialModel.swift */,
@@ -305,6 +320,7 @@
 		A1486AA1292C7326005AB2F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A128A25329D0736700BAD5BA /* Settings */,
 				A1486A94292C7277005AB2F0 /* ContentView.swift */,
 				A12E5101299122F70097A939 /* Ads */,
 				A1486AA5292C76FD005AB2F0 /* Game */,
@@ -352,6 +368,7 @@
 				A1C33E1D29348C5F00D7B618 /* Array - extensions.swift */,
 				A1C33E282939BE3300D7B618 /* Character - extensions.swift */,
 				A177DC11294AFD39001D79EA /* PlaySound.swift */,
+				A165E2EA29D7AEA9007BD64D /* TactileResponse.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -513,6 +530,7 @@
 				A11BF03A29A2284D004D45AD /* ThirdView.swift in Sources */,
 				A1486AC3292CBA89005AB2F0 /* KeyboardView.swift in Sources */,
 				A1124EDA299F154D001E306F /* AnimatableRateNumber.swift in Sources */,
+				A165E2EB29D7AEA9007BD64D /* TactileResponse.swift in Sources */,
 				A1C33E202934A4F900D7B618 /* GameGUIModel.swift in Sources */,
 				A1486AB0292C7E21005AB2F0 /* TileModel.swift in Sources */,
 				A1C33E12292F0A9200D7B618 /* HintView.swift in Sources */,
@@ -522,6 +540,7 @@
 				A1124ED1299E3EBF001E306F /* WinStreakView.swift in Sources */,
 				A177DC03294AED2D001D79EA /* MenuView.swift in Sources */,
 				A1124ECF299E3AD8001E306F /* WinRateView.swift in Sources */,
+				A128A25729D0741900BAD5BA /* Settings.swift in Sources */,
 				A1486AB2292C80ED005AB2F0 /* TileView.swift in Sources */,
 				A1486AC1292CB8F1005AB2F0 /* ThemeModel.swift in Sources */,
 				A1486AC7292CBD27005AB2F0 /* KeyboardKeyModel.swift in Sources */,
@@ -555,6 +574,7 @@
 				A1C33E1E29348C5F00D7B618 /* Array - extensions.swift in Sources */,
 				A1BD047429B87554002F0DB0 /* YandexRewardedAd.swift in Sources */,
 				A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */,
+				A128A25529D073A500BAD5BA /* SettingsView.swift in Sources */,
 				A1BD047729B87AE8002F0DB0 /* PreEndView.swift in Sources */,
 				A11BF04029A2317F004D45AD /* SixthView.swift in Sources */,
 				A1486AA9292C7766005AB2F0 /* StatsModel.swift in Sources */,
@@ -694,12 +714,12 @@
 		A1486A9E292C7277005AB2F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconS;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -720,7 +740,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -734,12 +754,12 @@
 		A1486A9F292C7277005AB2F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconS;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"SquardleUI/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3ZE6RDM8AN;
@@ -760,7 +780,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.10;
+				MARKETING_VERSION = 1.0.11;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.isoftdv.Squardle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
