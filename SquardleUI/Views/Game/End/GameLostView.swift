@@ -27,6 +27,7 @@ struct GameLostView: View {
                 Spacer()
                 KeyboardView(keyboardModel: KeyboardModel(), tapAction: {_ in })
                     .disabled(true)
+                    .padding(.bottom, 50)
             }
             .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
             
