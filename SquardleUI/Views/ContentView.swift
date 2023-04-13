@@ -15,6 +15,7 @@ struct ContentView: View {
     @StateObject var settings: GameSettings = GameSettings()
     @State var menuOption: MenuOptions = .none
     var lastGamePlayed = LastGamePlayed(words: [], guessesUsed: 0, gameMode: .normal)
+    var boardEndModel = BoardEndModel(tiles: [])
     
     var hasActiveGame: Bool {
         return stats.hasActiveGame && FileManager.saveExists() && FileManager.getSavedGame() != nil
@@ -27,7 +28,7 @@ struct ContentView: View {
             case .none:
                 MenuView(option: $menuOption)
             case .continueGame:
-                GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption, gameWonAction: gameWonAction)
+                GameWrapperView(useSaved: true, gameMode: stats.gameMode ?? .normal, dismissAction: dismissOption, gameWonAction: gameWonAction, gameLostAction: gameLostOption)
             case .newGame:
                 NewGameView(showGame: !hasActiveGame, showAlert: hasActiveGame, dismissAction: dismissOption, newGameAction: newGameOption)
             case .rules:
@@ -36,6 +37,8 @@ struct ContentView: View {
                 GameStatsView(dismissAction: dismissOption)
             case .gameWonView:
                 EndView(lastGamePlayed: lastGamePlayed, homeAction: dismissOption, statsAction: statsOption)
+            case .gameLostView:
+                GameLostView(boardModel: boardEndModel, homeAction: dismissOption, newGameAction: showGameModeSelection, statsAction: statsOption)
             case .settings:
                 SettingsView(dismissAction: dismissOption)
             }
@@ -81,12 +84,25 @@ struct ContentView: View {
         TactileResponse.shared.makeResponse(feedbackStyle: .medium, systemSoundID: SoundMatcher.keyPressed.rawValue)
     }
     
+    func showGameModeSelection() {
+        withAnimation {
+            menuOption = .newGame
+        }
+    }
+    
     func gameWonAction(_ lastGamePlayed: LastGamePlayed) {
         self.lastGamePlayed.words = lastGamePlayed.words
         self.lastGamePlayed.gameMode = lastGamePlayed.gameMode
         self.lastGamePlayed.guessesUsed = lastGamePlayed.guessesUsed
         withAnimation {
             menuOption = .gameWonView
+        }
+    }
+    
+    func gameLostOption(_ tiles: [TileModel]) {
+        boardEndModel.tiles = tiles
+        withAnimation {
+            menuOption = .gameLostView
         }
     }
 }
@@ -99,6 +115,7 @@ extension ContentView {
         case stats
         case none
         case gameWonView
+        case gameLostView
         case settings
     }
 }

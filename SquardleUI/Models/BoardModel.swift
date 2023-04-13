@@ -54,12 +54,6 @@ class BoardModel: ObservableObject, Identifiable, Codable {
         return tiles.filter{ $0.position.x == CGFloat(index) || $0.position.y == CGFloat(index) }
     }
     
-    func showSolution() {
-        for tile in tiles {
-            tile.showSolution = true
-        }
-    }
-    
     func showEndAnimation() {
         for tile in tiles {
             tile.showEndAnimation.toggle()

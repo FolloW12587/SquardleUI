@@ -17,6 +17,7 @@
 		A1124ED6299F12D5001E306F /* AnimatableGradientLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED5299F12D5001E306F /* AnimatableGradientLine.swift */; };
 		A1124ED8299F1334001E306F /* AnimatableNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED7299F1334001E306F /* AnimatableNumber.swift */; };
 		A1124EDA299F154D001E306F /* AnimatableRateNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1124ED9299F154D001E306F /* AnimatableRateNumber.swift */; };
+		A11A182229E82050006A2691 /* GameLostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11A182129E82050006A2691 /* GameLostView.swift */; };
 		A11BF03029A2148D004D45AD /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF02F29A2148D004D45AD /* TutorialView.swift */; };
 		A11BF03229A2153D004D45AD /* TutorialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03129A2153D004D45AD /* TutorialModel.swift */; };
 		A11BF03429A216E5004D45AD /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11BF03329A216E5004D45AD /* FirstView.swift */; };
@@ -68,6 +69,8 @@
 		A177DC10294AFB8D001D79EA /* word_guessed.wav in Resources */ = {isa = PBXBuildFile; fileRef = A177DC0B294AFB8D001D79EA /* word_guessed.wav */; };
 		A177DC12294AFD39001D79EA /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A177DC11294AFD39001D79EA /* PlaySound.swift */; };
 		A1933A7229C1B3B10063EA89 /* RequestAppStoreReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1933A7129C1B3B10063EA89 /* RequestAppStoreReview.swift */; };
+		A199BF0E29E0D91C001C5127 /* BoardEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A199BF0D29E0D91C001C5127 /* BoardEndView.swift */; };
+		A199BF1029E0D933001C5127 /* BoardEndModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A199BF0F29E0D933001C5127 /* BoardEndModel.swift */; };
 		A1B04E6829A3939A00AF0A0E /* RulesHintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B04E6729A3939A00AF0A0E /* RulesHintsView.swift */; };
 		A1B04E6A29A394DF00AF0A0E /* RulesKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B04E6929A394DF00AF0A0E /* RulesKeyboardView.swift */; };
 		A1B04E6E29A3991800AF0A0E /* RulesMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B04E6D29A3991800AF0A0E /* RulesMarkView.swift */; };
@@ -106,6 +109,7 @@
 		A1124ED5299F12D5001E306F /* AnimatableGradientLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableGradientLine.swift; sourceTree = "<group>"; };
 		A1124ED7299F1334001E306F /* AnimatableNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNumber.swift; sourceTree = "<group>"; };
 		A1124ED9299F154D001E306F /* AnimatableRateNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableRateNumber.swift; sourceTree = "<group>"; };
+		A11A182129E82050006A2691 /* GameLostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLostView.swift; sourceTree = "<group>"; };
 		A11BF02F29A2148D004D45AD /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		A11BF03129A2153D004D45AD /* TutorialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModel.swift; sourceTree = "<group>"; };
 		A11BF03329A216E5004D45AD /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		A177DC0B294AFB8D001D79EA /* word_guessed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = word_guessed.wav; sourceTree = "<group>"; };
 		A177DC11294AFD39001D79EA /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
 		A1933A7129C1B3B10063EA89 /* RequestAppStoreReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestAppStoreReview.swift; sourceTree = "<group>"; };
+		A199BF0D29E0D91C001C5127 /* BoardEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEndView.swift; sourceTree = "<group>"; };
+		A199BF0F29E0D933001C5127 /* BoardEndModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardEndModel.swift; sourceTree = "<group>"; };
 		A1B04E6729A3939A00AF0A0E /* RulesHintsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesHintsView.swift; sourceTree = "<group>"; };
 		A1B04E6929A394DF00AF0A0E /* RulesKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesKeyboardView.swift; sourceTree = "<group>"; };
 		A1B04E6D29A3991800AF0A0E /* RulesMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesMarkView.swift; sourceTree = "<group>"; };
@@ -300,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				A1486AAD292C7BBD005AB2F0 /* BoardModel.swift */,
+				A199BF0F29E0D933001C5127 /* BoardEndModel.swift */,
 				A1486AB5292C865A005AB2F0 /* DictionaryModel.swift */,
 				A1C33E1F2934A4F900D7B618 /* GameGUIModel.swift */,
 				A1F7C413293ED64E00B8D177 /* GameLoader.swift */,
@@ -396,9 +403,11 @@
 		A1BD047529B87AC8002F0DB0 /* End */ = {
 			isa = PBXGroup;
 			children = (
+				A11A182129E82050006A2691 /* GameLostView.swift */,
 				A1C33E2A293A05FA00D7B618 /* GameEndView.swift */,
 				A1638C1129BEB4230020E378 /* EndView.swift */,
 				A1BD047629B87AE8002F0DB0 /* PreEndView.swift */,
+				A199BF0D29E0D91C001C5127 /* BoardEndView.swift */,
 			);
 			path = End;
 			sourceTree = "<group>";
@@ -515,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A199BF0E29E0D91C001C5127 /* BoardEndView.swift in Sources */,
 				A11BF03029A2148D004D45AD /* TutorialView.swift in Sources */,
 				A1933A7229C1B3B10063EA89 /* RequestAppStoreReview.swift in Sources */,
 				A1C33E2329376A0500D7B618 /* RulesView.swift in Sources */,
@@ -562,6 +572,7 @@
 				A1C33E25293774DD00D7B618 /* HintRuleView.swift in Sources */,
 				A1638C0E29BEA8E60020E378 /* ActivityViewControllerRepresentable.swift in Sources */,
 				A11BF04229A23F61004D45AD /* SeventhView.swift in Sources */,
+				A11A182229E82050006A2691 /* GameLostView.swift in Sources */,
 				A1486A93292C7277005AB2F0 /* SquardleUIApp.swift in Sources */,
 				A1D12B7A29A63D21000A1693 /* NewGameView.swift in Sources */,
 				A1C33E0E292DCB1700D7B618 /* HeaderView.swift in Sources */,
@@ -584,6 +595,7 @@
 				A1C33E10292F089D00D7B618 /* HintModel.swift in Sources */,
 				A11BF03429A216E5004D45AD /* FirstView.swift in Sources */,
 				A1486ABD292C8824005AB2F0 /* GameView.swift in Sources */,
+				A199BF1029E0D933001C5127 /* BoardEndModel.swift in Sources */,
 				A1F7C412293ED62800B8D177 /* GameWrapperView.swift in Sources */,
 				A11BF03629A2188F004D45AD /* TutorialNextButtonView.swift in Sources */,
 				A1486AB6292C865A005AB2F0 /* DictionaryModel.swift in Sources */,

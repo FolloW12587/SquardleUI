@@ -11,14 +11,7 @@ import SwiftUI
 class GameSettings: ObservableObject {
     var theme: ThemeScheme = .auto {
         didSet {
-            switch theme {
-            case .auto:
-                preferedColorScheme = nil
-            case .light:
-                preferedColorScheme = .light
-            case .dark:
-                preferedColorScheme = .dark
-            }
+            switchPreferedTheme()
             save()
         }
     }
@@ -40,6 +33,7 @@ class GameSettings: ObservableObject {
         theme = ThemeScheme(rawValue: defaults.string(forKey: "theme") ?? "auto") ?? .auto
         isSoundOff = defaults.bool(forKey: "isSoundOff")
         isVibrationsOff = defaults.bool(forKey: "isVibrationsOff")
+        switchPreferedTheme()
     }
     
     func save() {
@@ -48,6 +42,17 @@ class GameSettings: ObservableObject {
         defaults.set(theme.rawValue, forKey: "theme")
         defaults.set(isSoundOff, forKey: "isSoundOff")
         defaults.set(isVibrationsOff, forKey: "isVibrationsOff")
+    }
+    
+    func switchPreferedTheme() {
+        switch theme {
+        case .auto:
+            preferedColorScheme = nil
+        case .light:
+            preferedColorScheme = .light
+        case .dark:
+            preferedColorScheme = .dark
+        }
     }
 }
 

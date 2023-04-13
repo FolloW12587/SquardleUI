@@ -33,12 +33,7 @@ class GameModel: ObservableObject, Identifiable {
             }
         }
     }
-    
-    @Published var showSolution: Bool = false {
-        didSet {
-            board.showSolution()
-        }
-    }
+
     @Published var isGameOver: Bool = false{
         didSet {
             if isGameOver {
@@ -66,7 +61,6 @@ class GameModel: ObservableObject, Identifiable {
         }
     }
     
-    var showPreEndClosure: (() -> ())!
     @Published var showPreEndView: Bool = false{
         didSet {
             if !showPreEndView && oldValue {

@@ -21,6 +21,14 @@ struct NewGameView: View {
             theme.backgroundColor
                 .ignoresSafeArea()
             
+            VStack{
+                DismissButtonView(dismissAction: dismissAction)
+                    .padding()
+                    .foregroundColor(.primary)
+                
+                Spacer()
+            }
+            
             if showGame {
                 VStack{
                     MenuButton(title: "Нормальная") {

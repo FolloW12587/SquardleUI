@@ -8,29 +8,30 @@
 import SwiftUI
 
 struct KeyboardView: View {
-    @EnvironmentObject var gameModel: GameModel
     var keyboardModel: KeyboardModel
     let keyHeight: CGFloat = 50
+    
+    var tapAction: ((KeyboardKeyModel) -> ())
     
     var body: some View {
         VStack {
             HStack(spacing: 3) {
                 ForEach(keyboardModel.firstRow, id: \.self){ keyModel in
-                    KeyboardKeyView(keyModel: keyModel, tapAction: gameModel.keyTapped)
+                    KeyboardKeyView(keyModel: keyModel, tapAction: tapAction)
                 }
             }
             .frame(height: keyHeight)
             
             HStack(spacing: 3) {
                 ForEach(keyboardModel.secondRow, id: \.self){ keyModel in
-                    KeyboardKeyView(keyModel: keyModel, tapAction: gameModel.keyTapped)
+                    KeyboardKeyView(keyModel: keyModel, tapAction: tapAction)
                 }
             }
             .frame(height: keyHeight)
             
             HStack(spacing: 3) {
                 ForEach(keyboardModel.thirdRow, id: \.self){ keyModel in
-                    KeyboardKeyView(keyModel: keyModel, tapAction: gameModel.keyTapped)
+                    KeyboardKeyView(keyModel: keyModel, tapAction: tapAction)
                 }
             }
             .frame(height: keyHeight)
@@ -41,7 +42,6 @@ struct KeyboardView: View {
 
 struct KeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardView(keyboardModel: KeyboardModel())
-            .environmentObject(GameModel())
+        KeyboardView(keyboardModel: KeyboardModel()){ _ in }
     }
 }
