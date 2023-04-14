@@ -44,9 +44,9 @@ struct ContentView: View {
             }
         }
         .tint(Color.primary)
-//        .onAppear{
-//            theme.switchTheme(scheme: colorScheme)
-//        }
+        .onAppear{
+            theme.switchTheme(scheme: colorScheme)
+        }
         .overlay{
             if !stats.didLaunchBefore{
                 TutorialView(dismissClosure: stats.firstLaunch)
