@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GameStatsView: View {
     @EnvironmentObject var stats: StatsModel
+//    var stats = StatsModel.testStats
     @EnvironmentObject var theme: ThemeModel
     var dismissAction: (() -> ())? = nil
     @State var isAnimating = true

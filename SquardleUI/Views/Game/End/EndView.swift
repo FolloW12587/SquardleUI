@@ -91,6 +91,7 @@ struct EndView: View {
                 .padding(.bottom, 40)
                 
             }
+            .frame(maxWidth: UIDevice.current.userInterfaceIdiom == .pad ? 500 : .infinity)
         }
         .ignoresSafeArea()
         .sheet(isPresented: $showShareSheet) {
